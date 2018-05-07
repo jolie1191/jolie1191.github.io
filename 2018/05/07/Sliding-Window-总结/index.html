@@ -95,7 +95,7 @@ var myapc=new APlayer_Controler({
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="LeetCode,String,Two Pointer,HashMap," />
 
 
 
@@ -106,13 +106,18 @@ var myapc=new APlayer_Controler({
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="FlyingSheep">
-<meta property="og:url" content="https://jolie1191.github.io/tags/DFS/index.html">
+<meta name="description" content="Slide Window 滑动窗口 + Hash###什么样的题目适合用slide window   找符合某种condition 的subtring">
+<meta name="keywords" content="LeetCode,String,Two Pointer,HashMap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sliding Window 总结">
+<meta property="og:url" content="https://jolie1191.github.io/2018/05/07/Sliding-Window-总结/index.html">
 <meta property="og:site_name" content="FlyingSheep">
+<meta property="og:description" content="Slide Window 滑动窗口 + Hash###什么样的题目适合用slide window   找符合某种condition 的subtring">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-07T20:56:56.880Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FlyingSheep">
+<meta name="twitter:title" content="Sliding Window 总结">
+<meta name="twitter:description" content="Slide Window 滑动窗口 + Hash###什么样的题目适合用slide window   找符合某种condition 的subtring">
 
 
 
@@ -142,13 +147,13 @@ var myapc=new APlayer_Controler({
 
 
 
-  <link rel="canonical" href="https://jolie1191.github.io/tags/DFS/"/>
+  <link rel="canonical" href="https://jolie1191.github.io/2018/05/07/Sliding-Window-总结/"/>
 
 
 
 
 
-  <title>标签: DFS | FlyingSheep</title>
+  <title>Sliding Window 总结 | FlyingSheep</title>
   
 
 
@@ -167,7 +172,7 @@ var myapc=new APlayer_Controler({
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,54 +300,195 @@ var myapc=new APlayer_Controler({
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>DFS<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/07/Sliding-Window-总结/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/07/DFS模板+相关问题/" itemprop="url">
-              
-                <span itemprop="name">DFS 模板 + 相关问题</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Sliding Window 总结</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-07T12:55:59-07:00"
-              content="2018-05-07" >
-          05-07
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T13:38:27-07:00">
+                2018-05-07
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Slide-Window-滑动窗口-Hash"><a href="#Slide-Window-滑动窗口-Hash" class="headerlink" title="Slide Window 滑动窗口 + Hash"></a>Slide Window 滑动窗口 + Hash</h1><p>###什么样的题目适合用slide window </p>
+<ol>
+<li>找符合某种condition 的subtring </li>
+</ol>
+<a id="more"></a>
+<h4 id="题型：找符合某种condition-的subtring"><a href="#题型：找符合某种condition-的subtring" class="headerlink" title="题型：找符合某种condition 的subtring"></a>题型：找符合某种condition 的subtring</h4><h5 id="LeetCode-3-Longest-Substring-Without-Repeating-Characters"><a href="#LeetCode-3-Longest-Substring-Without-Repeating-Characters" class="headerlink" title="LeetCode 3. Longest Substring Without Repeating Characters"></a>LeetCode 3. Longest Substring Without Repeating Characters</h5><p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
+<p><strong>Examples:</strong></p>
+<p>Given <code>&quot;abcabcbb&quot;</code>, the answer is <code>&quot;abc&quot;</code>, which the length is 3.</p>
+<p>Given <code>&quot;bbbbb&quot;</code>, the answer is <code>&quot;b&quot;</code>, with the length of 1.</p>
+<p>Given <code>&quot;pwwkew&quot;</code>, the answer is <code>&quot;wke&quot;</code>, with the length of 3. Note that the answer must be a <strong>substring</strong>, <code>&quot;pwke&quot;</code> is a <em>subsequence</em>and not a substring.</p>
+<p>题目意思： 找符合“no repeat”条件的substring</p>
+<p>技巧摘要： </p>
+<ol>
+<li>Two Pointer （start， i）— 决定substring的长度 len = i - start + 1</li>
+<li>HashMap: 存string中每个character的index， 持续保持更新</li>
+<li>conditional variable： no repeat</li>
+</ol>
+<p>解法一：beat： 31% 用 hashMap： 存char, Latest updated char’s index </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int lengthOfLongestSubstring(String s) &#123;</span><br><span class="line">        if(s == null || s.length() == 0)</span><br><span class="line">            return 0;</span><br><span class="line">        </span><br><span class="line">        int start = 0; </span><br><span class="line">        int len = 0;</span><br><span class="line">        //hashMap: char, char&apos;s lastes updated index</span><br><span class="line">        </span><br><span class="line">        HashMap&lt;Character, Integer&gt; hashMap = new HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        for(int i = 0; i &lt; s.length(); i++)&#123;</span><br><span class="line">            if(hashMap.containsKey(s.charAt(i)))&#123;</span><br><span class="line">            	//start pointer只能往前走： case： pwwkewp</span><br><span class="line">                start = Math.max(start, hashMap.get(s.charAt(i)) + 1);</span><br><span class="line">            &#125;</span><br><span class="line">            // 更新或增加hashMap中的index</span><br><span class="line">            hashMap.put(s.charAt(i), i);</span><br><span class="line">            len = Math.max(len, i - start + 1);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        return len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 优化：beat 91%   用hashtable: int[] hash = new int[256]; initialize foreach hash[i] = -1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int lengthOfLongestSubstring(String s) &#123;</span><br><span class="line">        if(s == null || s.length() == 0)</span><br><span class="line">            return 0;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        //p w e w k e p</span><br><span class="line">        //注意点： start, i 只能forward</span><br><span class="line">        //hash: char : char&apos;s lastest updated index        </span><br><span class="line">        int[] hash = new int[256];</span><br><span class="line">        for(int i = 0; i &lt; 256; i++)</span><br><span class="line">            hash[i] = -1;</span><br><span class="line">        </span><br><span class="line">        int start = 0;</span><br><span class="line">        int max = 0;</span><br><span class="line">        </span><br><span class="line">        for(int i = 0; i &lt; s.length(); i++)&#123;</span><br><span class="line">            if(hash[s.charAt(i)] != -1)&#123;</span><br><span class="line">                start = Math.max(start, hash[s.charAt(i)] + 1);</span><br><span class="line">            &#125;</span><br><span class="line">            hash[s.charAt(i)] = i;</span><br><span class="line">            max = Math.max(max, i - start + 1); //i 每往前forward一次, 都要从新计算maxLength</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+            <a href="/tags/String/" rel="tag"># String</a>
+          
+            <a href="/tags/Two-Pointer/" rel="tag"># Two Pointer</a>
+          
+            <a href="/tags/HashMap/" rel="tag"># HashMap</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/07/DFS模板+相关问题/" rel="next" title="DFS 模板 + 相关问题">
+                <i class="fa fa-chevron-left"></i> DFS 模板 + 相关问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -350,6 +496,10 @@ var myapc=new APlayer_Controler({
 
 
           
+
+  
+
+
 
         </div>
         
@@ -370,8 +520,17 @@ var myapc=new APlayer_Controler({
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -444,6 +603,22 @@ var myapc=new APlayer_Controler({
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Slide-Window-滑动窗口-Hash"><span class="nav-number">1.</span> <span class="nav-text">Slide Window 滑动窗口 + Hash</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题型：找符合某种condition-的subtring"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">题型：找符合某种condition 的subtring</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#LeetCode-3-Longest-Substring-Without-Repeating-Characters"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">LeetCode 3. Longest Substring Without Repeating Characters</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -584,6 +759,10 @@ var myapc=new APlayer_Controler({
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
