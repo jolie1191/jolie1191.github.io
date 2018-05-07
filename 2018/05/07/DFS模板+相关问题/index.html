@@ -106,18 +106,18 @@ var myapc=new APlayer_Controler({
 
 
 
-<meta name="description" content="DFS 模板 + 相关问题DFS + BackTracking12345678910111213141516171819void dfs(...) &amp;#123;    // Step 1： 结束递归的条件    if (...) &amp;#123;        ..... // 把“当前结果” 加入 “结果集容器” 中        return;    &amp;#125;    // Step 2: 继续">
+<meta name="description" content="DFS 模板 + 相关问题">
 <meta name="keywords" content="LeetCode,DFS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DFS 模板 + 相关问题">
 <meta property="og:url" content="https://jolie1191.github.io/2018/05/07/DFS模板+相关问题/index.html">
 <meta property="og:site_name" content="FlyingSheep">
-<meta property="og:description" content="DFS 模板 + 相关问题DFS + BackTracking12345678910111213141516171819void dfs(...) &amp;#123;    // Step 1： 结束递归的条件    if (...) &amp;#123;        ..... // 把“当前结果” 加入 “结果集容器” 中        return;    &amp;#125;    // Step 2: 继续">
+<meta property="og:description" content="DFS 模板 + 相关问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-07T20:01:29.772Z">
+<meta property="og:updated_time" content="2018-05-07T20:03:09.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DFS 模板 + 相关问题">
-<meta name="twitter:description" content="DFS 模板 + 相关问题DFS + BackTracking12345678910111213141516171819void dfs(...) &amp;#123;    // Step 1： 结束递归的条件    if (...) &amp;#123;        ..... // 把“当前结果” 加入 “结果集容器” 中        return;    &amp;#125;    // Step 2: 继续">
+<meta name="twitter:description" content="DFS 模板 + 相关问题">
 
 
 
@@ -381,7 +381,8 @@ var myapc=new APlayer_Controler({
       
 
       
-        <h1 id="DFS-模板-相关问题"><a href="#DFS-模板-相关问题" class="headerlink" title="DFS 模板 + 相关问题"></a>DFS 模板 + 相关问题</h1><h2 id="DFS-BackTracking"><a href="#DFS-BackTracking" class="headerlink" title="DFS + BackTracking"></a>DFS + BackTracking</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">void dfs(...) </span><br><span class="line">&#123;</span><br><span class="line">    // Step 1： 结束递归的条件</span><br><span class="line">    if (...) &#123;</span><br><span class="line">        ..... // 把“当前结果” 加入 “结果集容器” 中</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Step 2: 继续递归，里面可能有回溯，也可能没有</span><br><span class="line">    //---used for backtracking： 如果需要回溯， 先保存当前状态</span><br><span class="line">    if (...) &#123;</span><br><span class="line"></span><br><span class="line">        ... // 在容器中保存当前数据</span><br><span class="line">        dfs() </span><br><span class="line">        ... // 在容器中删除上面保存的数据（注：这种情况下就称为回溯，很明显它是dfs的一个步骤）</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //----backtracking如果需要回溯， reset</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="DFS-模板-相关问题"><a href="#DFS-模板-相关问题" class="headerlink" title="DFS 模板 + 相关问题"></a>DFS 模板 + 相关问题</h1><a id="more"></a>
+<h2 id="DFS-BackTracking"><a href="#DFS-BackTracking" class="headerlink" title="DFS + BackTracking"></a>DFS + BackTracking</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">void dfs(...) </span><br><span class="line">&#123;</span><br><span class="line">    // Step 1： 结束递归的条件</span><br><span class="line">    if (...) &#123;</span><br><span class="line">        ..... // 把“当前结果” 加入 “结果集容器” 中</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Step 2: 继续递归，里面可能有回溯，也可能没有</span><br><span class="line">    //---used for backtracking： 如果需要回溯， 先保存当前状态</span><br><span class="line">    if (...) &#123;</span><br><span class="line"></span><br><span class="line">        ... // 在容器中保存当前数据</span><br><span class="line">        dfs() </span><br><span class="line">        ... // 在容器中删除上面保存的数据（注：这种情况下就称为回溯，很明显它是dfs的一个步骤）</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //----backtracking如果需要回溯， reset</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>###难点</p>
 <ol>
 <li>寻找dfs结束条件</li>
