@@ -95,7 +95,7 @@ var myapc=new APlayer_Controler({
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="LeetCode," />
 
 
 
@@ -106,13 +106,18 @@ var myapc=new APlayer_Controler({
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="FlyingSheep">
-<meta property="og:url" content="https://jolie1191.github.io/index.html">
+<meta name="description" content="Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    static String toString(char c) Charact">
+<meta name="keywords" content="LeetCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java常用API+数据结构">
+<meta property="og:url" content="https://jolie1191.github.io/2018/05/09/Java常用API+数据结构/index.html">
 <meta property="og:site_name" content="FlyingSheep">
+<meta property="og:description" content="Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    static String toString(char c) Charact">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-09T09:56:13.461Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FlyingSheep">
+<meta name="twitter:title" content="Java常用API+数据结构">
+<meta name="twitter:description" content="Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    static String toString(char c) Charact">
 
 
 
@@ -142,13 +147,13 @@ var myapc=new APlayer_Controler({
 
 
 
-  <link rel="canonical" href="https://jolie1191.github.io/"/>
+  <link rel="canonical" href="https://jolie1191.github.io/2018/05/09/Java常用API+数据结构/"/>
 
 
 
 
 
-  <title>FlyingSheep</title>
+  <title>Java常用API+数据结构 | FlyingSheep</title>
   
 
 
@@ -167,8 +172,7 @@ var myapc=new APlayer_Controler({
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,9 +299,9 @@ var myapc=new APlayer_Controler({
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -327,9 +331,7 @@ var myapc=new APlayer_Controler({
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/09/Java常用API+数据结构/" itemprop="url">Java常用API+数据结构</a></h1>
+          <h1 class="post-title" itemprop="name headline">Java常用API+数据结构</h1>
         
 
         <div class="post-meta">
@@ -401,8 +403,7 @@ var myapc=new APlayer_Controler({
       
 
       
-        
-          <h1 id="Data-Type"><a href="#Data-Type" class="headerlink" title="Data Type"></a>Data Type</h1><h2 id="Character"><a href="#Character" class="headerlink" title="Character"></a>Character</h2><table>
+        <h1 id="Data-Type"><a href="#Data-Type" class="headerlink" title="Data Type"></a>Data Type</h1><h2 id="Character"><a href="#Character" class="headerlink" title="Character"></a>Character</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">return</th>
@@ -467,337 +468,379 @@ var myapc=new APlayer_Controler({
 </tr>
 </tbody>
 </table>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/09/Java常用API+数据结构/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+<a id="more"></a> 
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" target="_blank" rel="noopener">String</a>[]</th>
+<th style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html#split-java.lang.String-" target="_blank" rel="noopener">split</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" target="_blank" rel="noopener">String</a> regex)</th>
+<th style="text-align:center">str.split(“ “)</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html#indexOf-java.lang.String-" target="_blank" rel="noopener">indexOf</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" target="_blank" rel="noopener">String</a> str or char ch)</td>
+<td style="text-align:center">str.indexOf(“ab”); str.indexOf(‘a’)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html#lastIndexOf-int-" target="_blank" rel="noopener">lastIndexOf</a>(char);  <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html#lastIndexOf-int-" target="_blank" rel="noopener">lastIndexOf</a>(String)</td>
+<td style="text-align:center">str.lastIndexOf(‘a’);str.lastIndexOf(“ab”)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">String</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html#trim--" target="_blank" rel="noopener">trim</a>()</td>
+<td style="text-align:center">str.trim()</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h2><table>
+<thead>
+<tr>
+<th>Return</th>
+<th>Method</th>
+<th>Usage</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/StringBuilder.html#toString--" target="_blank" rel="noopener">toString</a>()</td>
+<td>sb.toString()</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h1><table>
+<thead>
+<tr>
+<th>Return</th>
+<th>Method</th>
+<th>Usage</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Collections.html#swap-java.util.List-int-int-" target="_blank" rel="noopener">swap</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/util/List.html" target="_blank" rel="noopener">List</a>&lt;?&gt; list, int i, int j)</td>
+<td>Collections.swap(list, i, j)</td>
+<td></td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Collections.html#reverse-java.util.List-" target="_blank" rel="noopener">reverse</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/util/List.html" target="_blank" rel="noopener">List</a>&lt;?&gt; list)</td>
+<td>Collections.reverse(list)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h1><h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p>Queue<integer> queue = new LinkedList&lt;&gt;();</integer></p>
+<p>​                  |—&gt;不可以为primitive element， 必须是reference element</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Method:  <em>Returns special value</em></th>
+<th>Method:  <em>Throws exception</em></th>
+<th>Descripttion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Queue.html#offer-E-" target="_blank" rel="noopener">offer</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/util/Queue.html" target="_blank" rel="noopener">E</a> e)</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Queue.html#add-E-" target="_blank" rel="noopener">add</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/util/Queue.html" target="_blank" rel="noopener">E</a> e)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Queue.html#poll--" target="_blank" rel="noopener">poll</a>()</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Queue.html#remove--" target="_blank" rel="noopener">remove</a>()</td>
+<td>Retrieves and removes the <strong>head of this queue.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Queue.html#peek--" target="_blank" rel="noopener">peek</a>()</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Queue.html#element--" target="_blank" rel="noopener">element</a>()</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>isEmpty()</td>
+<td>isEmpty()</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>size()</td>
+<td>size()</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>addAll()</td>
+<td>addAll()</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Usage</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">V</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/HashMap.html#get-java.lang.Object-" target="_blank" rel="noopener">get</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html" target="_blank" rel="noopener">Object</a> key)</td>
+<td style="text-align:center">hashMap.get(key)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">value or default value</td>
+<td style="text-align:center"><u>getOrDefault</u>(Object key, V defaultValue)</td>
+<td style="text-align:center">hashMap.put(key, value)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">put(K key, V value)</td>
+<td style="text-align:center">hashMap.put(key, value)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">containsKey(Object key)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Set&lt;Map.Entry&lt;K, V&gt;&gt;</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/HashMap.html#entrySet--" target="_blank" rel="noopener">entrySet</a>()</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Returns a <a href="https://docs.oracle.com/javase/9/docs/api/java/util/Set.html" target="_blank" rel="noopener"><code>Set</code></a> view of the mappings contained in this map.</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/07/Sliding-Window-总结/" rel="next" title="Sliding Window 总结">
+                <i class="fa fa-chevron-left"></i> Sliding Window 总结
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/07/Sliding-Window-总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/07/Sliding-Window-总结/" itemprop="url">Sliding Window 总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T13:38:27-07:00">
-                2018-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Slide-Window-滑动窗口-Hash"><a href="#Slide-Window-滑动窗口-Hash" class="headerlink" title="Slide Window 滑动窗口 + Hash"></a>Slide Window 滑动窗口 + Hash</h1><h3 id="什么样的题目适合用slide-window"><a href="#什么样的题目适合用slide-window" class="headerlink" title="什么样的题目适合用slide window"></a>什么样的题目适合用slide window</h3><ol>
-<li>找符合某种condition 的subtring </li>
-</ol>
-<p>相似题目：</p>
-<ol>
-<li>Minimum window substring</li>
-<li>Longest Substring without Repeating Characters</li>
-<li>Longest Substring with at most 2 Distinct Characters</li>
-<li>Longest Substring with at most k Distinct Characters</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/07/Sliding-Window-总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/07/DFS模板+相关问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/07/DFS模板+相关问题/" itemprop="url">DFS 模板 + 相关问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T12:55:59-07:00">
-                2018-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="DFS-模板-相关问题"><a href="#DFS-模板-相关问题" class="headerlink" title="DFS 模板 + 相关问题"></a>DFS 模板 + 相关问题</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/07/DFS模板+相关问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -807,713 +850,11 @@ var myapc=new APlayer_Controler({
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/Java基础知识总结----集合，框架/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/Java基础知识总结----集合，框架/" itemprop="url">Java基础知识总结----集合，框架</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T23:36:32-07:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LearnJava/" itemprop="url" rel="index">
-                    <span itemprop="name">LearnJava</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Java基础知识总结—集合，框架"><a href="#Java基础知识总结—集合，框架" class="headerlink" title="Java基础知识总结—集合，框架"></a>Java基础知识总结—集合，框架</h1><p><img src="https://i1.wp.com/javabydeveloper.com/wp-content/uploads/2016/06/Collection-Framework-hierarchy.png" alt="集合，框架"></p>
-<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection:"></a>Collection:</h2><h4 id="—List-有序-元素存入集合的顺序和取出的顺序一致-，元素都有索引。元素可以重复。"><a href="#—List-有序-元素存入集合的顺序和取出的顺序一致-，元素都有索引。元素可以重复。" class="headerlink" title="—List: 有序(元素存入集合的顺序和取出的顺序一致)，元素都有索引。元素可以重复。"></a>—List: 有序(元素存入集合的顺序和取出的顺序一致)，元素都有索引。元素可以重复。</h4><h4 id="—Set-无序-存入和取出顺序有可能不一致-，不可以存储重复元素。必须保证元素唯一性。"><a href="#—Set-无序-存入和取出顺序有可能不一致-，不可以存储重复元素。必须保证元素唯一性。" class="headerlink" title="—Set: 无序(存入和取出顺序有可能不一致)，不可以存储重复元素。必须保证元素唯一性。"></a>—Set: 无序(存入和取出顺序有可能不一致)，不可以存储重复元素。必须保证元素唯一性。</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/05/Java基础知识总结----集合，框架/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/Typora键盘侠/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/Typora键盘侠/" itemprop="url">Typora</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T11:03:12-07:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LearnJava/" itemprop="url" rel="index">
-                    <span itemprop="name">LearnJava</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Typora-从此请叫我键盘侠"><a href="#Typora-从此请叫我键盘侠" class="headerlink" title="Typora:从此请叫我键盘侠"></a>Typora:从此请叫我键盘侠</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. cd hexoFolder</span><br><span class="line">2. $ hexo new &quot;My New Post&quot;</span><br><span class="line">3. 修改tags和categories</span><br><span class="line">4. 在本地服务器上检测： hexo s --debug</span><br><span class="line">5. 传到GitHub：</span><br><span class="line"></span><br><span class="line"> $hexo g</span><br><span class="line"> $hexo d</span><br><span class="line"> </span><br><span class="line">快捷键大全：</span><br><span class="line"></span><br><span class="line">http://joehill.me/2015/07/27/2015-07-27-Markdown-Typora/</span><br><span class="line"></span><br><span class="line">http://www.flypeom.site/documentation/2017/09/02/Typora%E7%AE%80%E4%BB%8B%E5%8F%8AMarkdown%E8%AF%AD%E6%B3%95%E7%B2%BE%E8%AE%B2/</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/Java/" itemprop="url">Java</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T11:03:10-07:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LearnJava/" itemprop="url" rel="index">
-                    <span itemprop="name">LearnJava</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/LeetCode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/LeetCode/" itemprop="url">Learn to build personal web</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T10:31:48-07:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LearnJava/" itemprop="url" rel="index">
-                    <span itemprop="name">LearnJava</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我就想随便写点啥</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact" target="_blank" rel="noopener">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &apos;&apos;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T09:26:31-07:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1521,6 +862,10 @@ var myapc=new APlayer_Controler({
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1541,8 +886,17 @@ var myapc=new APlayer_Controler({
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1615,6 +969,22 @@ var myapc=new APlayer_Controler({
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Type"><span class="nav-number">1.</span> <span class="nav-text">Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Character"><span class="nav-number">1.1.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">1.2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">1.3.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collections"><span class="nav-number">2.</span> <span class="nav-text">Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Structure"><span class="nav-number">3.</span> <span class="nav-text">Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">3.1.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">3.2.</span> <span class="nav-text">HashMap</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1755,6 +1125,10 @@ var myapc=new APlayer_Controler({
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
