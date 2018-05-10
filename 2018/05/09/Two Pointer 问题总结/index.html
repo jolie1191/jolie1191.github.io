@@ -106,18 +106,18 @@ var myapc=new APlayer_Controler({
 
 
 
-<meta name="description" content="Two Pointer 问题总结基础热身题型（必会题型）： LeetCode283.  Move Zeroes LeetCode 26:  Remove Duplicates from Sorted Array  &amp;lt;!—more—&amp;gt; Quick Select(QuickSort 中的partition部分)用到了two pointer 1234567891011121314151617">
+<meta name="description" content="Two Pointer 问题总结基础热身题型（必会题型）： LeetCode283.  Move Zeroes LeetCode 26:  Remove Duplicates from Sorted Array">
 <meta name="keywords" content="LeetCode,Two Pointer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Two Pointer 问题总结">
 <meta property="og:url" content="https://jolie1191.github.io/2018/05/09/Two Pointer 问题总结/index.html">
 <meta property="og:site_name" content="FlyingSheep">
-<meta property="og:description" content="Two Pointer 问题总结基础热身题型（必会题型）： LeetCode283.  Move Zeroes LeetCode 26:  Remove Duplicates from Sorted Array  &amp;lt;!—more—&amp;gt; Quick Select(QuickSort 中的partition部分)用到了two pointer 1234567891011121314151617">
+<meta property="og:description" content="Two Pointer 问题总结基础热身题型（必会题型）： LeetCode283.  Move Zeroes LeetCode 26:  Remove Duplicates from Sorted Array">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-10T05:57:17.265Z">
+<meta property="og:updated_time" content="2018-05-10T05:59:15.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Two Pointer 问题总结">
-<meta name="twitter:description" content="Two Pointer 问题总结基础热身题型（必会题型）： LeetCode283.  Move Zeroes LeetCode 26:  Remove Duplicates from Sorted Array  &amp;lt;!—more—&amp;gt; Quick Select(QuickSort 中的partition部分)用到了two pointer 1234567891011121314151617">
+<meta name="twitter:description" content="Two Pointer 问题总结基础热身题型（必会题型）： LeetCode283.  Move Zeroes LeetCode 26:  Remove Duplicates from Sorted Array">
 
 
 
@@ -407,7 +407,7 @@ var myapc=new APlayer_Controler({
 <li>LeetCode283.  Move Zeroes</li>
 <li>LeetCode 26:  Remove Duplicates from Sorted Array</li>
 </ol>
-<p>&lt;!—more—&gt;</p>
+<a id="more"></a> 
 <p>Quick Select(QuickSort 中的partition部分)用到了two pointer</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 在nums中的start 到end， 找到一个pivot，是的pivot左边大于pivot，左边小于pivot</span><br><span class="line">    //return pIndex;</span><br><span class="line">    public int partition(int[] nums, int start, int end)&#123;</span><br><span class="line"></span><br><span class="line">        int pivot = nums[end];</span><br><span class="line">        int pIndex = start;</span><br><span class="line"></span><br><span class="line">        for(int i = start; i &lt; end; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(nums[i] &gt;= pivot)&#123;</span><br><span class="line">                swap(nums, i, pIndex);</span><br><span class="line">                pIndex++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        swap(nums, pIndex, end);</span><br><span class="line"></span><br><span class="line">        return pIndex;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="经典题型：-2-Sum-3-Sum"><a href="#经典题型：-2-Sum-3-Sum" class="headerlink" title="经典题型： 2 Sum + 3 Sum"></a>经典题型： 2 Sum + 3 Sum</h2><h3 id="相似点：-对于求2个变量如何组合的问题，-可以循环其中一个变量，-然后研究另外一个变量如何变化"><a href="#相似点：-对于求2个变量如何组合的问题，-可以循环其中一个变量，-然后研究另外一个变量如何变化" class="headerlink" title="相似点： 对于求2个变量如何组合的问题， 可以循环其中一个变量， 然后研究另外一个变量如何变化"></a>相似点： 对于求2个变量如何组合的问题， 可以循环其中一个变量， 然后研究另外一个变量如何变化</h3><h4 id="Two-Sum-——Unsorted-array"><a href="#Two-Sum-——Unsorted-array" class="headerlink" title="Two Sum:——Unsorted array"></a>Two Sum:——Unsorted array</h4><h5 id="思路：-HashMap"><a href="#思路：-HashMap" class="headerlink" title="思路： HashMap"></a>思路： HashMap</h5><p>complexity:</p>
