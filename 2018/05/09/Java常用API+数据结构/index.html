@@ -114,7 +114,7 @@ var myapc=new APlayer_Controler({
 <meta property="og:site_name" content="FlyingSheep">
 <meta property="og:description" content="Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    static String toString(char c) Charact">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-11T00:23:17.854Z">
+<meta property="og:updated_time" content="2018-05-12T00:55:23.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java常用API+数据结构">
 <meta name="twitter:description" content="Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    static String toString(char c) Charact">
@@ -696,13 +696,13 @@ var myapc=new APlayer_Controler({
 </tr>
 <tr>
 <td style="text-align:center"></td>
-<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Stack.html#empty--" target="_blank" rel="noopener">empty</a>()</td>
+<td style="text-align:center">isEmpty()</td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">size()</td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 </tr>
@@ -896,7 +896,11 @@ var myapc=new APlayer_Controler({
 </tr>
 </tbody>
 </table>
-<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;Character, Integer&gt; hashMap = new HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>collision—different key have same bucket</p>
+<ul>
+<li>Separate Chaining(Close Addressing) —use the linked list in the bucket to link the different k-v pairs</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;Character, Integer&gt; hashMap = new HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
