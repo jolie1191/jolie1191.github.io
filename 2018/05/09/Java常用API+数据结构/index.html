@@ -114,10 +114,12 @@ var myapc=new APlayer_Controler({
 <meta property="og:site_name" content="FlyingSheep">
 <meta property="og:description" content="Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    static String toString(char c) Charact">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-12T00:55:23.498Z">
+<meta property="og:image" content="http://i68.tinypic.com/31667bq.png">
+<meta property="og:updated_time" content="2018-05-12T15:14:54.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java常用API+数据结构">
 <meta name="twitter:description" content="Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    static String toString(char c) Charact">
+<meta name="twitter:image" content="http://i68.tinypic.com/31667bq.png">
 
 
 
@@ -665,7 +667,8 @@ var myapc=new APlayer_Controler({
 </tbody>
 </table>
 <hr>
-<h1 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h1><h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h1 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h1><p>##Stack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -898,7 +901,7 @@ var myapc=new APlayer_Controler({
 </table>
 <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>collision—different key have same bucket</p>
 <ul>
-<li>Separate Chaining(Close Addressing) —use the linked list in the bucket to link the different k-v pairs</li>
+<li>Open hashing : Separate Chaining(Close Addressing) —use the linked list in the bucket to link the different k-v pairs</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;Character, Integer&gt; hashMap = new HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
 <table>
@@ -942,6 +945,75 @@ var myapc=new APlayer_Controler({
 <td style="text-align:center">Returns a <a href="https://docs.oracle.com/javase/9/docs/api/java/util/Set.html" target="_blank" rel="noopener"><code>Set</code></a> view of the mappings contained in this map.</td>
 </tr>
 <tr>
+<td style="text-align:center">V</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/HashMap.html#remove-java.lang.Object-" target="_blank" rel="noopener">remove</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html" target="_blank" rel="noopener">Object</a> key)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/HashMap.html#remove-java.lang.Object-java.lang.Object-" target="_blank" rel="noopener">remove</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html" target="_blank" rel="noopener">Object</a> key, <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html" target="_blank" rel="noopener">Object</a> value)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h2><p>什么时候最后用到PriorityQueue：</p>
+<p>求最大值/最小值时： O(1)</p>
+<p><img src="http://i68.tinypic.com/31667bq.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Usage</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">offer(E e)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/PriorityQueue.html" target="_blank" rel="noopener">E</a></td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/PriorityQueue.html#poll--" target="_blank" rel="noopener">poll</a>()</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Retrieves and removes the head of this queue, or returns <code>null</code> if this queue is empty.s</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><code>peek()</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">size()</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html" target="_blank" rel="noopener">Object</a>[]</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/PriorityQueue.html#toArray--" target="_blank" rel="noopener">toArray</a>()</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Returns an array containing all of the elements in this queue.</td>
+</tr>
+<tr>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
@@ -966,6 +1038,8 @@ var myapc=new APlayer_Controler({
 </tr>
 </tbody>
 </table>
+<h2 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h2><p>什么时候使用TreeMap？</p>
+<p>答案： 又想知道最小值，又想支持修改和删除 </p>
 
       
     </div>
@@ -1089,7 +1163,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1100,7 +1174,7 @@ var myapc=new APlayer_Controler({
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1111,7 +1185,7 @@ var myapc=new APlayer_Controler({
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1153,7 +1227,7 @@ var myapc=new APlayer_Controler({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Type"><span class="nav-number">1.</span> <span class="nav-text">Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Character"><span class="nav-number">1.1.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">1.2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">1.3.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collections"><span class="nav-number">2.</span> <span class="nav-text">Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Structure"><span class="nav-number">3.</span> <span class="nav-text">Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack"><span class="nav-number">3.1.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">3.2.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deque"><span class="nav-number">3.3.</span> <span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">3.4.</span> <span class="nav-text">HashMap</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Type"><span class="nav-number">1.</span> <span class="nav-text">Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Character"><span class="nav-number">1.1.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">1.2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">1.3.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collections"><span class="nav-number">2.</span> <span class="nav-text">Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Structure"><span class="nav-number">3.</span> <span class="nav-text">Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">3.1.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deque"><span class="nav-number">3.2.</span> <span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">3.3.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PriorityQueue"><span class="nav-number">3.4.</span> <span class="nav-text">PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">3.5.</span> <span class="nav-text">TreeMap</span></a></li></ol></li></ol></div>
             
 
           </div>
