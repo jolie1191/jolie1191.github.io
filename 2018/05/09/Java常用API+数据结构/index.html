@@ -115,7 +115,7 @@ var myapc=new APlayer_Controler({
 <meta property="og:description" content="Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    static String toString(char c) Charact">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://i68.tinypic.com/31667bq.png">
-<meta property="og:updated_time" content="2018-05-12T15:14:54.807Z">
+<meta property="og:updated_time" content="2018-05-13T10:18:00.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java常用API+数据结构">
 <meta name="twitter:description" content="Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    static String toString(char c) Charact">
@@ -941,11 +941,11 @@ var myapc=new APlayer_Controler({
 <tr>
 <td style="text-align:center">Set&lt;Map.Entry&lt;K, V&gt;&gt;</td>
 <td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/HashMap.html#entrySet--" target="_blank" rel="noopener">entrySet</a>()</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">获得了某个entry：entry.getKey(); entry.getValue()</td>
 <td style="text-align:center">Returns a <a href="https://docs.oracle.com/javase/9/docs/api/java/util/Set.html" target="_blank" rel="noopener"><code>Set</code></a> view of the mappings contained in this map.</td>
 </tr>
 <tr>
-<td style="text-align:center">V</td>
+<td style="text-align:center"></td>
 <td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/HashMap.html#remove-java.lang.Object-" target="_blank" rel="noopener">remove</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html" target="_blank" rel="noopener">Object</a> key)</td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
@@ -969,10 +969,15 @@ var myapc=new APlayer_Controler({
 </tr>
 </tbody>
 </table>
-<h2 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h2><p>什么时候最后用到PriorityQueue：</p>
+<p>HashMap的遍历：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(Map.Entry&lt;Integer, Integer&gt; entry:map.entrySet())&#123;</span><br><span class="line">	int key = entry.getKey();</span><br><span class="line">	int value = entry.getValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h2><p>什么时候最好用到PriorityQueue：</p>
 <p>求最大值/最小值时： O(1)</p>
 <p><img src="http://i68.tinypic.com/31667bq.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PriorityQueue&lt;ListNode&gt; minHeap = new PriorityQueue&lt;&gt;(lists.length, (a, b) -&gt; a.val - b.val);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PriorityQueue&lt;ListNode&gt; minHeap = new PriorityQueue&lt;&gt;((a, b) -&gt; a.val - b.val);</span><br></pre></td></tr></table></figure>
+<p>其中comparator要自定义，如果不是primitive type</p>
 <table>
 <thead>
 <tr>
