@@ -95,7 +95,7 @@ var myapc=new APlayer_Controler({
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="LeetCode,Heap," />
 
 
 
@@ -106,14 +106,18 @@ var myapc=new APlayer_Controler({
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://jolie1191.github.io/categories/index.html">
+<meta name="description" content="什么时候最好用到PriorityQueue： 求最大值/最小值时： O(1) 待总结！！！ Leetcode   Top K Frequent Elements  Merge k Sorted Lists  Kth Smallest Element in a Sorted Matrix （23题的马甲题）！！注意变形  Ugly Number II   经典题：两个Heap去找输入流，array的">
+<meta name="keywords" content="LeetCode,Heap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Heap 总结">
+<meta property="og:url" content="https://jolie1191.github.io/2018/05/14/Heap-总结/index.html">
 <meta property="og:site_name" content="FlyingSheep">
+<meta property="og:description" content="什么时候最好用到PriorityQueue： 求最大值/最小值时： O(1) 待总结！！！ Leetcode   Top K Frequent Elements  Merge k Sorted Lists  Kth Smallest Element in a Sorted Matrix （23题的马甲题）！！注意变形  Ugly Number II   经典题：两个Heap去找输入流，array的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T18:09:12.076Z">
+<meta property="og:updated_time" content="2018-05-14T09:56:24.471Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="Heap 总结">
+<meta name="twitter:description" content="什么时候最好用到PriorityQueue： 求最大值/最小值时： O(1) 待总结！！！ Leetcode   Top K Frequent Elements  Merge k Sorted Lists  Kth Smallest Element in a Sorted Matrix （23题的马甲题）！！注意变形  Ugly Number II   经典题：两个Heap去找输入流，array的">
 
 
 
@@ -143,13 +147,13 @@ var myapc=new APlayer_Controler({
 
 
 
-  <link rel="canonical" href="https://jolie1191.github.io/categories/"/>
+  <link rel="canonical" href="https://jolie1191.github.io/2018/05/14/Heap-总结/"/>
 
 
 
 
 
-  <title>categories | FlyingSheep</title>
+  <title>Heap 总结 | FlyingSheep</title>
   
 
 
@@ -298,40 +302,189 @@ var myapc=new APlayer_Controler({
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/14/Heap-总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 3 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LearnJava/">LearnJava</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/复习1/">复习1</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Heap 总结</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T00:17:35-07:00">
+                2018-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>什么时候最好用到PriorityQueue：</p>
+<p>求最大值/最小值时： O(1)</p>
+<p>待总结！！！</p>
+<p>Leetcode </p>
+<ol start="347">
+<li><p>Top K Frequent Elements</p>
+</li>
+<li><p>Merge k Sorted Lists</p>
+</li>
+<li><p>Kth Smallest Element in a Sorted Matrix （23题的马甲题）！！注意变形</p>
+</li>
+<li><p>Ugly Number II</p>
+</li>
+</ol>
+<p>经典题：两个Heap去找输入流，array的median</p>
+<ol start="295">
+<li>Find Median from Data Stream</li>
+</ol>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+            <a href="/tags/Heap/" rel="tag"># Heap</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/12/复习Cards/" rel="next" title="复习Cards">
+                <i class="fa fa-chevron-left"></i> 复习Cards
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/16/Greedy-总结/" rel="prev" title="Greedy 总结">
+                Greedy 总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
