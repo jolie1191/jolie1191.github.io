@@ -116,7 +116,7 @@ var myapc=new APlayer_Controler({
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://i65.tinypic.com/2zs49qv.png">
 <meta property="og:image" content="http://i68.tinypic.com/31667bq.png">
-<meta property="og:updated_time" content="2018-05-17T23:32:39.562Z">
+<meta property="og:updated_time" content="2018-05-23T10:09:53.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java常用API+数据结构">
 <meta name="twitter:description" content="根据Input Size V.S. Time Complexity Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    stat">
@@ -556,7 +556,7 @@ var myapc=new APlayer_Controler({
 </tr>
 <tr>
 <td></td>
-<td></td>
+<td>reverse()</td>
 <td></td>
 <td></td>
 </tr>
@@ -973,6 +973,71 @@ var myapc=new APlayer_Controler({
 </table>
 <p>HashMap的遍历：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(Map.Entry&lt;Integer, Integer&gt; entry:map.entrySet())&#123;</span><br><span class="line">	int key = entry.getKey();</span><br><span class="line">	int value = entry.getValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Usage</th>
+<th style="text-align:center">Discription</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">add(E e)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Set.html#contains-java.lang.Object-" target="_blank" rel="noopener">contains</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html" target="_blank" rel="noopener">Object</a> o)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Set.html#remove-java.lang.Object-" target="_blank" rel="noopener">remove</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html" target="_blank" rel="noopener">Object</a> o)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">isEmpty()</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html" target="_blank" rel="noopener">Object</a>[]</td>
+<td style="text-align:center">toArray()</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Returns an array containing all of the elements in this set.</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
 <h2 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h2><p>什么时候最好用到PriorityQueue：</p>
 <p>求最大值/最小值时： O(1)</p>
 <p><img src="http://i68.tinypic.com/31667bq.png" alt=""></p>
@@ -1170,7 +1235,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1234,7 +1299,7 @@ var myapc=new APlayer_Controler({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#根据Input-Size-V-S-Time-Complexity"><span class="nav-number">1.</span> <span class="nav-text">根据Input Size V.S. Time Complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Type"><span class="nav-number">2.</span> <span class="nav-text">Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Character"><span class="nav-number">2.1.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">2.2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">2.3.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collections"><span class="nav-number">3.</span> <span class="nav-text">Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Structure"><span class="nav-number">4.</span> <span class="nav-text">Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">4.1.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deque"><span class="nav-number">4.2.</span> <span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">4.3.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PriorityQueue"><span class="nav-number">4.4.</span> <span class="nav-text">PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">4.5.</span> <span class="nav-text">TreeMap</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#根据Input-Size-V-S-Time-Complexity"><span class="nav-number">1.</span> <span class="nav-text">根据Input Size V.S. Time Complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Type"><span class="nav-number">2.</span> <span class="nav-text">Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Character"><span class="nav-number">2.1.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">2.2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">2.3.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collections"><span class="nav-number">3.</span> <span class="nav-text">Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Structure"><span class="nav-number">4.</span> <span class="nav-text">Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">4.1.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deque"><span class="nav-number">4.2.</span> <span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">4.3.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">4.4.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PriorityQueue"><span class="nav-number">4.5.</span> <span class="nav-text">PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">4.6.</span> <span class="nav-text">TreeMap</span></a></li></ol></li></ol></div>
             
 
           </div>
