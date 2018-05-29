@@ -310,6 +310,150 @@ var myapc=new APlayer_Controler({
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/29/各种sort总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/29/各种sort总结/" itemprop="url">各种sort总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T01:42:59-07:00">
+                2018-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-Merge-sort"><a href="#1-Merge-sort" class="headerlink" title="1. Merge sort"></a>1. Merge sort</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">public int[] mergeSort(int[] nums)&#123;</span><br><span class="line">        //int[] res = &#123;&#125;;</span><br><span class="line">        if(nums == null || nums.length &lt; 2)&#123;</span><br><span class="line">            return nums;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mergeSortHelper(nums, 0, nums.length - 1);</span><br><span class="line"></span><br><span class="line">        return nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void mergeSortHelper(int[] nums, int i, int j)&#123;</span><br><span class="line"></span><br><span class="line">        if(i &gt;= j) //recursion: 什么时候停止</span><br><span class="line">            return;</span><br><span class="line"></span><br><span class="line">        int left = i;</span><br><span class="line">        int right = j;</span><br><span class="line">        int mid = left + (right - left)/2;</span><br><span class="line">        mergeSortHelper(nums, left, mid);</span><br><span class="line">        mergeSortHelper(nums, mid + 1, right);</span><br><span class="line">        merge(nums, left, mid + 1, right);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void merge(int[] nums, int start1, int start2, int end)&#123;</span><br><span class="line">        int[] res = new int[end - start1 + 1]; //踩坑点！！</span><br><span class="line"></span><br><span class="line">        int p1 = start1, p2 = start2;</span><br><span class="line">        int i = 0;</span><br><span class="line">        while(p1 &lt; start2 &amp;&amp; p2 &lt;= end)&#123;</span><br><span class="line">            if(nums[p1] &lt; nums[p2])&#123;</span><br><span class="line">                res[i] = nums[p1];</span><br><span class="line">                p1++;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                res[i] = nums[p2];</span><br><span class="line">                p2++;</span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        //post processing</span><br><span class="line">        while(p1 &lt; start2)&#123;</span><br><span class="line">            res[i++] = nums[p1++];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        while(p2 &lt;= end)&#123;</span><br><span class="line">            res[i++] = nums[p2++];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for(int num: res)&#123;</span><br><span class="line">            nums[start1++] = num;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>TIme : O(nlogn)</p>
+<p>space: O(n)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/27/String-类型题目总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -352,6 +496,28 @@ var myapc=new APlayer_Controler({
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -381,7 +547,59 @@ var myapc=new APlayer_Controler({
       
         
           
-            
+            <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="1-remove-one-character-from-string"><a href="#1-remove-one-character-from-string" class="headerlink" title="1. remove one character from string"></a>1. remove one character from string</h2><p>###题目： 删除一个string中u 和 n, 返回一个string？</p>
+<p>常见错误： Java中转化为char[]之后直接调用remove 之类的function， time complexity: O(n), 因为每remove一次，后面的items 都要往前shift</p>
+<h3 id="正确做法："><a href="#正确做法：" class="headerlink" title="正确做法："></a>正确做法：</h3><p>转化成char[]: （挡板思想）使用slow &amp; fast pointers:</p>
+<p><strong>两个挡板， 三个区域，同向而行</strong></p>
+<ul>
+<li>slow: 所有不是’u’ or ‘n’的letter放在slow左边—最后我想return的结果</li>
+<li>fast: 一个遍历器， 碰到非‘u’ or ‘ n’的就copy到i上去—疯狂往前跑的pointer</li>
+</ul>
+<p><img src="http://server.myspace-shack.com/d23/80215e16-54e3-4395-8fe4-00c9126a6da0.png" alt=""></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public String removeUorN(String str)&#123;</span><br><span class="line">    </span><br><span class="line">    int slow = 0;</span><br><span class="line">    int fast = 0;</span><br><span class="line">    </span><br><span class="line">    char[] chars = str.toCharArray();</span><br><span class="line">    while(j &lt; str.length() &amp;&amp; i &lt; str.length())&#123;</span><br><span class="line">        if(chars[j] == &apos;u&apos; || chars[j] == &apos;n&apos;)</span><br><span class="line">        	j++;</span><br><span class="line">        </span><br><span class="line">        swap(chars, i, j);</span><br><span class="line">        i++;</span><br><span class="line">      	j++; //一句话： swap(chars, i++, j++);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //!!resize char array to size i</span><br><span class="line">    </span><br><span class="line">    return new String(chars);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结：</p>
+<p><img src="http://server.myspace-shack.com/d23/70c42c15-8366-47b9-9453-dd9e40ede726.png" alt=""></p>
+<h3 id="2-重点-Char-Removal-Remove-all-leading-trailing-and-duplicate-empty-space-onlu-leave-one-empty-space-if-duplicated-spaces-happen-from-the-input-string"><a href="#2-重点-Char-Removal-Remove-all-leading-trailing-and-duplicate-empty-space-onlu-leave-one-empty-space-if-duplicated-spaces-happen-from-the-input-string" class="headerlink" title="2.重点(Char Removal) Remove all leading/trailing and duplicate empty space (onlu leave one empty space if duplicated spaces happen) from the input string."></a>2.重点(Char Removal) Remove all leading/trailing and duplicate empty space (onlu leave one empty space if duplicated spaces happen) from the input string.</h3><p>input = “_ _ _ abc _ _ ed _ _ ef _ _”;</p>
+<p>output = “abc_ed_ef”;</p>
+<p><strong>思想： （W1) (_ W2) (_ W3) … (_ Wn)</strong></p>
+<p>除了第一个word, 其他的前面都加一个‘空格’</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public String removalSpace(String str)&#123;</span><br><span class="line">    </span><br><span class="line">    char[] chars = str.toCharArray();</span><br><span class="line">    </span><br><span class="line">    int slow = 0;</span><br><span class="line">    int fast = 0;</span><br><span class="line">    while(true)&#123;</span><br><span class="line">        //1. 处理leading space</span><br><span class="line">        while(fast &lt; str.length()/*重点*/ &amp;&amp; chars[fast] == &apos; &apos;)&#123;</span><br><span class="line">            fast++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        //检查时候是不是全是space</span><br><span class="line">        if(fast == str.length())</span><br><span class="line">        	break;</span><br><span class="line">        	</span><br><span class="line">        //2. 如果wordCount &gt; 0, 加‘_’</span><br><span class="line">        if(wordCound &gt; 0)</span><br><span class="line">        	chars[slow++] = &apos; &apos;;</span><br><span class="line">        	</span><br><span class="line">        //3. copy word. 把word 拷贝到i部分</span><br><span class="line">        while(fast &lt; str.length() &amp;&amp; chars[fast] != &apos; &apos;)&#123;</span><br><span class="line">            chars[slow++] = chars[fast++]；</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        wordCount++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //char array resize to i;</span><br><span class="line">    </span><br><span class="line">    return new String(chars, 0, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Char-De-Duplication"><a href="#2-Char-De-Duplication" class="headerlink" title="2. Char De-Duplication"></a>2. Char De-Duplication</h2><h3 id="2-1-Char-de-duplicaiton"><a href="#2-1-Char-de-duplicaiton" class="headerlink" title="2.1 (Char de-duplicaiton)"></a>2.1 (Char de-duplicaiton)</h3><p>删除重复数字和相邻letter(不同的letter只保留一个)</p>
+<p>E.g:</p>
+<p>String s = “ a a b b _ _ c c” —&gt; “ab_ c”</p>
+<p>​                           s</p>
+<p>​                               f</p>
+<p>还是slow, scanning pointer</p>
+<p><strong>重点是： 什么时候slow pointer 要移动， 每次都和返回值区域slow部分最后一个char比</strong></p>
+<p>s: is the slow/index all letters to the left of s (<strong>including</strong>(excluding) s) should be in final answer</p>
+<p>f: is the fast/current index to scan the string( from left to right)</p>
+<p>代码：</p>
+<ol>
+<li>slow 是<strong>including s</strong>的写法 : 不相等， 先右移s,再赋值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public String deDuplicate(char[] str)&#123;</span><br><span class="line">    </span><br><span class="line">    int s = 0, f = 0; //重点1</span><br><span class="line">    while(f &lt; str.length)&#123;</span><br><span class="line">        if(str[s] != str[f])&#123; //重点2</span><br><span class="line">            s++; //重点3</span><br><span class="line">            str[s] = str[f];</span><br><span class="line">            f++;</span><br><span class="line">        &#125;else</span><br><span class="line">        	f++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return new String(str, 0, s + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>slow 是<strong>excluding s</strong>的写法 （prefer）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public String deDuplicate(char[] str)&#123;</span><br><span class="line">    if(str == null || str.length &lt; 2)</span><br><span class="line">    	return new String(str);</span><br><span class="line">    	</span><br><span class="line">    int s = 1, f = 1; //重点1.</span><br><span class="line">    while(f &lt; str.length)&#123;</span><br><span class="line">    	if(str[s - 1] != str[f])&#123; //重点2</span><br><span class="line">            str[s] = str[f];</span><br><span class="line">            s++;</span><br><span class="line">            f++;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            f++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return new String(str, 0, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-（char-de-duplicate-ajacent-letter-Repeatly"><a href="#2-2-（char-de-duplicate-ajacent-letter-Repeatly" class="headerlink" title="2.2 （char de-duplicate ajacent letter Repeatly)"></a>2.2 （char de-duplicate ajacent letter <u>Repeatly</u>)</h3><p>E.g:</p>
+<p>abbbbbaz —&gt; a1-a2z —&gt;z</p>
+<p>用什么样的数据结构可以随时帮助我们找到最近需要的信息？ stack</p>
+<p><strong>Method 1:</strong>  <strong>显示的</strong>用一个stack —stack 最后保留的return</p>
+<p>类似于以上slow， scanning 思想：</p>
+<ul>
+<li>碰到于Stack顶相同元素： while loop过掉相同元素 + pop栈顶元素 </li>
+<li>不相同： push入栈， scanning++</li>
+</ul>
+<p>—coding trick: 可以用一个动态ArrayList 去模拟一个Stack， 可以利于最后random access 读取</p>
+<p><strong>Method 2:</strong> 通过slow pointer<strong>隐示的</strong>体现一个栈的功能</p>
+<p>主题思想还是类似于slow, scanning 思想 + 用slow pointer 隐示的维护一个Stack</p>
+<p>通过slow–后退（左移）一格来体现Stack pop（）</p>
+<p>​     a b b b b b a z</p>
+<p>​     s</p>
+<p>​                              f</p>
+
           
         
       
@@ -1808,152 +2026,6 @@ var myapc=new APlayer_Controler({
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/07/DFS模板+相关问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/07/DFS模板+相关问题/" itemprop="url">DFS 模板 + 相关问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T12:55:59-07:00">
-                2018-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="DFS-模板-相关问题"><a href="#DFS-模板-相关问题" class="headerlink" title="DFS 模板 + 相关问题"></a>DFS 模板 + 相关问题</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/07/DFS模板+相关问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2008,7 +2080,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
