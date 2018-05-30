@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>IBM 面试+ OA</title>
+      <link href="/2018/05/29/IBM-%E9%9D%A2%E8%AF%95-OA/"/>
+      <url>/2018/05/29/IBM-%E9%9D%A2%E8%AF%95-OA/</url>
+      <content type="html"><![CDATA[<h1 id="1-OA-1"><a href="#1-OA-1" class="headerlink" title="1. OA 1"></a>1. OA 1</h1><p>题意： </p><p>Input： String ipt1 = “Frank-&gt;Mary,Mary-&gt;Sam,Mary-&gt;Bob,Sam-&gt;Katie,Sam-&gt;Pete,Bob-&gt;John,Bob,Katie”;</p><p>找到Bob, Katie lowest common Ancestor </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public String getAncestor(String input)&#123;</span><br><span class="line">        HashMap&lt;String, String&gt; hashMap = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        String[] strSet = input.split(&quot;,&quot;);</span><br><span class="line">        String target1 = strSet[strSet.length - 2];</span><br><span class="line">        String target2 = strSet[strSet.length - 1];</span><br><span class="line"></span><br><span class="line">        for(int i = 0; i &lt; strSet.length - 2; i++)&#123;</span><br><span class="line">            String[] item = strSet[i].split(&quot;-&gt;&quot;);</span><br><span class="line">            String employee = item[1];</span><br><span class="line">            String manager = item[0];</span><br><span class="line">            hashMap.put(employee, manager);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        HashSet&lt;String&gt; hashSet = new HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        String p1Manager = target1;</span><br><span class="line">        String p2Manager = target2;</span><br><span class="line">        while(hashMap.containsKey(p1Manager) || hashMap.containsKey(p2Manager))&#123;</span><br><span class="line">            if(hashMap.containsKey(p1Manager))&#123;</span><br><span class="line">                p1Manager = hashMap.get(p1Manager);</span><br><span class="line">                if(!hashSet.add(p1Manager)) return p1Manager;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if(hashMap.containsKey((p2Manager)))&#123;</span><br><span class="line">                p2Manager = hashMap.get(p2Manager);</span><br><span class="line">                if(!hashSet.add(p2Manager)) return p2Manager;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return &quot;&quot;;//</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>各种sort总结</title>
       <link href="/2018/05/29/%E5%90%84%E7%A7%8Dsort%E6%80%BB%E7%BB%93/"/>
       <url>/2018/05/29/%E5%90%84%E7%A7%8Dsort%E6%80%BB%E7%BB%93/</url>
@@ -300,10 +321,10 @@
     </entry>
     
     <entry>
-      <title>Java</title>
+      <title>刷题中问题总结</title>
       <link href="/2018/05/05/Java/"/>
       <url>/2018/05/05/Java/</url>
-      <content type="html"><![CDATA[]]></content>
+      <content type="html"><![CDATA[<ol><li><p><strong>while循环什么时候退出？</strong></p><p>先分析题意，找到退出条件conditions, 然后while循环里的statement就是：<strong>^(conditions)</strong></p><p>De-Morgan’s Law:</p><ol><li>^(A &amp;&amp; B) —&gt; ^A || ^B</li><li>^(A || B)  —&gt; ^A &amp;&amp; ^B</li></ol></li></ol>]]></content>
       
       <categories>
           
