@@ -116,7 +116,9 @@ var myapc=new APlayer_Controler({
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/80215e16-54e3-4395-8fe4-00c9126a6da0.png">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/70c42c15-8366-47b9-9453-dd9e40ede726.png">
-<meta property="og:updated_time" content="2018-05-29T08:43:21.362Z">
+<meta property="og:image" content="http://server.myspace-shack.com/d23/52f789b9-3f02-4eea-83b7-6722d14cf90c.png">
+<meta property="og:image" content="http://server.myspace-shack.com/d23/4c1b5d3f-00ca-4c6f-8221-7996fe08aa59.png">
+<meta property="og:updated_time" content="2018-05-31T05:19:59.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String 类型题目总结">
 <meta name="twitter:description" content="String1. remove one character from string###题目： 删除一个string中u 和 n, 返回一个string？ 常见错误： Java中转化为char[]之后直接调用remove 之类的function， time complexity: O(n), 因为每remove一次，后面的items 都要往前shift 正确做法：转化成char[]: （挡板思想）">
@@ -423,7 +425,7 @@ var myapc=new APlayer_Controler({
 <p>output = “abc_ed_ef”;</p>
 <p><strong>思想： （W1) (_ W2) (_ W3) … (_ Wn)</strong></p>
 <p>除了第一个word, 其他的前面都加一个‘空格’</p>
-<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public String removalSpace(String str)&#123;</span><br><span class="line">    </span><br><span class="line">    char[] chars = str.toCharArray();</span><br><span class="line">    </span><br><span class="line">    int slow = 0;</span><br><span class="line">    int fast = 0;</span><br><span class="line">    while(true)&#123;</span><br><span class="line">        //1. 处理leading space</span><br><span class="line">        while(fast &lt; str.length()/*重点*/ &amp;&amp; chars[fast] == &apos; &apos;)&#123;</span><br><span class="line">            fast++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        //检查时候是不是全是space</span><br><span class="line">        if(fast == str.length())</span><br><span class="line">        	break;</span><br><span class="line">        	</span><br><span class="line">        //2. 如果wordCount &gt; 0, 加‘_’</span><br><span class="line">        if(wordCound &gt; 0)</span><br><span class="line">        	chars[slow++] = &apos; &apos;;</span><br><span class="line">        	</span><br><span class="line">        //3. copy word. 把word 拷贝到i部分</span><br><span class="line">        while(fast &lt; str.length() &amp;&amp; chars[fast] != &apos; &apos;)&#123;</span><br><span class="line">            chars[slow++] = chars[fast++]；</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        wordCount++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //char array resize to i;</span><br><span class="line">    </span><br><span class="line">    return new String(chars, 0, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public String removalSpace(String str)&#123;</span><br><span class="line">    </span><br><span class="line">    char[] chars = str.toCharArray();</span><br><span class="line">    </span><br><span class="line">    int slow = 0;</span><br><span class="line">    int fast = 0;</span><br><span class="line">    int wordCount = 0;//special case for 1st word</span><br><span class="line">    while(true)&#123;</span><br><span class="line">        //1. 处理leading space</span><br><span class="line">        while(fast &lt; str.length()/*重点*/ &amp;&amp; chars[fast] == &apos; &apos;)&#123;</span><br><span class="line">            fast++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        //检查fast有没有越界， or这时候是不是全是space</span><br><span class="line">        if(fast == str.length()) //stop点：删除了头尾space</span><br><span class="line">        	break;</span><br><span class="line">        	</span><br><span class="line">        //2. 有word：wordCount &gt; 0, 加‘_’</span><br><span class="line">        if(wordCound &gt; 0)</span><br><span class="line">        	chars[slow++] = &apos; &apos;;</span><br><span class="line">        	</span><br><span class="line">        //3. copy word. 把word 拷贝到i部分</span><br><span class="line">        while(fast &lt; str.length() &amp;&amp; chars[fast] != &apos; &apos;)&#123;</span><br><span class="line">            chars[slow++] = chars[fast++]；</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        wordCount++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //char array resize to i;</span><br><span class="line">    </span><br><span class="line">    return new String(chars, 0, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="2-Char-De-Duplication"><a href="#2-Char-De-Duplication" class="headerlink" title="2. Char De-Duplication"></a>2. Char De-Duplication</h2><h3 id="2-1-Char-de-duplicaiton"><a href="#2-1-Char-de-duplicaiton" class="headerlink" title="2.1 (Char de-duplicaiton)"></a>2.1 (Char de-duplicaiton)</h3><p>删除重复数字和相邻letter(不同的letter只保留一个)</p>
 <p>E.g:</p>
 <p>String s = “ a a b b _ _ c c” —&gt; “ab_ c”</p>
@@ -444,7 +446,7 @@ var myapc=new APlayer_Controler({
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public String deDuplicate(char[] str)&#123;</span><br><span class="line">    if(str == null || str.length &lt; 2)</span><br><span class="line">    	return new String(str);</span><br><span class="line">    	</span><br><span class="line">    int s = 1, f = 1; //重点1.</span><br><span class="line">    while(f &lt; str.length)&#123;</span><br><span class="line">    	if(str[s - 1] != str[f])&#123; //重点2</span><br><span class="line">            str[s] = str[f];</span><br><span class="line">            s++;</span><br><span class="line">            f++;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            f++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return new String(str, 0, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="2-2-（char-de-duplicate-ajacent-letter-Repeatly"><a href="#2-2-（char-de-duplicate-ajacent-letter-Repeatly" class="headerlink" title="2.2 （char de-duplicate ajacent letter Repeatly)"></a>2.2 （char de-duplicate ajacent letter <u>Repeatly</u>)</h3><p>E.g:</p>
 <p>abbbbbaz —&gt; a1-a2z —&gt;z</p>
-<p>用什么样的数据结构可以随时帮助我们找到最近需要的信息？ stack</p>
+<p><strong>用什么样的数据结构可以随时帮助我们找到历史最新的元素</strong>？ stack</p>
 <p><strong>Method 1:</strong>  <strong>显示的</strong>用一个stack —stack 最后保留的return</p>
 <p>类似于以上slow， scanning 思想：</p>
 <ul>
@@ -458,6 +460,112 @@ var myapc=new APlayer_Controler({
 <p>​     a b b b b b a z</p>
 <p>​     s</p>
 <p>​                              f</p>
+<h2 id="3-Substring"><a href="#3-Substring" class="headerlink" title="3. Substring"></a>3. Substring</h2><h2 id="4-String-Reversal"><a href="#4-String-Reversal" class="headerlink" title="4. String Reversal"></a>4. String Reversal</h2><h4 id="4-1-String-Reversal"><a href="#4-1-String-Reversal" class="headerlink" title="4.1 String Reversal"></a>4.1 String Reversal</h4><p>apple –&gt; elppa</p>
+<p>i        j</p>
+<p>解法一： iterative</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>解法二： Recursion:</p>
+<p><strong>Base Case: 子问题从两边想中间变小， 到只有1个或0个character时。</strong></p>
+<p><strong>Recursion rule: reverseStr(str, i + 1, j - 1);</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//usage: reverseStr(str, 0, length - 1);</span><br><span class="line"></span><br><span class="line">public void reverseStr(String str, int i, int j)&#123;</span><br><span class="line">	//base case</span><br><span class="line">	if(i &gt;= j)</span><br><span class="line">		return;</span><br><span class="line">		</span><br><span class="line">	swap(str, i, j);</span><br><span class="line">	reverseStr(str, i + 1, j - 1); //recursion rule</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-reverse-string"><a href="#4-2-reverse-string" class="headerlink" title="4.2 reverse string"></a>4.2 reverse string</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I love yahoo ---&gt; yahoo love I</span><br></pre></td></tr></table></figure>
+<p>Method 1: 用Stack</p>
+<p><strong>Method 2： Trick重点！</strong>！</p>
+<ul>
+<li><p>先reverse整个string</p>
+</li>
+<li><p>再按空格reverse每个Word</p>
+</li>
+</ul>
+<h4 id="4-3-Shift-the-string-with-k-steps"><a href="#4-3-Shift-the-string-with-k-steps" class="headerlink" title="4.3 Shift the string with k steps"></a>4.3 Shift the string with k steps</h4><p><strong>abcd ef –&gt; ef abcd</strong> shift the whole string to the right-hand size by two position</p>
+<p><strong>类似I love yahoo的方法reverse 3次</strong></p>
+<ul>
+<li>整个sentence reverse</li>
+<li>按word1 reverse</li>
+<li>按Word2 reverse</li>
+</ul>
+<h3 id="Discussion-4："><a href="#Discussion-4：" class="headerlink" title="Discussion 4："></a>Discussion 4：</h3><ol>
+<li>什么时候回用到“I Love Yahoo” 翻转思想</li>
+</ol>
+<p><strong>一个chunk word不变，只是位置对调了： 翻转2次： 1. 整个翻转，2. 按chunk Word翻转</strong></p>
+<ol>
+<li>“I Love Yahoo” 翻转思想可以用到更多复杂的题目上： eg: String(array) shifting by X chars to the right</li>
+</ol>
+<h3 id="4-Char-Replacement"><a href="#4-Char-Replacement" class="headerlink" title="4. Char Replacement"></a>4. Char Replacement</h3><p>题目：</p>
+<p>String str: stu<strong>den</strong>t </p>
+<p>pattern: den–&gt; <strong>XX</strong></p>
+<p>​        s1         s2</p>
+<p>return: stu<strong>XX</strong>t</p>
+<p>基本思路都是two pointers: slow and scanning</p>
+<p>####<strong>Case 1: if s1.length() &gt;= s2.length()</strong></p>
+<p>step1: find the single occurrence of s1 in the original string,  and jsut replace s1 with s2, until we are done</p>
+<p>####<strong>Case 2: if s1.length() &lt; s2.length()</strong></p>
+<p>“stu<strong>de</strong>nt<strong>de</strong>tstu<strong>de</strong>nt” –&gt; “stu<strong>XXX</strong>nt<strong>XXX</strong>t”</p>
+<p>patthern: de –&gt; XXX</p>
+<p>​                  s1          s2</p>
+<p>how many extra spaces should we get?</p>
+<p>Step1: count how many times s1 show up in original string. for example, 3 times</p>
+<p>step2: extra space:  <strong>3*(s2.length() - s1.length())</strong></p>
+<p>Step3: slow, scanning pointers. (<strong>特殊点： slow, scanning是从后往前)</strong></p>
+<p>s t u d e n t d e t s t u d e n t _ _ _</p>
+<p>​                                                         s</p>
+<p>​                                                          f</p>
+<p><strong>slow(s): all letter to the right side of slow pointers are the results we want to return</strong></p>
+<h1 id="Advanced-Topic-String"><a href="#Advanced-Topic-String" class="headerlink" title="Advanced Topic(String)"></a>Advanced Topic(String)</h1><p>##常见题型及变种： </p>
+<h3 id="1-Shuffling-e-g-ABCD1234-–-gt-A1B2C3D4"><a href="#1-Shuffling-e-g-ABCD1234-–-gt-A1B2C3D4" class="headerlink" title="1. Shuffling e.g: ABCD1234 –&gt; A1B2C3D4"></a>1. Shuffling e.g: ABCD1234 –&gt; A1B2C3D4</h3><h3 id="2-Permutation-use-DFS"><a href="#2-Permutation-use-DFS" class="headerlink" title="2. Permutation(use DFS)"></a>2. Permutation(use DFS)</h3><h3 id="3-Decoding-encoding-aaaabcc-–-gt-a4b1c2-Run-length-encode"><a href="#3-Decoding-encoding-aaaabcc-–-gt-a4b1c2-Run-length-encode" class="headerlink" title="3. Decoding/encoding aaaabcc –&gt; a4b1c2 (Run length encode)"></a>3. Decoding/encoding aaaabcc –&gt; a4b1c2 (Run length encode)</h3><h3 id="4-Sliding-windows-using-slow-fast-pointers"><a href="#4-Sliding-windows-using-slow-fast-pointers" class="headerlink" title="4. Sliding windows using slow/fast pointers"></a>4. Sliding windows using slow/fast pointers</h3><h4 id="4-1-Longest-substring-that-contains-only-unique-chars-abcda"><a href="#4-1-Longest-substring-that-contains-only-unique-chars-abcda" class="headerlink" title="4.1 Longest substring that contains only unique chars:  abcda"></a>4.1 Longest substring that contains only unique chars:  <u>abcd</u>a</h4><h2 id="题型1：-String-Shuffling"><a href="#题型1：-String-Shuffling" class="headerlink" title="题型1： String Shuffling"></a>题型1： String Shuffling</h2><h4 id="1-1-First-Direction-“A1B2C3D4E5”-—-gt-“ABCDE12345”-小—-gt-大"><a href="#1-1-First-Direction-“A1B2C3D4E5”-—-gt-“ABCDE12345”-小—-gt-大" class="headerlink" title="1.1 First Direction: “A1B2C3D4E5” —&gt; “ABCDE12345”  小—&gt;大"></a>1.1 First Direction: “A1B2C3D4E5” —&gt; “ABCDE12345”  小—&gt;大</h4><p>类似<strong>Merge Sort</strong></p>
+<p>​                      l                              r</p>
+<p>​                        A1B2C       3D4E5</p>
+<p>​                   /          \          /         \                              Divide array into two subarray</p>
+<p>​                 A1B       2C     3D4      E5</p>
+<p>​                 /        \     /   \     /  \      /  \</p>
+<p>​              A1       B   2    C  3  D4   E    5</p>
+<p>​          /        \        /      /    /    /   /\    /     /      unitl cannot divide</p>
+<p>​        A          1    B       2   C   3  D  4  E  5</p>
+<p>=====================================</p>
+<p>​             A1         B2      C3    D4        E5</p>
+<p>​                 AB12        CD34        E5</p>
+<p>​                       ABCD1234          E5                         merge <strong>two sorted arrays</strong></p>
+<p>​                               ABCDE12345</p>
+<p>merge 的时候需要写一下<strong>comparator</strong>: 字母比数字小， 字母和字母比按alphabetic 顺序， 数字按从小到大顺序</p>
+<h4 id="1-2-Second-Direction-“ABCD12345”-—-gt-“A1B2C3D4E5”"><a href="#1-2-Second-Direction-“ABCD12345”-—-gt-“A1B2C3D4E5”" class="headerlink" title="1.2 Second Direction: “ABCD12345” —&gt; “A1B2C3D4E5”"></a>1.2 Second Direction: “ABCD12345” —&gt; “A1B2C3D4E5”</h4><p>类似reverse merge Sort的思想：</p>
+<p>​         A1       B2        C3      D4</p>
+<p>​            AB12          CD34</p>
+<p>​             AB|CD|12|34</p>
+<p>​     <u>chunk 1  2     3     4</u></p>
+<p><strong>重点： guarantee size of chunk 1 == chunk 3</strong></p>
+<p>​                A B C| <strong>D E F G</strong> |1 2 3| <strong>4 5 6 7</strong></p>
+<p>index      0 1 2 |3  4 5 6 |7 8  9  |0 1 2 3</p>
+<p>​                            <strong>lm</strong>           <strong>m</strong>          <strong>rm</strong> </p>
+<p><strong>关键问题：注意n/2 == 7 == 奇数情况</strong></p>
+<p><img src="http://server.myspace-shack.com/d23/52f789b9-3f02-4eea-83b7-6722d14cf90c.png" alt=""></p>
+<p>重点公式！！！！</p>
+<blockquote>
+<p>size = 14</p>
+<p>mid = left + size/2 = 7</p>
+<p>leftmid = left + (1/4)*size = 3</p>
+<p>rightmid = left + (3/4)*size = 10</p>
+</blockquote>
+<h4 id="代码很重要！！："><a href="#代码很重要！！：" class="headerlink" title="代码很重要！！："></a>代码很重要！！：</h4><p><img src="http://server.myspace-shack.com/d23/4c1b5d3f-00ca-4c6f-8221-7996fe08aa59.png" alt=""></p>
+<h2 id="题型二：-String-Permutation-（DFS经典例题"><a href="#题型二：-String-Permutation-（DFS经典例题" class="headerlink" title="题型二： String Permutation （DFS经典例题)"></a>题型二： String Permutation （DFS经典例题)</h2><h4 id="2-1-no-duplicate-letters-in-input-string"><a href="#2-1-no-duplicate-letters-in-input-string" class="headerlink" title="2.1 no duplicate letters in input string"></a>2.1 no duplicate letters in input string</h4><p>E.g. </p>
+<p><strong>input</strong>: “abc”</p>
+<p><strong>output</strong>: </p>
+<p>[ “aab”,</p>
+<p>   “aba”,</p>
+<p>   “baa”]</p>
+<hr>
+<p>Map Reduce基本原理：以某种方式把jobs尽量均衡平衡的分布到每个mapper（slaves)机器上去。</p>
+<p>reducer: intergation/aggregation:把最后的结果集成下来且保证正确性</p>
+<p>什么时候用到map reduce: 一台机器搞不定运算， assume 1000 pcs to solve this problems.</p>
+<ol>
+<li><p>you need to understand the <strong>Distribution of data</strong> by performing <strong>Sampling</strong> to the data.</p>
+</li>
+<li><p>Mapper: relatively independently to solve the problem</p>
+</li>
+</ol>
+<ol start="2">
+<li>Reducer:</li>
+</ol>
+<h1 id="Substring-问题的模板？？？"><a href="#Substring-问题的模板？？？" class="headerlink" title="Substring 问题的模板？？？"></a>Substring 问题的模板？？？</h1><p>XOR问题？？？</p>
 
       
     </div>
@@ -645,7 +753,7 @@ var myapc=new APlayer_Controler({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">1.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-remove-one-character-from-string"><span class="nav-number">1.1.</span> <span class="nav-text">1. remove one character from string</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正确做法："><span class="nav-number">1.1.1.</span> <span class="nav-text">正确做法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-重点-Char-Removal-Remove-all-leading-trailing-and-duplicate-empty-space-onlu-leave-one-empty-space-if-duplicated-spaces-happen-from-the-input-string"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.重点(Char Removal) Remove all leading/trailing and duplicate empty space (onlu leave one empty space if duplicated spaces happen) from the input string.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码："><span class="nav-number">1.1.3.</span> <span class="nav-text">代码：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Char-De-Duplication"><span class="nav-number">1.2.</span> <span class="nav-text">2. Char De-Duplication</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Char-de-duplicaiton"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 (Char de-duplicaiton)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-（char-de-duplicate-ajacent-letter-Repeatly"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 （char de-duplicate ajacent letter Repeatly)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">1.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-remove-one-character-from-string"><span class="nav-number">1.1.</span> <span class="nav-text">1. remove one character from string</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正确做法："><span class="nav-number">1.1.1.</span> <span class="nav-text">正确做法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-重点-Char-Removal-Remove-all-leading-trailing-and-duplicate-empty-space-onlu-leave-one-empty-space-if-duplicated-spaces-happen-from-the-input-string"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.重点(Char Removal) Remove all leading/trailing and duplicate empty space (onlu leave one empty space if duplicated spaces happen) from the input string.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码："><span class="nav-number">1.1.3.</span> <span class="nav-text">代码：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Char-De-Duplication"><span class="nav-number">1.2.</span> <span class="nav-text">2. Char De-Duplication</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Char-de-duplicaiton"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 (Char de-duplicaiton)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-（char-de-duplicate-ajacent-letter-Repeatly"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 （char de-duplicate ajacent letter Repeatly)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Substring"><span class="nav-number">1.3.</span> <span class="nav-text">3. Substring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-String-Reversal"><span class="nav-number">1.4.</span> <span class="nav-text">4. String Reversal</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-String-Reversal"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">4.1 String Reversal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-reverse-string"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">4.2 reverse string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-Shift-the-string-with-k-steps"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">4.3 Shift the string with k steps</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discussion-4："><span class="nav-number">1.4.1.</span> <span class="nav-text">Discussion 4：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Char-Replacement"><span class="nav-number">1.4.2.</span> <span class="nav-text">4. Char Replacement</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Advanced-Topic-String"><span class="nav-number">2.</span> <span class="nav-text">Advanced Topic(String)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Shuffling-e-g-ABCD1234-–-gt-A1B2C3D4"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. Shuffling e.g: ABCD1234 –&gt; A1B2C3D4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Permutation-use-DFS"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. Permutation(use DFS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Decoding-encoding-aaaabcc-–-gt-a4b1c2-Run-length-encode"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. Decoding/encoding aaaabcc –&gt; a4b1c2 (Run length encode)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Sliding-windows-using-slow-fast-pointers"><span class="nav-number">2.0.4.</span> <span class="nav-text">4. Sliding windows using slow/fast pointers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-Longest-substring-that-contains-only-unique-chars-abcda"><span class="nav-number">2.0.4.1.</span> <span class="nav-text">4.1 Longest substring that contains only unique chars:  abcda</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题型1：-String-Shuffling"><span class="nav-number">2.1.</span> <span class="nav-text">题型1： String Shuffling</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-First-Direction-“A1B2C3D4E5”-—-gt-“ABCDE12345”-小—-gt-大"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">1.1 First Direction: “A1B2C3D4E5” —&gt; “ABCDE12345”  小—&gt;大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Second-Direction-“ABCD12345”-—-gt-“A1B2C3D4E5”"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">1.2 Second Direction: “ABCD12345” —&gt; “A1B2C3D4E5”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码很重要！！："><span class="nav-number">2.1.0.3.</span> <span class="nav-text">代码很重要！！：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题型二：-String-Permutation-（DFS经典例题"><span class="nav-number">2.2.</span> <span class="nav-text">题型二： String Permutation （DFS经典例题)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-no-duplicate-letters-in-input-string"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">2.1 no duplicate letters in input string</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Substring-问题的模板？？？"><span class="nav-number">3.</span> <span class="nav-text">Substring 问题的模板？？？</span></a></li></ol></div>
             
 
           </div>

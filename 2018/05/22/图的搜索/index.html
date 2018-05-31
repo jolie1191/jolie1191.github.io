@@ -121,7 +121,9 @@ var myapc=new APlayer_Controler({
 <meta property="og:image" content="http://i67.tinypic.com/2yx1a9u.png">
 <meta property="og:image" content="http://i68.tinypic.com/27xr0o5.png">
 <meta property="og:image" content="http://i65.tinypic.com/j58jk6.png">
-<meta property="og:updated_time" content="2018-05-26T12:14:54.848Z">
+<meta property="og:image" content="http://i68.tinypic.com/27xr0o5.png">
+<meta property="og:image" content="http://server.myspace-shack.com/d23/b53e18df-71d1-4602-a691-17bb0601b51c.png">
+<meta property="og:updated_time" content="2018-05-31T07:45:25.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图的搜索">
 <meta name="twitter:description" content="GraphGraph representation1. Ajacent Matrix2. Ajacent List3. Ajacent HashTable(hashMap, hashSet)重点BFS-1按照start node(nodes), 按照一步以外的一圈走完之后，再以两步以外的一圈走完。。。一步一步往外走，直到queue为空 BFS-1###BFS-1代码： 12345678910111">
@@ -490,6 +492,101 @@ var myapc=new APlayer_Controler({
 <li>每次swap(input, <strong>index</strong>, i);</li>
 </ol>
 <p><img src="http://i65.tinypic.com/j58jk6.png" alt=""></p>
+<h2 id="再次总结："><a href="#再次总结：" class="headerlink" title="再次总结："></a>再次总结：</h2><p>###关于<strong>Recursion</strong>一些自己的误区及纠正：</p>
+<p>E.g. Recursion Tree:</p>
+<p><img src="http://i68.tinypic.com/27xr0o5.png" alt=""></p>
+<ol>
+<li><p>关于Recursion中的global, 和local（局部）变量的理解</p>
+<p>public void <strong>dfs(char[] str, int index, List<character> tmp, List&lt;List<string>&gt; res, int[] used)</string></character></strong></p>
+<ul>
+<li>recursion function中的argument都是global的—对于reference type data(tmp, res, used), 都是全局可变的，<strong>即—随着recursion tree traverse， recursion funciton 有时需要做内部更改（如：tmp, res, used）</strong> <strong>就像每个结点上的一个随身记事本</strong></li>
+<li>在recursion function 内部定义的变量是local（局部）变量。<strong>只记录当前层上同一个父节点下children结点的状态</strong></li>
+</ul>
+<p>在recursion tree上的体现为：</p>
+<p>—–如处理duplicate character时：需要定义一个hashSet, 去记录<strong>当前level(index)在同一个父节点</strong>下是否visited过某个character</p>
+<p>例如：在L1层， 用一个hashSet 记录在<strong>该level上</strong>用到过的character b1</p>
+<p><img src="http://server.myspace-shack.com/d23/b53e18df-71d1-4602-a691-17bb0601b51c.png" alt=""></p>
+</li>
+</ol>
+<p>### </p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>P/F</th>
+<th>Data Structure</th>
+<th>Skills</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>46</td>
+<td>Permutations</td>
+<td>M</td>
+<td>1/1</td>
+<td></td>
+<td>(DFS) -Way1. In-place: swap-swap. -Way2. Extra Space: List&lt;&gt; tmp + int[] used</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -677,7 +774,7 @@ var myapc=new APlayer_Controler({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Graph"><span class="nav-number">1.</span> <span class="nav-text">Graph</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph-representation"><span class="nav-number">1.1.</span> <span class="nav-text">Graph representation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Ajacent-Matrix"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. Ajacent Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Ajacent-List"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. Ajacent List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Ajacent-HashTable-hashMap-hashSet-重点"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. Ajacent HashTable(hashMap, hashSet)重点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS-1"><span class="nav-number">1.2.</span> <span class="nav-text">BFS-1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS-1-1"><span class="nav-number">1.3.</span> <span class="nav-text">BFS-1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常考题型"><span class="nav-number">1.3.1.</span> <span class="nav-text">常考题型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discussion"><span class="nav-number">1.3.2.</span> <span class="nav-text">Discussion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-什么时候用BFS-1"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">1. 什么时候用BFS-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Best-First-Search-BFS-2"><span class="nav-number">1.4.</span> <span class="nav-text">Best First Search(BFS-2)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经典算法：-Dijkstra’s-Algorithm"><span class="nav-number">1.4.1.</span> <span class="nav-text">经典算法： Dijkstra’s Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Usage-点到面（-所有点）的最短距离算法"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">1. Usage: 点到面（==所有点）的最短距离算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Example-Problem-从北京到中国其他所有主要城市的最短距离是多少"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">2. Example Problem: 从北京到中国其他所有主要城市的最短距离是多少</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Data-Structure-PriorityQueue-minHeap"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">3. Data Structure: PriorityQueue(minHeap)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-解题思路："><span class="nav-number">1.4.1.4.</span> <span class="nav-text">4. 解题思路：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-initial-state-start-node"><span class="nav-number">1.4.1.4.1.</span> <span class="nav-text">4.1 initial state(start node)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-Node-expansion-Genration-rule"><span class="nav-number">1.4.1.4.2.</span> <span class="nav-text">4.2 Node expansion/Genration rule:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-Terminations-Condition-所有点都计算完毕才停止，也就是minHeap为空时"><span class="nav-number">1.4.1.4.3.</span> <span class="nav-text">4.3 Terminations Condition: 所有点都计算完毕才停止，也就是minHeap为空时</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFS"><span class="nav-number">1.5.</span> <span class="nav-text">DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-DFS-类型1：0-or-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. DFS 类型1：0 or 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例题2：-LeetCode-22-Generate-Parentheses"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">例题2： LeetCode 22: Generate Parentheses</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Recursion-Tree"><span class="nav-number">1.5.1.1.1.</span> <span class="nav-text">Recursion Tree</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码："><span class="nav-number">1.5.1.1.2.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Graph"><span class="nav-number">1.</span> <span class="nav-text">Graph</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph-representation"><span class="nav-number">1.1.</span> <span class="nav-text">Graph representation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Ajacent-Matrix"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. Ajacent Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Ajacent-List"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. Ajacent List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Ajacent-HashTable-hashMap-hashSet-重点"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. Ajacent HashTable(hashMap, hashSet)重点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS-1"><span class="nav-number">1.2.</span> <span class="nav-text">BFS-1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS-1-1"><span class="nav-number">1.3.</span> <span class="nav-text">BFS-1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常考题型"><span class="nav-number">1.3.1.</span> <span class="nav-text">常考题型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discussion"><span class="nav-number">1.3.2.</span> <span class="nav-text">Discussion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-什么时候用BFS-1"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">1. 什么时候用BFS-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Best-First-Search-BFS-2"><span class="nav-number">1.4.</span> <span class="nav-text">Best First Search(BFS-2)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经典算法：-Dijkstra’s-Algorithm"><span class="nav-number">1.4.1.</span> <span class="nav-text">经典算法： Dijkstra’s Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Usage-点到面（-所有点）的最短距离算法"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">1. Usage: 点到面（==所有点）的最短距离算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Example-Problem-从北京到中国其他所有主要城市的最短距离是多少"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">2. Example Problem: 从北京到中国其他所有主要城市的最短距离是多少</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Data-Structure-PriorityQueue-minHeap"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">3. Data Structure: PriorityQueue(minHeap)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-解题思路："><span class="nav-number">1.4.1.4.</span> <span class="nav-text">4. 解题思路：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-initial-state-start-node"><span class="nav-number">1.4.1.4.1.</span> <span class="nav-text">4.1 initial state(start node)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-Node-expansion-Genration-rule"><span class="nav-number">1.4.1.4.2.</span> <span class="nav-text">4.2 Node expansion/Genration rule:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-Terminations-Condition-所有点都计算完毕才停止，也就是minHeap为空时"><span class="nav-number">1.4.1.4.3.</span> <span class="nav-text">4.3 Terminations Condition: 所有点都计算完毕才停止，也就是minHeap为空时</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFS"><span class="nav-number">1.5.</span> <span class="nav-text">DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-DFS-类型1：0-or-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. DFS 类型1：0 or 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例题2：-LeetCode-22-Generate-Parentheses"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">例题2： LeetCode 22: Generate Parentheses</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Recursion-Tree"><span class="nav-number">1.5.1.1.1.</span> <span class="nav-text">Recursion Tree</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码："><span class="nav-number">1.5.1.1.2.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再次总结："><span class="nav-number">1.6.</span> <span class="nav-text">再次总结：</span></a></li></ol></li></ol></div>
             
 
           </div>
