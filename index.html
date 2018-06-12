@@ -310,6 +310,147 @@ var myapc=new APlayer_Controler({
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/06/12/Bit-Manipulation知识总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/12/Bit-Manipulation知识总结/" itemprop="url">Bit Manipulation知识总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-12T10:02:17-07:00">
+                2018-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/29/IBM-面试-OA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -744,7 +885,25 @@ var myapc=new APlayer_Controler({
 <p>​     a b b b b b a z</p>
 <p>​     s</p>
 <p>​                              f</p>
-<h2 id="3-Substring"><a href="#3-Substring" class="headerlink" title="3. Substring"></a>3. Substring</h2><h2 id="4-String-Reversal"><a href="#4-String-Reversal" class="headerlink" title="4. String Reversal"></a>4. String Reversal</h2><h4 id="4-1-String-Reversal"><a href="#4-1-String-Reversal" class="headerlink" title="4.1 String Reversal"></a>4.1 String Reversal</h4><p>apple –&gt; elppa</p>
+<h2 id="3-Substring"><a href="#3-Substring" class="headerlink" title="3. Substring"></a>3. Substring</h2><p>Q3: Substring problem: how to determine whether a string is a substring of another string.</p>
+<p>Example:</p>
+<p>​         0 1 2 3 4</p>
+<p>s1 = “a b c d e”     s2 = “c d”</p>
+<p>return index of s2, if not return -1.</p>
+<p>Method 1: 暴力法</p>
+<p>Time Complexity: O(n*m)</p>
+<p>index 0 1 2 3 4</p>
+<p>s1       a b c d e</p>
+<p>​           |</p>
+<p>​            c d</p>
+<p>​                c  d</p>
+<p>​                     c  d</p>
+<p>​                          c  d</p>
+<p>主要思想：以s1中的每一个char为起点， 再和 s2逐字检查， 只要有一个char不match–&gt;跳出，以下一个char为起点再逐字比较，直到和s2完全match为止。</p>
+<h4 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public int indexOf(String s1, String s2)&#123;</span><br><span class="line">	if(s1 == null || s2 == null)</span><br><span class="line">		return -1;</span><br><span class="line">	</span><br><span class="line">	//比到倒数第二个， 防止越界</span><br><span class="line">	//1个letter debug</span><br><span class="line">	//for every possible start index of s2</span><br><span class="line">	for(int i = 0; i &lt;= s1.length() - s2.length(); i++)&#123;</span><br><span class="line">		int j = 0;</span><br><span class="line">		for(; j &lt; s2.length(); j++)&#123; //以是s1[i]为起点和s2逐字比较</span><br><span class="line">            if(s1.charAt(i + j) != s2.charAt(j))</span><br><span class="line">            	break;</span><br><span class="line">		&#125;</span><br><span class="line">		if(j == s2.length())</span><br><span class="line">			return i;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Method 2: Robin-Karp</p>
+<p>$\textcolor{Red}{自己再做一遍!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!} $ </p>
+<h2 id="4-String-Reversal"><a href="#4-String-Reversal" class="headerlink" title="4. String Reversal"></a>4. String Reversal</h2><h4 id="4-1-String-Reversal"><a href="#4-1-String-Reversal" class="headerlink" title="4.1 String Reversal"></a>4.1 String Reversal</h4><p>apple –&gt; elppa</p>
 <p>i        j</p>
 <p>解法一： iterative</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -830,12 +989,218 @@ var myapc=new APlayer_Controler({
 <p>rightmid = left + (3/4)*size = 10</p>
 </blockquote>
 <h4 id="代码很重要！！："><a href="#代码很重要！！：" class="headerlink" title="代码很重要！！："></a>代码很重要！！：</h4><p><img src="http://server.myspace-shack.com/d23/4c1b5d3f-00ca-4c6f-8221-7996fe08aa59.png" alt=""></p>
-<h2 id="题型二：-String-Permutation-（DFS经典例题"><a href="#题型二：-String-Permutation-（DFS经典例题" class="headerlink" title="题型二： String Permutation （DFS经典例题)"></a>题型二： String Permutation （DFS经典例题)</h2><h4 id="2-1-no-duplicate-letters-in-input-string"><a href="#2-1-no-duplicate-letters-in-input-string" class="headerlink" title="2.1 no duplicate letters in input string"></a>2.1 no duplicate letters in input string</h4><p>E.g. </p>
+<h2 id="题型二：-String-Permutation-（DFS经典例题"><a href="#题型二：-String-Permutation-（DFS经典例题" class="headerlink" title="题型二： String Permutation （DFS经典例题)"></a>题型二： String Permutation （DFS经典例题)</h2><h4 id="2-1-no-duplicate-letters-in-input-string-LeetCode-46-Permutaiton"><a href="#2-1-no-duplicate-letters-in-input-string-LeetCode-46-Permutaiton" class="headerlink" title="2.1 no duplicate letters in input string (LeetCode 46 Permutaiton)"></a>2.1 no duplicate letters in input string (LeetCode 46 Permutaiton)</h4><p>E.g. </p>
 <p><strong>input</strong>: “abc”</p>
 <p><strong>output</strong>: </p>
 <p>[ “aab”,</p>
 <p>   “aba”,</p>
 <p>   “baa”]</p>
+<p>####2.1 Input string with duplicate (LeetCode 47 Permutation II)</p>
+<h2 id="题型三：-String-En-Decoding"><a href="#题型三：-String-En-Decoding" class="headerlink" title="题型三： String En/Decoding"></a>题型三： String En/Decoding</h2><p>E.g. </p>
+<p>“aaaabccaaaaa” ——&gt; “a4b1c2a5”  <strong>Restriciton: In-Place</strong></p>
+<p>思路： Two Pointers: slow, fast</p>
+<p>两种情况：</p>
+<p>case 1: input.length &gt; output.length </p>
+<p>case 2: input.length &lt; output.length</p>
+<p>怎么样去综合处理？</p>
+<p>分两步走：</p>
+<p>Step1: </p>
+<p>Step 2:</p>
+<p>?????????没懂one more time  </p>
+<p>$\textcolor{Red}{没懂啊没懂啊!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!} $ </p>
+<p>//1: 30</p>
+<h2 id="题型四：-Sliding-Window-in-a-String-slow-fast-indices"><a href="#题型四：-Sliding-Window-in-a-String-slow-fast-indices" class="headerlink" title="题型四： Sliding Window in a String (slow + fast indices)"></a>题型四： Sliding Window in a String (slow + fast indices)</h2><p>XXXXX<strong>XXXXXXXXXXX</strong>XXXXXXXXXXXXXXXXX</p>
+<p>​           =============</p>
+<p>​            L                         R</p>
+<p>​                       ‘A ‘           counter(滑动窗口内‘A’ 的个数)</p>
+<p>  hashMap&lt;Character, Integer&gt;</p>
+<p>普及： <strong>Sliding Window  + 配套hashMap</strong>(count 窗口内每个char出现几次) + global-mx:</p>
+<ul>
+<li>定长</li>
+<li>不定长</li>
+</ul>
+<h4 id="4-1-Longest-Substring-that-contains-only-unique-char"><a href="#4-1-Longest-Substring-that-contains-only-unique-char" class="headerlink" title="4.1 Longest Substring that contains only unique char"></a>4.1 Longest Substring that contains only unique char</h4><p>Given a string, return the length of the <strong>longest substring</strong> <strong>wihtout dupilcate character</strong>. </p>
+<p>For Example, the longest substring wihtout repeating charater for “<strong>BDEFGA</strong>DE” is “<strong>BDEFGA</strong>“, whose size is 6.</p>
+<p><strong>此类型题目有各种变种： (Follow-Up: that with duplicate characters at most k times. eg k = 5)</strong></p>
+<p>分析该题： without repeating letters———&gt; <strong>k = 1</strong></p>
+<ul>
+<li>sliding window 中的每个character不会超过k 次</li>
+</ul>
+<p>idx: 0  1  2 3 4  5 6  7</p>
+<p>E.g: <strong>B D’ E F G A </strong>D’ E                          k = 1</p>
+<p>​                    ========</p>
+<p>​                    L</p>
+<p>​                                    R</p>
+<p><strong>hashMap&lt;char</strong>, int&gt;</p>
+<p>​                     B       0     </p>
+<p>​                     D       1      <strong>&gt;k</strong>      <strong>开始移动L， 直到D == 1</strong> ;–&gt; D == K—&gt;R开始滑动</p>
+<p>​             E        2     没&gt; k  —&gt; &gt; k <strong>开始移动L， 直到E == 1</strong>  –&gt;  D ==k —&gt;R开始滑动</p>
+<p>​                     F        1      <strong>没&gt; k</strong></p>
+<p>​             G        1    没 &gt; k</p>
+<pre><code>A         1   没 &gt; k
+</code></pre><p><strong>global_max</strong> = l - r + 1 = 6</p>
+<blockquote>
+<p><strong>Move R</strong>: add更新hashMap + 检查当前‘A’&lt;= k  –&gt; 更新global_max</p>
+<p>​                                                            ‘A’ &gt;k     —&gt;移动L</p>
+<p><strong>Move L:</strong> delete更新hashMap， 直到‘A’ == k —&gt; 移动R</p>
+</blockquote>
+<p>####<strong>Critical points</strong> for review:</p>
+<blockquote>
+<p>We must maintain a hash_table that reflects the <strong>real-time</strong> information about the elements within the sliding window:</p>
+<p>When we <strong>move the R border</strong>, we <strong>add</strong> the information to the hash_table, </p>
+<p>When we <strong>move the L border</strong>, we <strong>delete</strong> information from the hash_table</p>
+</blockquote>
+<p>什么时候可以移动R？只要当前hashMap内当前‘A’‘’s counter &gt;k</p>
+<h3 id="代码：重点！重点！重点！"><a href="#代码：重点！重点！重点！" class="headerlink" title="代码：重点！重点！重点！"></a>代码：重点！重点！重点！</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">String LongestSubstrW/oDup(String input)&#123;</span><br><span class="line">    HashMap&lt;Character, Integer&gt; hashMap = new HashMap&lt;&gt;();</span><br><span class="line">    int left = 0, right = 0;   //sliding window</span><br><span class="line">    int global_max = 0;</span><br><span class="line">    int start = 0, end = 0; //record the start and end index of the solution</span><br><span class="line">    </span><br><span class="line">    char[] chars = input.toCharArray();</span><br><span class="line">    while(right &lt; chars.length())&#123;//Move R: add更新当前’A‘to hash_table</span><br><span class="line">        hashMap.put(chars[right], hashMap.getOrDefault(chars[fast], 0) + 1);</span><br><span class="line">        </span><br><span class="line">        //检查当前’A‘是否 &gt; k</span><br><span class="line">        if(hashMap.get(chars[fast]) &gt; 1)&#123;</span><br><span class="line">        	//move L: delete 更新hashMap, until &apos;A&apos; == k</span><br><span class="line">        	while(hashMap.get(chars[fast]) &gt; 1)&#123;</span><br><span class="line">                hashMap.put(chars[left], hashMap.get(chars[left]) - 1);</span><br><span class="line">                left++;</span><br><span class="line">        	&#125;   </span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            //移动R没有造成duplicate---&gt; update global_max</span><br><span class="line">            //global_max = Math.max(global_max, (right - left) + 1);</span><br><span class="line">            if(right - left + 1&gt; global_max)&#123;</span><br><span class="line">                global_max = right - left + 1;</span><br><span class="line">                start = slow;</span><br><span class="line">                end = fast;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        right++; //第一步就要记得写</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return input.substring(start, end + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####LeetCode 340. Longest Substring with At Most K Distinct Characters</p>
+<h4 id="substring-问题经典模板："><a href="#substring-问题经典模板：" class="headerlink" title="- substring 问题经典模板："></a>- substring 问题经典模板：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int lengthOfLongestSubstringKDistinct(String s, int k) &#123;</span><br><span class="line">        </span><br><span class="line">        /*</span><br><span class="line">        sliding window: left, right pointers</span><br><span class="line">        hashMap&lt;character, integer&gt;: char, counter of the char</span><br><span class="line">        什么时候更新counter是重点哦， 根据题意</span><br><span class="line">        counter（状态条件）: # of distinct characters in sliding window--&gt; map[right] == 1 counter++; update + map[left] == 0 counter--</span><br><span class="line">        global_max: result</span><br><span class="line">        </span><br><span class="line">        */</span><br><span class="line">        </span><br><span class="line">        if(s ==  null || s.length() == 0 || k == 0)</span><br><span class="line">            return 0;</span><br><span class="line">        </span><br><span class="line">        int left = 0, right = 0, counter = 0, global_max = 0;</span><br><span class="line">        HashMap&lt;Character, Integer&gt; hashMap = new HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        while(right &lt; s.length())&#123;</span><br><span class="line">            //move right until counter &gt; k</span><br><span class="line">            char ch = s.charAt(right);</span><br><span class="line">            hashMap.put(ch, hashMap.getOrDefault(ch, 0) + 1);</span><br><span class="line">            if(hashMap.get(ch) == 1)</span><br><span class="line">                counter++; //new char</span><br><span class="line">            </span><br><span class="line">            //move left when counter &gt; k</span><br><span class="line">            while(counter &gt; k)&#123;</span><br><span class="line">                char c = s.charAt(left);</span><br><span class="line">                hashMap.put(c, hashMap.get(c) - 1);</span><br><span class="line">                if(hashMap.get(c) == 0)</span><br><span class="line">                    counter--;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            //re-cal global_max</span><br><span class="line">            global_max = Math.max(global_max, right - left + 1);</span><br><span class="line">            </span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return global_max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所有substring 问题的总结：</p>
+<p><a href="https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/discuss/49708/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem" target="_blank" rel="noopener">https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/discuss/49708/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem</a>.</p>
+<ol>
+<li>LeetCode 3. Longest Substring Without Repeating Characters</li>
+<li>Leetcode 159. Longest Substring with At Most Two Distinct Characters</li>
+<li>LeetCode 340. Longest Substring with At Most K Distinct Characters</li>
+<li>LeetCode 424. Longest Repeating Character Replacement (4.1的马甲题)</li>
+</ol>
+<h4 id="4-2-Find-all-Anagrams-of-a-substring-S2-in-a-long-string-S1"><a href="#4-2-Find-all-Anagrams-of-a-substring-S2-in-a-long-string-S1" class="headerlink" title="4.2 Find all Anagrams of a substring S2 in a long string S1"></a>4.2 Find all <u>Anagrams</u> of a substring S2 in a long string S1</h4><p>anagram: 同形异构</p>
+<p>String s2 = “aabc”;</p>
+<p>​            s1 = “zzzzcde<strong>bcaa</strong>bcyywwww”</p>
+<p>思考过程： 要在s1中找到s2的anagram， 我们需要分析一下anagram的定义—solution 需要和pattern s2有相同的长度， 在这个段长度内且每个character的数量要一样——&gt; hash_table代表每次loop到的区间， <strong>这个区间还需要</strong>match到的character types数量和每个character’s count数量</p>
+<ul>
+<li><strong>我们只关注在hashMap中pattern要match的characters</strong></li>
+<li>Sliding window 定长， window每次移动都是出一个，再进一个</li>
+<li>window的每一次（进/出）移动都要判断(L/R) character 是否在hash_table中</li>
+</ul>
+<p>E.g:</p>
+<p>   a a b c</p>
+<p>   z z z z c d e <strong>b c a a </strong>b c y y w w w w</p>
+<p>​                                            =====</p>
+<p>​                                            l  </p>
+<p>​                                                       r</p>
+<p>HashMap&lt;char, int&gt; <strong>hashMap</strong>  real-time 更新window 内还需要match information</p>
+<p>​                     <strong>a</strong>       2 - 1 = 1 - 1 = 0 + 1 + 1 = 2 -&gt; update unmatched </p>
+<p>​                     <strong>b</strong>       1-1 = 0 - 1 + 1 = 0  + 1 = 1–&gt; update unmatched </p>
+<p>​                     <strong>c</strong>        1- 1 = 0 + 1 - 1 = 0 + 1-&gt; update unmatched                 </p>
+<p>​           <strong>types_of_letter_still_need_to_balance</strong> = 3 - 1 = 2 - 1 = 1 - 1 = 0 –&gt; one solution (l, r)</p>
+<p>​                                c from 1 to 0                                                    –.&gt; 0 second solution (l’, r’)</p>
+<p>​                                a from 1 to 0                              —&gt; 0 third solution (l’’, r’’)</p>
+<p>​                                a from 0 to 1                                                    = 1</p>
+<pre><code>b from 0 to 1                               = 1+ 1
+</code></pre><p>​                                c from 0 to 1                                        = 1 + 1 +1</p>
+<p>Time: O(N)</p>
+<p>以上是初始化pattern.length() —L = 0, R = pattern.length() - 1</p>
+<p>写法二： left = 0, right = 0;</p>
+<p>   a a b c</p>
+<p>   z z z z c d e <strong>b c a a </strong>b c y y w w w w</p>
+<p>​                           ====</p>
+<p>​                           L</p>
+<p>​                                  R</p>
+<p>HashMap&lt;Character, Integer&gt;</p>
+<p>​            a             2 -1 -1= 0</p>
+<p>​                        b          1 - 1= 0 + 1 = 1</p>
+<p>​            c         1 - 1= 0 - 1= -1+ 1 = 0</p>
+<p>​                         unmatched_counter = 3 - 1= 2 - 1 = 1 - 1= 0 + 1</p>
+<p>####Anagrams of Substring 第一次总结</p>
+<ol>
+<li><p>思路还是substring固有的sliding window(L, R pointers)解法</p>
+</li>
+<li><p>Anagrams(同形异构)： 保证result’s length = pattern’s length &amp;&amp; result’s elements = pattern’s elements</p>
+<ul>
+<li><u><strong>定长</strong>的Sliding window</u>: intialize 为 pattern’s length</li>
+<li><strong>hashMap&lt;</strong>char, int&gt;: pattern’s character: how many # of the character does the window need to match?</li>
+<li><strong>global_counter:</strong> how many types of characters do we still need to match?</li>
+</ul>
+</li>
+<li><p>window 的每次定长移动都伴随着L, R的character的进出， 要在hash_table 里的character要做相应的增/减</p>
+</li>
+</ol>
+<p>   $\textcolor{Red}{没懂啊没懂啊!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!} $ </p>
+<h4 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h4>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+<p>###4.3 Given a 0-1 array, you can flip at most k ‘0’s to ‘1’s. Please find the longest subarray that consists of all ‘1’s; </p>
+<p>题型转化：</p>
+<p>我们最终要找到一个<strong><u>longest subarray</u> with at most k ‘0’</strong> , 就变成了sliding window 的变种</p>
+<p><strong>4.1 的变形题！！！</strong></p>
+<p>！！！！做题时必须明白的重点：</p>
+<ul>
+<li>when to move R border:  when ‘0’ in sliding window &lt;=4</li>
+<li>when to move L border:  when ‘0’ in sliding window &gt; 4</li>
+</ul>
+<h4 id="LeetCode-424-Longest-Repeating-Character-Replacement"><a href="#LeetCode-424-Longest-Repeating-Character-Replacement" class="headerlink" title="LeetCode 424. Longest Repeating Character Replacement"></a>LeetCode 424. Longest Repeating Character Replacement</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public int characterReplacement(String s, int k) &#123;</span><br><span class="line">        </span><br><span class="line">        if(s == null || s.length() == 0)</span><br><span class="line">            return 0;</span><br><span class="line">        </span><br><span class="line">        int left = 0, right = 0, maxOcInWindow = 0, max_len = 0;</span><br><span class="line">        HashMap&lt;Character, Integer&gt; hashMap = new HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        while(right &lt; s.length())&#123;</span><br><span class="line">            </span><br><span class="line">            //moving right pointer forward and re-cal mostOC in sliding window(max = Math.max(max, hashMap[right]))</span><br><span class="line">            char ch = s.charAt(right);</span><br><span class="line">            hashMap.put(ch, hashMap.getOrDefault(ch, 0) + 1);</span><br><span class="line">            maxOcInWindow = Math.max(maxOcInWindow, hashMap.get(ch));  //重点哦！</span><br><span class="line">            </span><br><span class="line">            //moving left as (right - left + 1 - maxOC &gt; k)    --&gt; get possible answers</span><br><span class="line">            while(right - left + 1 - maxOcInWindow &gt; k)&#123;  //什么时候移动left？ 重点哦</span><br><span class="line">                char c = s.charAt(left);</span><br><span class="line">                hashMap.put(c, hashMap.get(c) - 1);</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            //3. re-cal max_len</span><br><span class="line">            max_len = Math.max(max_len, right - left + 1);</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return max_len;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="String-第一次题型总结："><a href="#String-第一次题型总结：" class="headerlink" title="String 第一次题型总结："></a>String 第一次题型总结：</h1><h3 id="常见技巧："><a href="#常见技巧：" class="headerlink" title="常见技巧："></a><strong>常见技巧</strong>：</h3><ol>
+<li><p><strong>Two pointers</strong>: slow, fast(scanning)</p>
+<p><strong>主要思想： slow左边或右边所有元素就是我们要return result</strong></p>
+<ul>
+<li>同向而行 from left to right ——&gt;s    ——&gt;f</li>
+<li>同向 from right to left:  f&lt;———    s&lt;———-</li>
+<li>相向而行： ———&gt; l       r &lt;———–</li>
+</ul>
+<p><strong>coding 注意点：</strong> 记得检查是否要做post processing!</p>
+</li>
+<li><p><strong>“I LOVE YAHOO” 翻转</strong>2次题型： <u>“W1|W2|W3”—&gt; “W3|W2|W1”</u></p>
+<p>主要思想： input和output 的 chunk Word一样， 相对位置不一样时， 可以用</p>
+</li>
+<li><p><strong>顺序Merge Sort</strong>， 和 <strong>Reverse Merge Sort</strong>类似思想</p>
+<p>Merge Sort回顾</p>
+<ul>
+<li><p>先不断二分下去</p>
+</li>
+<li><p>在以某种方式merge</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>   3.1 顺序merge sort (A1B2C3D4   ——&gt;  ABCD1234 (sorted))</p>
+<p>   和Merge Sort基本一样, merge时候需要改变一下comparator 的方式</p>
+<p>   3.2 Reverse Merge Sort  (ABCD1234(sorted)  ——&gt; A1B2C3D4)</p>
+<ul>
+<li>先画画 merge sort recursion tree的下半部分， 找规律</li>
+<li>分成4个chunks时， 保证size of chunk 1 == size of chunk2</li>
+<li>—“I LOVE YAHOO” 翻转思想</li>
+<li>解决更小的子问题 recursion rule</li>
+</ul>
+<ol start="4">
+<li><p><strong>DFS</strong> （找到<strong>所有的</strong>String permutation）</p>
+</li>
+<li><p>String Compression 的问题（注意压缩后的str可能比原string长）—&gt;$\textcolor{Red}{有一个通用解法！还不会!!}$</p>
+</li>
+<li><p><strong>Sliding Window</strong> （解决substring 一类的问题及变种问题）重点哦^_^</p>
+<ul>
+<li><p>配套设施：(按照题意： sliding window 有 <strong>定长/不定长</strong> 之分)</p>
+<ul>
+<li>Two Pointers (L, R) —— Sliding Window</li>
+<li>Hash_table —— record <strong><u>real-time</u> information <u>that we care</u></strong> in sliding window</li>
+<li>global_max/global_min</li>
+</ul>
+</li>
+<li><p>做Sliding Window题， 心中要问自己：</p>
+<ul>
+<li>sliding window 定长/不定长？</li>
+<li>sliding window (L/R) 起点？</li>
+<li><strong>hash_table 中存的什么数据以及它们的物理意义？</strong></li>
+<li><strong>什么时候移动 L pointer?</strong></li>
+<li><strong>什么时候移动 R pointer?</strong></li>
+<li>根据题意counter（状态条件）是什么？</li>
+</ul>
+</li>
+<li><p>记住两个？经典模板！！！(LeetCode 340. Longest Substring with At Most K Distinct Characters)</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">//LeetCode 340. Longest Substring with At Most K Distinct Characters</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public int lengthOfLongestSubstringKDistinct(String s, int k) &#123;</span><br><span class="line">        </span><br><span class="line">        /*</span><br><span class="line">        sliding window: left, right pointers</span><br><span class="line">        hashMap&lt;character, integer&gt;: char, counter of the char</span><br><span class="line">        什么时候更新counter是重点哦， 根据题意</span><br><span class="line">        counter（状态条件）: # of distinct characters in sliding window--&gt; map[right] == 1 counter++; update + map[left] == 0 counter--</span><br><span class="line">        global_max: result</span><br><span class="line">        </span><br><span class="line">        */</span><br><span class="line">        </span><br><span class="line">        if(s ==  null || s.length() == 0 || k == 0)</span><br><span class="line">            return 0;</span><br><span class="line">        </span><br><span class="line">        int left = 0, right = 0, counter = 0, global_max = 0;</span><br><span class="line">        HashMap&lt;Character, Integer&gt; hashMap = new HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        while(right &lt; s.length())&#123;</span><br><span class="line">            //move right until counter &gt; k</span><br><span class="line">            char ch = s.charAt(right);</span><br><span class="line">            hashMap.put(ch, hashMap.getOrDefault(ch, 0) + 1);</span><br><span class="line">            if(hashMap.get(ch) == 1)</span><br><span class="line">                counter++; //new char</span><br><span class="line">            </span><br><span class="line">            //move left when counter &gt; k</span><br><span class="line">            while(counter &gt; k)&#123;</span><br><span class="line">                char c = s.charAt(left);</span><br><span class="line">                hashMap.put(c, hashMap.get(c) - 1);</span><br><span class="line">                if(hashMap.get(c) == 0)</span><br><span class="line">                    counter--;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            //计算结果： re-cal global_max</span><br><span class="line">            global_max = Math.max(global_max, right - left + 1);</span><br><span class="line">            </span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return global_max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://blog.csdn.net/yy254117440/article/details/53025142" target="_blank" rel="noopener">https://blog.csdn.net/yy254117440/article/details/53025142</a></p>
+</li>
+<li><p>sliding window 中match Pattern 的题型（hashMap存的是P, counter 是window需要match P中还需要字符种类）</p>
+<ul>
+<li>LeetCode 76. Minimum Window Substring （H)经典题目</li>
+<li>LeetCode 438. Find All Anagrams in a String （E)难难难！和上题结合看</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">public String minWindow(String s, String t) &#123;</span><br><span class="line">        </span><br><span class="line">        if(s == null || s.length() == 0)</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        </span><br><span class="line">        if(t.length() &gt; s.length()) //Corner case 1: t.length() &gt; s.length()</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        </span><br><span class="line">        int left = 0, right = 0;</span><br><span class="line">        HashMap&lt;Character, Integer&gt; hashMap = new HashMap&lt;&gt;();</span><br><span class="line">        int counter = 0;</span><br><span class="line">        int min_len = Integer.MAX_VALUE; //这里又错了！！！</span><br><span class="line">        int minStart = 0, minEnd = 0;</span><br><span class="line">        </span><br><span class="line">        //1. 初始化 hashMap by Pattern</span><br><span class="line">        char[] chars = t.toCharArray();</span><br><span class="line">        for(char c: chars)&#123;</span><br><span class="line">            hashMap.put(c, hashMap.getOrDefault(c, 0) + 1);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        //counter: window还要match pattern中的字符种类数</span><br><span class="line">        counter = hashMap.size();</span><br><span class="line">        </span><br><span class="line">        //scan S to match the requirement in hashMap about T</span><br><span class="line">        while(right &lt; s.length())&#123;</span><br><span class="line">            char ch = s.charAt(right);</span><br><span class="line">            if(hashMap.containsKey(ch))&#123;</span><br><span class="line">                hashMap.put(ch, hashMap.get(ch) - 1);</span><br><span class="line">                if(hashMap.get(ch) == 0)&#123;</span><br><span class="line">                    counter--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            //moving left</span><br><span class="line">            while(counter == 0)&#123; //可能出现结果的地方</span><br><span class="line">                //计算结果： min/max or add new result or re-cal min-window</span><br><span class="line">                char lchar = s.charAt(left);</span><br><span class="line">                if(right - left + 1 &lt; min_len)&#123;</span><br><span class="line">                    min_len = right - left + 1;</span><br><span class="line">                    minStart = left;</span><br><span class="line">                    minEnd = right;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                //check the condional variable, # of types requires</span><br><span class="line">                if(hashMap.containsKey(lchar))&#123;  //只有在T hashMap中的才需要更新</span><br><span class="line">                    if(hashMap.get(lchar) == 0)</span><br><span class="line">                        counter++;</span><br><span class="line">                    //update hashMap</span><br><span class="line">                    hashMap.put(lchar, hashMap.get(lchar) + 1);</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if(min_len == Integer.MAX_VALUE)  //Corner case 2: s = &quot;abcd&quot; t = &quot;mmm&quot; 踩坑点！！！！！！又错了</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        else</span><br><span class="line">            return s.substring(minStart, minEnd + 1);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<p>常见题型：</p>
+<p>LeetCode 443. String Compression (In-place, Two Pointers, copy char + copy count)</p>
+<p>LeetCode 38. Count and Say (非In-Place 模板： i == str.length - 1 || str[i] != str[i + 1] )</p>
 <hr>
 <p>Map Reduce基本原理：以某种方式把jobs尽量均衡平衡的分布到每个mapper（slaves)机器上去。</p>
 <p>reducer: intergation/aggregation:把最后的结果集成下来且保证正确性</p>
@@ -1097,6 +1462,7 @@ var myapc=new APlayer_Controler({
 <th>P/F</th>
 <th>Data Structure</th>
 <th>Skills</th>
+<th>Sepcial</th>
 </tr>
 </thead>
 <tbody>
@@ -1106,33 +1472,20 @@ var myapc=new APlayer_Controler({
 <td>M</td>
 <td>1/1</td>
 <td></td>
-<td>(DFS) -Way1. In-place: swap-swap. -Way2. Extra Space: List&lt;&gt; tmp + int[] used</td>
+<td>(DFS) -Way1. <strong>In-place: index-swap-swap.</strong> -Way2. Extra Space: List&lt;&gt; tmp + int[] used</td>
+<td>经典</td>
+</tr>
+<tr>
+<td>47</td>
+<td>PermutationII</td>
+<td>M</td>
+<td>1/1</td>
+<td></td>
+<td>如上Way 1: sort. Way2: hashset去重复</td>
+<td>de-dup</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td></td>
 <td></td>
 <td></td>
@@ -1147,6 +1500,16 @@ var myapc=new APlayer_Controler({
 <td></td>
 <td></td>
 <td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td></td>
@@ -1155,8 +1518,28 @@ var myapc=new APlayer_Controler({
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -2006,217 +2389,6 @@ var myapc=new APlayer_Controler({
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/09/Java常用API+数据结构/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/09/Java常用API+数据结构/" itemprop="url">Java常用API+数据结构</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T02:49:28-07:00">
-                2018-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="根据Input-Size-V-S-Time-Complexity"><a href="#根据Input-Size-V-S-Time-Complexity" class="headerlink" title="根据Input Size V.S. Time Complexity"></a>根据Input Size V.S. Time Complexity</h1><p><img src="http://i65.tinypic.com/2zs49qv.png" alt=""></p>
-<h1 id="Data-Type"><a href="#Data-Type" class="headerlink" title="Data Type"></a>Data Type</h1><h2 id="Character"><a href="#Character" class="headerlink" title="Character"></a>Character</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">return</th>
-<th style="text-align:center">Method</th>
-<th style="text-align:center">Usage</th>
-<th style="text-align:center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Character.html#isLetter-char-" target="_blank" rel="noopener">isLetter</a>(char ch)</td>
-<td style="text-align:center">Character.isLetter(‘a’)</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">static char</td>
-<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Character.html#toLowerCase-char-" target="_blank" rel="noopener">toLowerCase</a>(char ch)</td>
-<td style="text-align:center">Character.toLowerCase(‘A’)</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">static String</td>
-<td style="text-align:center">toString(char c)</td>
-<td style="text-align:center">Character.toString(‘a’)</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">static boolean</td>
-<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Character.html#isWhitespace-char-" target="_blank" rel="noopener">isWhitespace</a>(char ch)</td>
-<td style="text-align:center">Character.isWhiteSpace(‘ ‘)</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/09/Java常用API+数据结构/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2271,7 +2443,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
