@@ -106,15 +106,22 @@ var myapc=new APlayer_Controler({
 
 
 
+<meta name="description" content="##基础知识：  Bit Representation     int a = 0; unsigned int a = 0;  11111111111(32个1)   表示实实在在2^32 - 1 有符号： 0： positive 1: negative Two’s Complement: 在二进制表示中： 将1 变成 - 1   Bit Manipulation 的6中操作  &amp;amp; AND">
 <meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bit Manipulation知识总结">
 <meta property="og:url" content="https://jolie1191.github.io/2018/06/12/Bit-Manipulation知识总结/index.html">
 <meta property="og:site_name" content="FlyingSheep">
+<meta property="og:description" content="##基础知识：  Bit Representation     int a = 0; unsigned int a = 0;  11111111111(32个1)   表示实实在在2^32 - 1 有符号： 0： positive 1: negative Two’s Complement: 在二进制表示中： 将1 变成 - 1   Bit Manipulation 的6中操作  &amp;amp; AND">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-12T17:03:06.410Z">
+<meta property="og:image" content="http://server.myspace-shack.com/d23/234be130-d52a-48c1-8653-567d71089aa6.png">
+<meta property="og:image" content="http://server.myspace-shack.com/d23/2a6b89e1-d408-4b15-bd8c-ca0dd38d8b97.png">
+<meta property="og:image" content="http://server.myspace-shack.com/d23/deaec0fa-05a9-43f7-94d1-344f02aeacea.png">
+<meta property="og:updated_time" content="2018-06-13T22:07:19.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bit Manipulation知识总结">
+<meta name="twitter:description" content="##基础知识：  Bit Representation     int a = 0; unsigned int a = 0;  11111111111(32个1)   表示实实在在2^32 - 1 有符号： 0： positive 1: negative Two’s Complement: 在二进制表示中： 将1 变成 - 1   Bit Manipulation 的6中操作  &amp;amp; AND">
+<meta name="twitter:image" content="http://server.myspace-shack.com/d23/234be130-d52a-48c1-8653-567d71089aa6.png">
 
 
 
@@ -340,7 +347,7 @@ var myapc=new APlayer_Controler({
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-12T10:02:17-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-12T11:02:17-06:00">
                 2018-06-12
               </time>
             
@@ -400,7 +407,340 @@ var myapc=new APlayer_Controler({
       
 
       
-        
+        <p>##基础知识：</p>
+<ul>
+<li><p>Bit Representation </p>
+<p><img src="http://server.myspace-shack.com/d23/234be130-d52a-48c1-8653-567d71089aa6.png" alt=""></p>
+</li>
+</ul>
+<p>int a = 0;</p>
+<p>unsigned int a = 0;  11111111111(32个1)   表示实实在在2^32 - 1</p>
+<p>有符号： 0： positive 1: negative</p>
+<p>Two’s Complement:</p>
+<p>在二进制表示中： 将1 变成 - 1</p>
+<p><img src="http://server.myspace-shack.com/d23/2a6b89e1-d408-4b15-bd8c-ca0dd38d8b97.png" alt=""></p>
+<ul>
+<li><p>Bit Manipulation 的6中操作</p>
+<ul>
+<li><p><u><strong>&amp;</strong></u> AND      vs  if(true1 &amp;&amp; true2)</p>
+<p><u>上下都是1 res = 1</u></p>
+<p>​     1100 1110</p>
+<p>&amp;  1001 1000</p>
+<p>============</p>
+<p>​     1000 1000</p>
+</li>
+<li><p>| OR vs  if(true1 || true2)</p>
+<p><u>上下有一个或两个是1， res = 1</u></p>
+</li>
+<li><p>~ NOT (1-&gt;0 and 0-&gt; 1 for each bit) int c = ~a (把a 上每一位取反，赋给c)</p>
+</li>
+<li><p>^ XOR</p>
+<p>（<strong>异</strong>）或—&gt;有异才有1</p>
+<p><u>上下不相同时候， res = 1</u></p>
+<ul>
+<li>0 0(上下)  -&gt; 0</li>
+<li>1 1-&gt; 0</li>
+<li>0 1 or 1 0 -&gt; 1</li>
+</ul>
+<p>使用方法： ？？？？</p>
+</li>
+<li><p>&lt;&lt; left shift </p>
+<ul>
+<li><p><strong>左移右侧补0</strong></p>
+</li>
+<li><p>左移一位，相当于原来十进制数*2 (前提移动每越界)</p>
+</li>
+</ul>
+</li>
+<li><p>还有 &gt;&gt; right shit</p>
+<ul>
+<li><p>右移左侧“正数”补0， “负数”补1</p>
+</li>
+<li><p>右移一位，相当于原十进制数/2 (前提移动每越界)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Common-Questions"><a href="#Common-Questions" class="headerlink" title="Common Questions:"></a>Common Questions:</h1><ol>
+<li><p>Given a number x, how to set x’s (右数) <u>k-th bit to 1</u>?</p>
+<p>Eg: x = 00000….1010000<strong>Y</strong>101  k = 3</p>
+<ul>
+<li>任何bit 和1 取 或（|）都为1</li>
+<li>任何bit 和0 取 或 （|） 都为它自己</li>
+</ul>
+<p>solution:</p>
+<p>int <strong>bit_setter</strong> = 1 // 000000000000….00001</p>
+<p><strong>bit_setter</strong> = bit_setter &lt;&lt; k; // 0000000…00<strong>1</strong>000</p>
+<p>x = x | bit_setter; //重点</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>Given a number x, how to set x’s (右数) <u>k-th bit to 0</u>?</p>
+<ul>
+<li>任何bit 和 0 取 AND（&amp;） 都是0</li>
+<li>任何bit 和 1取 AND （&amp;） 都是它自己 </li>
+</ul>
+<p>0000  1000  取 NOT</p>
+<p>1111…0111</p>
+<p>Solution:</p>
+<p>int <strong>bit_setter</strong> = 1; // 0000….0001</p>
+<p><strong>bit_setter</strong> = bit_setter &lt;&lt; k;  //0000…1000    k = 3</p>
+<p><strong>bit_setter</strong> = ~bit_setter; //1111..0111</p>
+<p>x = x &amp; bit_setter; // aaaa…Yaaa</p>
+<p>​                &amp;1111…0111</p>
+<p>​            ================</p>
+<p>​                   aaaa…0aaa</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>determine whether a number <strong>x is a power of 2</strong>?  (x = 2^n) n &gt;0</p>
+<p>Solution 1:非bit manipulation</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//2^n: 1 2 4 8 16 32...</span><br><span class="line">while(num &gt; 1)&#123; //把一个数一直除2， 直到它 = 1</span><br><span class="line">    if(num % 2 != 0)</span><br><span class="line">    	return false;</span><br><span class="line">    num /= 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(int i = num; i &gt; 1; i /= 2)&#123;</span><br><span class="line">    if(i % 2 != 0)</span><br><span class="line">    	return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Solution 2: Bit manipulation (很有意思！)</p>
+<ul>
+<li><p><strong>x</strong> = 8是2^n， 它的二进制一定是：</p>
+<p>​         <strong>0001000</strong>  即—只有一个1</p>
+</li>
+<li><p><strong>x - 1</strong>:         0000111</p>
+<p>​        </p>
+<p>​        0001000      x</p>
+<p>&amp;        0000111      x - 1</p>
+<p>=================</p>
+<p>​                  0000000       (全为0)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean isPowerOf2(int num)&#123;</span><br><span class="line">    return (x &amp; (x - 1) == 0 &amp;&amp; x != 0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="4">
+<li><p>How to determine the number of bits that are different between two postive integers?</p>
+<p>int x = 0101;</p>
+<p>int y = 0111;</p>
+</li>
+</ol>
+<p>return 1;</p>
+<p>使用方法：</p>
+<ul>
+<li>XOR (异)或</li>
+</ul>
+<p>​        0101</p>
+<p>​            ^  0111</p>
+<p>​    ==========</p>
+<p>res        0 0 10</p>
+<ul>
+<li><p><strong>再数一下res中有多少个1</strong></p>
+<p>​    res    0010    </p>
+<p><strong>res &gt;&gt; i</strong>   0001   (<strong>res &gt;&gt; i</strong> )</p>
+<p>​    &amp;    0001     ( <strong>1</strong>)</p>
+<p>==============</p>
+<p>​        0001    (<strong>1</strong>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public int numOfDiffBits(int x, int y)&#123;</span><br><span class="line">    int res = x ^ y;</span><br><span class="line">    </span><br><span class="line">    int count = 0;</span><br><span class="line">    for(int i = 0; i &lt; 32; i++)&#123;</span><br><span class="line">        if((res &gt;&gt; i) &amp; 1 == 1)</span><br><span class="line">        	count++；</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###5. detemine whether a word  contains all letters that are unique (no <strong>duplicate letters in the word</strong>)</p>
+<p>依题意： check 一个word中是否有重复的letter? <u>只contain a~z的小写字母</u></p>
+<p>solution 1: hashset, boolean[] hashset = new boolean(26);  </p>
+<p>time: O(n)</p>
+<p>space: O(n)</p>
+<p>Solution 2: Bit manipulation</p>
+<p>Time: O(n) </p>
+<p>Space: O(1)</p>
+<p><u>用一个<strong>int dic = 0；</strong> 去模拟一个hashset</u></p>
+<p><strong>dic:         0000 0000 0000 0000 …0000</strong>       <u>一共有32位，足够表示26个字母</u></p>
+<p><strong>a–z                          zyx                    …….dcba</strong></p>
+<p>=========================================</p>
+<p><strong>int dic = 0;</strong></p>
+<p><strong>int pos = word.charAt(i) - ‘a’;</strong>       //获得i-th letter 在dic 中的位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public boolean hasDupLetter(String word)&#123;</span><br><span class="line">    if(word == null || word.length() == 0)</span><br><span class="line">    	return false;</span><br><span class="line">    </span><br><span class="line">    int dic = 0;</span><br><span class="line">    for(int i = 0; i &lt; word.length(); i++)&#123;</span><br><span class="line">        int pos = word.charAt(i) - &apos;a&apos;;</span><br><span class="line">        if((dic &gt;&gt; pos) &amp; 1 == 1)&#123; //char &apos;d&apos; exist</span><br><span class="line">            return true;</span><br><span class="line">        &#125;else&#123;//把dic中‘d’位置上--pos上设为1</span><br><span class="line">            dic = dic | (1 &lt;&lt; pos);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Follow-Up: <strong>Assumption: not only contain a~z. contain all ASCII codes (256)</strong></p>
+<ul>
+<li>ASCII中一共有256个letter;</li>
+<li>每个int dic = 0; 可以表示32个letter</li>
+<li>所以一共需要8个这样的dics 去表示256个letters</li>
+<li>Eg: x = ‘#’— 88      通过： x/32获得<u><strong>第几个dic</strong></u>，再通过x%32 获得它<u><strong>在这个dic中的pos</strong></u></li>
+</ul>
+<p>这就引出了一下：bit vector.</p>
+<h3 id="Terminology-Bit-Vector"><a href="#Terminology-Bit-Vector" class="headerlink" title="Terminology: Bit Vector"></a>Terminology: Bit Vector</h3><p>把原有hash_table 的空间缩小了很多倍： 原来是boolean[256], 现在是 int bit_map[8];</p>
+<p><strong>int bit_map[8];</strong>   //8 * 32 bit = 256 bits</p>
+<ul>
+<li>88/32 = 2 —&gt; bit_map[2]</li>
+<li>88%32 = 24 —&gt; bit_map[2] 中int dic个的第24个bit</li>
+</ul>
+<p><strong>int dic = acsNum / 32;</strong> </p>
+<p><strong>int dicPos = acsNum % 32;</strong></p>
+<p><img src="http://server.myspace-shack.com/d23/deaec0fa-05a9-43f7-94d1-344f02aeacea.png" alt=""></p>
+<p>Follow_up 代码：几乎和只含有a~z的题目一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public boolean hasDupLetter(String word)&#123;</span><br><span class="line">	if(word == null || word.length() == 0)</span><br><span class="line">		return false;</span><br><span class="line">		</span><br><span class="line">	int[] bit_map = new int[8]; //8 个dic表示256个letter的hashtable</span><br><span class="line">	for(int i = 0; i &lt; word.length(); i++)&#123;</span><br><span class="line">        int ascNum = word.charAt(i);</span><br><span class="line">        int dic = acsNum / 32;</span><br><span class="line">        int dicPos = acsNum % 32;</span><br><span class="line">        if((bit_map[dic] &gt;&gt; dicPos) &amp; 1 == 1)&#123;//&apos;#&apos; exist</span><br><span class="line">        	return true;</span><br><span class="line">		&#125;else&#123; //change the pos of the dic to 1</span><br><span class="line">            bit_map[dic] = bit_map[dic] | (1 &lt;&lt; dicPos);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li><p>How to <strong>reverse all bits of a number</strong>?</p>
+<p>E.g: 1010xxxxxxx0010  —&gt; 0100 xxxxxxx 0101</p>
+</li>
+</ol>
+<p>   String中是two pointer + swap:</p>
+<p>   s t u d e n t</p>
+<p>   i–&gt;          &lt;–j</p>
+<p>   数字bit的reverse也是相似的：</p>
+<p>   ​        1010xxxxxxxx0010</p>
+<p>   ​        i                j    </p>
+<p>   XOR        <strong>1000000000000001</strong>   //重点</p>
+<p>   ==========================</p>
+<p>   res:        0    一样        1</p>
+<ul>
+<li><p>i, j 位上bit相同，不reverse; 不相同， reverse（采用如上方式）。</p>
+</li>
+<li><p>如何不断的改变i~j， 即 00001000000000100000</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public int reverseBits(int n)&#123;</span><br><span class="line">    int i = 31; // 刚开始 L移动位数：  1000 0000 。。。。0000</span><br><span class="line">    int j = 0;  //刚开始 R移动位数</span><br><span class="line">    while(j &lt; i)&#123;</span><br><span class="line">        if(((n &gt;&gt; i) &amp; 1) != ((n &gt;&gt; j) &amp; 1))&#123;</span><br><span class="line">        	//swapAPairOfBit(n, i, j);</span><br><span class="line">        	n = n ^ ((1 &lt;&lt; i) | (1 &lt;&lt; j)); //就是以上步骤</span><br><span class="line">        &#125;</span><br><span class="line">        i--;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">   return n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="7">
+<li>how to convert a number to Hexademical?</li>
+</ol>
+<p>$\textcolor{Red}{没懂啊没懂啊!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!} $</p>
+<p><a href="https://leetcode.com/problems/number-of-1-bits/discuss/111379/Party-of-all-possible-JAVA-solutions" target="_blank" rel="noopener">https://leetcode.com/problems/number-of-1-bits/discuss/111379/Party-of-all-possible-JAVA-solutions</a></p>
+<p><a href="https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently" target="_blank" rel="noopener">https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently</a></p>
+<h3 id="要记住的关于bit模板"><a href="#要记住的关于bit模板" class="headerlink" title="要记住的关于bit模板"></a>要记住的关于bit模板</h3><ol>
+<li>获得i-th bit的两种写法：</li>
+</ol>
+<ul>
+<li>for loop:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(int i = 0; i &lt; 32; i++)&#123;</span><br><span class="line">    </span><br><span class="line">    //do something;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>while loop:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while(n &gt; 0)&#123; //如果存在负数， 状态条件改为： n != 0</span><br><span class="line">   //do something</span><br><span class="line">   </span><br><span class="line">  n = n &gt;&gt; 1; //注意:如果存在负数必须用无逻辑位移： &gt;&gt;&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="add-more"><a href="#add-more" class="headerlink" title="add more"></a>add more</h1><h3 id="知识盲点："><a href="#知识盲点：" class="headerlink" title="知识盲点："></a>知识盲点：</h3><table>
+<thead>
+<tr>
+<th>描述</th>
+<th>十进制</th>
+<th>Bit</th>
+<th>记忆</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x = powerOf2</td>
+<td>2^n</td>
+<td><strong>0001000</strong></td>
+<td>只有一个1</td>
+</tr>
+<tr>
+<td>x = 2^n, 问<strong>x - 1</strong></td>
+<td>2^n - 1</td>
+<td><strong>0000111</strong></td>
+<td>对比观察2^n的Bit</td>
+</tr>
+<tr>
+<td><strong>int bit_setter = 1</strong></td>
+<td>1</td>
+<td>00…0001</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>&lt;&lt; k   (k = 3)</td>
+<td>00…1000</td>
+<td><strong>用处</strong>： 结果&amp;/\</td>
+<td>操作，将<strong>x的k-th bit 改为0/1</strong></td>
+</tr>
+<tr>
+<td>^ XOR: 求x, y中有多少bits不同</td>
+<td></td>
+<td></td>
+<td>（异）或： 就是异， res = 1 + 再数res中有多少个1</td>
+</tr>
+<tr>
+<td>数res中有多少个1？</td>
+<td></td>
+<td></td>
+<td>0001 &amp; 1 == 1； 0100 &amp; 1 == 0</td>
+</tr>
+<tr>
+<td>检查dic第k-th bit是否为1？</td>
+<td></td>
+<td></td>
+<td>if (<strong>(dic &gt;&gt; k) &amp; 1 == 1</strong>) return true</td>
+</tr>
+<tr>
+<td>将<strong>x的k-th bit改为 1/0</strong>?</td>
+<td></td>
+<td></td>
+<td>—<strong>改1：</strong> x = x \</td>
+<td>(1 &lt;&lt; k) 注意点： 是使用\</td>
+<td>还是&amp;。<strong>改0：</strong> x = x &amp;（ ~(1 &lt;&lt; k)）</td>
+</tr>
+<tr>
+<td>用一个<strong>int dic = 0</strong>去模拟一个HashSet。去判断一个Word中的<strong>letter的重复</strong></td>
+<td></td>
+<td></td>
+<td>int pos = word.charAt(i) - ‘a’;</td>
+</tr>
+<tr>
+<td><strong>x ^ 0 = x</strong></td>
+<td></td>
+<td></td>
+<td>任何数^(异或) 0都是它自己</td>
+</tr>
+<tr>
+<td>x^x = 0</td>
+<td></td>
+<td></td>
+<td>任何数^自己 = 0</td>
+</tr>
+<tr>
+<td>十进制数上：<u><strong>A^B^C^B^C = A^B^B^C^C=A</strong></u></td>
+<td></td>
+<td></td>
+<td>异或时候的交换律</td>
+</tr>
+<tr>
+<td>int dic = 0； 来模拟只有a—z或1–32范围的letter的hashtable</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>bit_map[8] 来模拟有256范围的hashtable    — <strong>Bit Vector</strong></td>
+<td></td>
+<td></td>
+<td>int dicIdx = asc / 32; int pos = asc %32;</td>
+</tr>
+<tr>
+<td>在bit上： <strong>x ^ 1= ~x</strong>  异或1用来反转某一个bit</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>在bit上： <strong>x ^ 0 = x</strong>     异或0等于自己</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>在bit上： x ^ x = 0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>判断两个数X, Y 在右数p1-th和p2-th上<strong>bit是否相等</strong>？</td>
+<td></td>
+<td></td>
+<td>((X &gt;&gt; p1) &amp; 1) =?= ((Y &gt;&gt; p2) &amp; 1)</td>
+</tr>
+<tr>
+<td>Reverse number: **x ^ = ((1 &lt;&lt; i) \</td>
+<td>(1 &lt;&lt; j))**</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     
@@ -439,6 +779,10 @@ var myapc=new APlayer_Controler({
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/14/DP做题积累/" rel="prev" title="DP做题积累">
+                DP做题积累 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -490,8 +834,17 @@ var myapc=new APlayer_Controler({
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -510,7 +863,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -564,6 +917,22 @@ var myapc=new APlayer_Controler({
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Common-Questions"><span class="nav-number">1.</span> <span class="nav-text">Common Questions:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Terminology-Bit-Vector"><span class="nav-number">1.0.1.</span> <span class="nav-text">Terminology: Bit Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#要记住的关于bit模板"><span class="nav-number">1.0.2.</span> <span class="nav-text">要记住的关于bit模板</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#add-more"><span class="nav-number">2.</span> <span class="nav-text">add more</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#知识盲点："><span class="nav-number">2.0.1.</span> <span class="nav-text">知识盲点：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

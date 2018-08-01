@@ -116,7 +116,7 @@ var myapc=new APlayer_Controler({
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://i65.tinypic.com/2zs49qv.png">
 <meta property="og:image" content="http://i68.tinypic.com/31667bq.png">
-<meta property="og:updated_time" content="2018-06-01T12:06:40.272Z">
+<meta property="og:updated_time" content="2018-07-30T19:03:16.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java常用API+数据结构">
 <meta name="twitter:description" content="根据Input Size V.S. Time Complexity Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    stat">
@@ -346,7 +346,7 @@ var myapc=new APlayer_Controler({
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T02:49:28-07:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T03:49:28-06:00">
                 2018-05-09
               </time>
             
@@ -442,15 +442,15 @@ var myapc=new APlayer_Controler({
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">static boolean</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Character.html#isDigit-char-" target="_blank" rel="noopener">isDigit</a>(char ch)</td>
+<td style="text-align:center">Character.isDigit(‘5’)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">static boolean</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Character.html#isLetterOrDigit-char-" target="_blank" rel="noopener">isLetterOrDigit</a>(char ch)</td>
+<td style="text-align:center">Character.isLetterOrDigit(‘a’)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -503,8 +503,14 @@ var myapc=new APlayer_Controler({
 </tr>
 <tr>
 <td style="text-align:center"></td>
+<td style="text-align:center">toLowerCase()</td>
+<td style="text-align:center">str.toLowerCase()</td>
 <td style="text-align:center"></td>
-<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">String</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html#replaceAll-java.lang.String-java.lang.String-" target="_blank" rel="noopener">replaceAll</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" target="_blank" rel="noopener">String</a> regex, <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" target="_blank" rel="noopener">String</a> replacement)</td>
+<td style="text-align:center">str.replaceAll(“[^a-zA-Z0-9]”,””)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -529,12 +535,35 @@ var myapc=new APlayer_Controler({
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
-<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h1 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h1><table>
+<thead>
+<tr>
+<th>Return</th>
+<th>Method</th>
+<th>Usage</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>Integer.toString(5)</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td>Integer</td>
+<td>Integer.<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Integer.html#valueOf-java.lang.String-" target="_blank" rel="noopener">valueOf</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" target="_blank" rel="noopener">String</a> s)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -603,6 +632,35 @@ var myapc=new APlayer_Controler({
 </tr>
 </tbody>
 </table>
+<h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h1><table>
+<thead>
+<tr>
+<th>Return</th>
+<th>Method</th>
+<th>Usage</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E</td>
+<td>get(int index)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E</td>
+<td>set(int index, E element)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h1 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h1><table>
 <thead>
 <tr>
@@ -660,6 +718,35 @@ var myapc=new APlayer_Controler({
 <td></td>
 <td></td>
 <td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h1><table>
+<thead>
+<tr>
+<th>Return</th>
+<th>Method</th>
+<th>Usage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>static int</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Arrays.html#binarySearch-int:A-int-" target="_blank" rel="noopener">binarySearch</a>(int[] a, int key)</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Arrays.html#binarySearch-int:A-int-" target="_blank" rel="noopener">binarySearch</a>(arr, 5)</td>
+<td>return the index of key or  <code>(-(*insertion point*) - 1)</code>.Insertion index(index of first larger than key)</td>
+</tr>
+<tr>
+<td>static int</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Arrays.html#binarySearch-int:A-int-int-int-" target="_blank" rel="noopener">binarySearch</a>(int[] a, int fromIndex, int toIndex, int key)</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/Arrays.html#binarySearch-int:A-int-int-int-" target="_blank" rel="noopener">binarySearch</a>(arr,0, 100, 5)</td>
+<td>return the index of key or  <code>(-(*insertion point*) - 1)</code>.Insertion index(index of first larger than key)</td>
 </tr>
 <tr>
 <td></td>
@@ -1112,6 +1199,10 @@ var myapc=new APlayer_Controler({
 </table>
 <h2 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h2><p>什么时候使用TreeMap？</p>
 <p>答案： 又想知道最小值，又想支持修改和删除 </p>
+<h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h2><ul>
+<li>contains, add, remove,  都是O(logn)</li>
+<li>支持按照<strong>特定方式排序</strong> （要自定义comparator, 类似PriorityQueue)</li>
+</ul>
 
       
     </div>
@@ -1235,7 +1326,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1299,7 +1390,7 @@ var myapc=new APlayer_Controler({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#根据Input-Size-V-S-Time-Complexity"><span class="nav-number">1.</span> <span class="nav-text">根据Input Size V.S. Time Complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Type"><span class="nav-number">2.</span> <span class="nav-text">Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Character"><span class="nav-number">2.1.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">2.2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">2.3.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collections"><span class="nav-number">3.</span> <span class="nav-text">Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Structure"><span class="nav-number">4.</span> <span class="nav-text">Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">4.1.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deque"><span class="nav-number">4.2.</span> <span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">4.3.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">4.4.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PriorityQueue"><span class="nav-number">4.5.</span> <span class="nav-text">PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">4.6.</span> <span class="nav-text">TreeMap</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#根据Input-Size-V-S-Time-Complexity"><span class="nav-number">1.</span> <span class="nav-text">根据Input Size V.S. Time Complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Type"><span class="nav-number">2.</span> <span class="nav-text">Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Character"><span class="nav-number">2.1.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">2.2.</span> <span class="nav-text">String</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Integer"><span class="nav-number">3.</span> <span class="nav-text">Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">3.1.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-number">4.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collections"><span class="nav-number">5.</span> <span class="nav-text">Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Arrays"><span class="nav-number">6.</span> <span class="nav-text">Arrays</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Structure"><span class="nav-number">7.</span> <span class="nav-text">Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">7.1.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deque"><span class="nav-number">7.2.</span> <span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">7.3.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">7.4.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PriorityQueue"><span class="nav-number">7.5.</span> <span class="nav-text">PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">7.6.</span> <span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeSet"><span class="nav-number">7.7.</span> <span class="nav-text">TreeSet</span></a></li></ol></li></ol></div>
             
 
           </div>

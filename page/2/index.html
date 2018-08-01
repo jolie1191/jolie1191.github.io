@@ -310,6 +310,812 @@ var myapc=new APlayer_Controler({
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/16/Greedy-总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/16/Greedy-总结/" itemprop="url">Greedy 总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T04:15:56-07:00">
+                2018-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Greedy-总结"><a href="#Greedy-总结" class="headerlink" title="Greedy 总结"></a>Greedy 总结</h1><p>题目中一般带有最小的，最少的。。。hint keyword</p>
+<p>Greedy 对interval overlapping 问题</p>
+<p>对起点sorting，找overlapping</p>
+<ol start="56">
+<li><p>Merge Intervals</p>
+</li>
+<li><p>Meeting Rooms</p>
+</li>
+</ol>
+<p>##LeetCode 253. Meeting Rooms II</p>
+<p>Given an array of meeting time intervals consisting of start and end times <code>[[s1,e1],[s2,e2],...]</code> (si &lt; ei), find the minimum number of conference rooms required.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [[0, 30],[5, 10],[15, 20]]</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [[7,10],[2,4]]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+<p>time: O(nlogn)<br> space: O(n)</p>
+<p>###问题分析：</p>
+<ul>
+<li>把每一个interval 按照start time 排序</li>
+<li>把第一个interval加入minHeap, 代表我至少需要一个room with meeting ending at e1</li>
+<li>遍历排序后的intervals：</li>
+</ul>
+<p>​        之后没遍历到的一个interval i，</p>
+<ol>
+<li>如果i’s start time &lt; 最早结束的room’s ending time, 那么它一定与其他room’s ending time 发生冲突， 所以要新开一个room with i’s ending time</li>
+<li>如果i’s start time &gt; 最早结束的room’s ending time, 那么i meeting 可以用最早结束meeting的room，只需要update最早结束room的ending time to i’s ending time.</li>
+</ol>
+<p>​        </p>
+<pre><code>//分析所需数据结构：
+//每次我们比较，我们都需要cur&apos;s meeting 和最早结束的room&apos;s ending time
+//用minHeap， O(1)得到最小ending time
+
+//注意： 我们每次真正在意的是之前heap中room&apos;s ending time, 所以只需要存ending time 就可以了
+
+//# of minimum room = minHeap.size()
+</code></pre><p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int minMeetingRooms(Interval[] intervals) &#123;</span><br><span class="line">        </span><br><span class="line">        if(intervals == null || intervals.length == 0)</span><br><span class="line">            return 0;</span><br><span class="line">        </span><br><span class="line">        Arrays.sort(intervals, (a, b) -&gt; a.start - b.start);</span><br><span class="line">        </span><br><span class="line">        PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;((a, b) -&gt; a - b);</span><br><span class="line">        </span><br><span class="line">        minHeap.offer(intervals[0].end);</span><br><span class="line">        </span><br><span class="line">        for(int i = 1; i &lt; intervals.length; i++)&#123;</span><br><span class="line">            if(intervals[i].start &lt; minHeap.peek())&#123; //overlaping, new room with i&apos;s ending time</span><br><span class="line">                minHeap.offer(intervals[i].end);</span><br><span class="line">            &#125;else&#123;//not conflict, just use this room, update room&apos;s ending time wiht i&apos;s ending time</span><br><span class="line">                Integer minEnd = minHeap.poll();</span><br><span class="line">                minHeap.offer(intervals[i].end);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return minHeap.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/14/Heap-总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/14/Heap-总结/" itemprop="url">Heap 总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T00:17:35-07:00">
+                2018-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>什么时候最好用到PriorityQueue：</p>
+<p>求最大值/最小值时： O(1)</p>
+<p>待总结！！！</p>
+<p>Leetcode </p>
+<ol start="347">
+<li><p>Top K Frequent Elements</p>
+</li>
+<li><p>Merge k Sorted Lists</p>
+</li>
+<li><p>Kth Smallest Element in a Sorted Matrix （23题的马甲题）！！注意变形</p>
+</li>
+<li><p>Ugly Number II</p>
+</li>
+</ol>
+<p>经典题：两个Heap去找输入流，array的median</p>
+<ol start="295">
+<li>Find Median from Data Stream</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/12/复习Cards/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/12/复习Cards/" itemprop="url">复习Cards</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-12T00:17:15-07:00">
+                2018-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/复习1/" itemprop="url" rel="index">
+                    <span itemprop="name">复习1</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/10/Stack-Queue-Heap题型总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/10/Stack-Queue-Heap题型总结/" itemprop="url">Stack, Queue, Heap题型总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-10T15:50:26-07:00">
+                2018-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Stack-Queue-Heap-题型总结"><a href="#Stack-Queue-Heap-题型总结" class="headerlink" title="Stack, Queue, Heap 题型总结"></a>Stack, Queue, Heap 题型总结</h1><h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><h3 id="基础题："><a href="#基础题：" class="headerlink" title="基础题："></a>基础题：</h3><p>####LeetCode 232. Implement Queue using Stacks </p>
+<p>题目意思： 用两个Stacks 实现Queue的功能： push(x), pop(), peek(), empty()</p>
+<p>思路： stack1用作push(), </p>
+<p>stack2 用作pop()时把Stack1中正序过来，然后 stack2.pop()</p>
+<p>主要是pop的实现：</p>
+<ol>
+<li><p>if Stack2 is empty： transfer all stack1’s elements to stack2</p>
+</li>
+<li><p>endif; return stack2.pop()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">class MyQueue &#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack1;</span><br><span class="line">    Stack&lt;Integer&gt; stack2;</span><br><span class="line"></span><br><span class="line">    /** Initialize your data structure here. */</span><br><span class="line">    public MyQueue() &#123;</span><br><span class="line">        stack1 = new Stack&lt;&gt;();</span><br><span class="line">        stack2 = new Stack&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Push element x to the back of queue. */</span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">        stack1.push(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Removes the element from in front of queue and returns that element. */</span><br><span class="line">    public int pop() &#123;</span><br><span class="line">        if(stack2.isEmpty())&#123;</span><br><span class="line">            while(!stack1.isEmpty())&#123;</span><br><span class="line">                stack2.push(stack1.pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Get the front element. */</span><br><span class="line">    public int peek() &#123;</span><br><span class="line">        if(stack2.isEmpty())&#123;</span><br><span class="line">            while(!stack1.isEmpty())&#123;</span><br><span class="line">                stack2.push(stack1.pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return stack2.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Returns whether the queue is empty. */</span><br><span class="line">    public boolean empty() &#123;</span><br><span class="line">        </span><br><span class="line">        return stack1.isEmpty() &amp;&amp; stack2.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="题型二：Iterator类型"><a href="#题型二：Iterator类型" class="headerlink" title="题型二：Iterator类型"></a>题型二：Iterator类型</h3><h4 id="注意点：-主程序应该在hasNext还是在next-中实现？"><a href="#注意点：-主程序应该在hasNext还是在next-中实现？" class="headerlink" title="注意点： 主程序应该在hasNext还是在next 中实现？"></a>注意点： 主程序应该在hasNext还是在next 中实现？</h4><p>答案是： 最好是hasNext中实现</p>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><h4 id="LeetCode-225-Implement-Stack-using-Queues"><a href="#LeetCode-225-Implement-Stack-using-Queues" class="headerlink" title="LeetCode 225. Implement Stack using Queues"></a>LeetCode 225. Implement Stack using Queues</h4><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>用Queue实现Stack的<strong>LIFO</strong>操作： push(x), pop(), peek(), empty()</p>
+<h4 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h4><ol>
+<li>方法一： Deque: 双向队列 offerLast(x), pollLast(), peekLast()</li>
+<li>方法二： Queue: 单向出口队列： push(x): queue.offer(x)之后，记得把x前面的挪到queue后面去</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">//方法二</span><br><span class="line">class MyStack &#123;</span><br><span class="line">    </span><br><span class="line">    //单向队列</span><br><span class="line">    Queue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    /** Initialize your data structure here. */</span><br><span class="line">    public MyStack() &#123;</span><br><span class="line">        queue = new LinkedList&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Push element x onto stack. */</span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">        queue.offer(x);</span><br><span class="line">        for(int i = 0; i &lt; queue.size() - 1; i++)</span><br><span class="line">            queue.offer(queue.poll());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Removes the element on top of the stack and returns that element. */</span><br><span class="line">    public int pop() &#123;</span><br><span class="line">        return queue.poll();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Get the top element. */</span><br><span class="line">    public int top() &#123;</span><br><span class="line">        return queue.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Returns whether the stack is empty. */</span><br><span class="line">    public boolean empty() &#123;</span><br><span class="line">        return queue.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/09/Two Pointer 问题总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/09/Two Pointer 问题总结/" itemprop="url">Two Pointer 问题总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T22:54:17-07:00">
+                2018-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Two-Pointer-问题总结"><a href="#Two-Pointer-问题总结" class="headerlink" title="Two Pointer 问题总结"></a>Two Pointer 问题总结</h1><h2 id="基础热身题型（必会题型）："><a href="#基础热身题型（必会题型）：" class="headerlink" title="基础热身题型（必会题型）："></a>基础热身题型（必会题型）：</h2><ol>
+<li>LeetCode283.  Move Zeroes</li>
+<li>LeetCode 26:  Remove Duplicates from Sorted Array</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="Two-Sum"><a href="#Two-Sum" class="headerlink" title="Two Sum"></a>Two Sum</h4><ul>
+<li>= target </li>
+<li>&lt;= target</li>
+<li>>target</li>
+<li>unique pairs</li>
+<li>closest to target</li>
+<li>difference = target </li>
+</ul>
+<h3 id="Partition"><a href="#Partition" class="headerlink" title="Partition"></a>Partition</h3><ul>
+<li>Quick Select </li>
+<li>分成两个部分 </li>
+<li>分成三个部分 </li>
+</ul>
+<h3 id="Sort"><a href="#Sort" class="headerlink" title="Sort"></a>Sort</h3><ul>
+<li>排序</li>
+<li>烙饼排序</li>
+<li>(还有前面学的拓扑排序 ）</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/09/Two Pointer 问题总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/09/Java常用API+数据结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -438,15 +1244,15 @@ var myapc=new APlayer_Controler({
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">static boolean</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Character.html#isDigit-char-" target="_blank" rel="noopener">isDigit</a>(char ch)</td>
+<td style="text-align:center">Character.isDigit(‘5’)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">static boolean</td>
+<td style="text-align:center"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Character.html#isLetterOrDigit-char-" target="_blank" rel="noopener">isLetterOrDigit</a>(char ch)</td>
+<td style="text-align:center">Character.isLetterOrDigit(‘a’)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -822,7 +1628,7 @@ var myapc=new APlayer_Controler({
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/Java基础知识总结----集合，框架/">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/06/Java基础知识总结----集合，框架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahui">
@@ -841,7 +1647,7 @@ var myapc=new APlayer_Controler({
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/05/Java基础知识总结----集合，框架/" itemprop="url">Java基础知识总结----集合，框架</a></h1>
+                <a class="post-title-link" href="/2018/05/06/Java基础知识总结----集合，框架/" itemprop="url">Java基础知识总结----集合，框架</a></h1>
         
 
         <div class="post-meta">
@@ -918,7 +1724,7 @@ var myapc=new APlayer_Controler({
 <h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection:"></a>Collection:</h2><h4 id="—List-有序-元素存入集合的顺序和取出的顺序一致-，元素都有索引。元素可以重复。"><a href="#—List-有序-元素存入集合的顺序和取出的顺序一致-，元素都有索引。元素可以重复。" class="headerlink" title="—List: 有序(元素存入集合的顺序和取出的顺序一致)，元素都有索引。元素可以重复。"></a>—List: 有序(元素存入集合的顺序和取出的顺序一致)，元素都有索引。元素可以重复。</h4><h4 id="—Set-无序-存入和取出顺序有可能不一致-，不可以存储重复元素。必须保证元素唯一性。"><a href="#—Set-无序-存入和取出顺序有可能不一致-，不可以存储重复元素。必须保证元素唯一性。" class="headerlink" title="—Set: 无序(存入和取出顺序有可能不一致)，不可以存储重复元素。必须保证元素唯一性。"></a>—Set: 无序(存入和取出顺序有可能不一致)，不可以存储重复元素。必须保证元素唯一性。</h4>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/05/Java基础知识总结----集合，框架/#more" rel="contents">
+            <a class="btn" href="/2018/05/06/Java基础知识总结----集合，框架/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1098,443 +1904,11 @@ var myapc=new APlayer_Controler({
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/Java/" itemprop="url">刷题中问题总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T11:03:10-07:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LearnJava/" itemprop="url" rel="index">
-                    <span itemprop="name">LearnJava</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p><strong>while循环什么时候退出？</strong></p>
-<p>先分析题意，找到退出条件conditions, 然后while循环里的statement就是：<strong>^(conditions)</strong></p>
-<p>De-Morgan’s Law:</p>
-<ol>
-<li>^(A &amp;&amp; B) —&gt; ^A || ^B</li>
-<li>^(A || B)  —&gt; ^A &amp;&amp; ^B</li>
-</ol>
-</li>
-<li><p>对于一个Sorted Array出现的问题</p>
-</li>
-</ol>
-<p>立马联想到：</p>
-<ul>
-<li>Binary Search</li>
-<li>while loop + two pointers: 谁小移动谁</li>
-</ul>
-<p><a href="https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/LeetCode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/LeetCode/" itemprop="url">Learn to build personal web</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T10:31:48-07:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LearnJava/" itemprop="url" rel="index">
-                    <span itemprop="name">LearnJava</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我就想随便写点啥</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact" target="_blank" rel="noopener">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &apos;&apos;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T09:26:31-07:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1584,7 +1958,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
