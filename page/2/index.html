@@ -310,6 +310,384 @@ var myapc=new APlayer_Controler({
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/22/图的搜索/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/22/图的搜索/" itemprop="url">图的搜索</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T23:06:59-07:00">
+                2018-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h1><h2 id="Graph-representation"><a href="#Graph-representation" class="headerlink" title="Graph representation"></a>Graph representation</h2><h3 id="1-Ajacent-Matrix"><a href="#1-Ajacent-Matrix" class="headerlink" title="1. Ajacent Matrix"></a>1. Ajacent Matrix</h3><h3 id="2-Ajacent-List"><a href="#2-Ajacent-List" class="headerlink" title="2. Ajacent List"></a>2. Ajacent List</h3><h3 id="3-Ajacent-HashTable-hashMap-hashSet-重点"><a href="#3-Ajacent-HashTable-hashMap-hashSet-重点" class="headerlink" title="3. Ajacent HashTable(hashMap, hashSet)重点"></a>3. Ajacent HashTable(hashMap, hashSet)重点</h3><h2 id="BFS-1"><a href="#BFS-1" class="headerlink" title="BFS-1"></a>BFS-1</h2><p><strong>按照start node(nodes), 按照一步以外的一圈走完之后，再以两步以外的一圈走完。。。一步一步往外走，直到queue为空</strong></p>
+<h2 id="BFS-1-1"><a href="#BFS-1-1" class="headerlink" title="BFS-1"></a>BFS-1</h2><p>###BFS-1代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public void bfs1(Node root)&#123;</span><br><span class="line">    if(root == null)</span><br><span class="line">    	return;</span><br><span class="line">    </span><br><span class="line">    Queue&lt;Node&gt; q = new LinkedList&lt;&gt;();</span><br><span class="line">    q.offer(root);</span><br><span class="line">    </span><br><span class="line">    while(!q.isEmpty())&#123;</span><br><span class="line">    	//重点： 分层遍历， 在所有操作前， 记录size</span><br><span class="line">        int size = q.size();</span><br><span class="line">        </span><br><span class="line">        for(int i = 0; i &lt; size; i++)&#123;</span><br><span class="line">            Node cur = q.poll();</span><br><span class="line">            if(cur.left != null)</span><br><span class="line">            	q.offer(cur.left);</span><br><span class="line">            if(cur.right != null)</span><br><span class="line">            	q.offer(cur.right);</span><br><span class="line">            </span><br><span class="line">            Sysytem.out.print(cut.val + &quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="常考题型"><a href="#常考题型" class="headerlink" title="常考题型"></a>常考题型</h3><ol>
+<li><p>分层遍历： int size = queue.size()</p>
+</li>
+<li><p>Bipartile: 分组(u, v)， 如果同一个结点既背分到u group，后来又被分到v group，肯定不是bipartile</p>
+<p>1(u) —— 2(v)</p>
+<p>​    \     /</p>
+<p>​    3(v != u)</p>
+</li>
+<li><p>determine a binary tree is a <strong>complete binary tree</strong>: 判断同层是否有气泡</p>
+</li>
+</ol>
+<h3 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h3><h4 id="1-什么时候用BFS-1"><a href="#1-什么时候用BFS-1" class="headerlink" title="1. 什么时候用BFS-1"></a>1. 什么时候用BFS-1</h4><p>Tree Problem + <strong>考虑到<u><em>同层关系</em></u>时</strong>。</p>
+<h2 id="Best-First-Search-BFS-2"><a href="#Best-First-Search-BFS-2" class="headerlink" title="Best First Search(BFS-2)"></a>Best First Search(BFS-2)</h2><p><strong>使用minHeap, 按照最小的key先出来</strong></p>
+<h3 id="经典算法：-Dijkstra’s-Algorithm"><a href="#经典算法：-Dijkstra’s-Algorithm" class="headerlink" title="经典算法： Dijkstra’s Algorithm"></a>经典算法： Dijkstra’s Algorithm</h3><h4 id="1-Usage-点到面（-所有点）的最短距离算法"><a href="#1-Usage-点到面（-所有点）的最短距离算法" class="headerlink" title="1. Usage: 点到面（==所有点）的最短距离算法"></a>1. Usage: 点到面（==所有点）的最短距离算法</h4><h4 id="2-Example-Problem-从北京到中国其他所有主要城市的最短距离是多少"><a href="#2-Example-Problem-从北京到中国其他所有主要城市的最短距离是多少" class="headerlink" title="2. Example Problem: 从北京到中国其他所有主要城市的最短距离是多少"></a>2. Example Problem: 从北京到中国其他所有主要城市的最短距离是多少</h4><h4 id="3-Data-Structure-PriorityQueue-minHeap"><a href="#3-Data-Structure-PriorityQueue-minHeap" class="headerlink" title="3. Data Structure: PriorityQueue(minHeap)"></a>3. Data Structure: PriorityQueue(minHeap)</h4><h4 id="4-解题思路："><a href="#4-解题思路：" class="headerlink" title="4. 解题思路："></a>4. 解题思路：</h4><h5 id="4-1-initial-state-start-node"><a href="#4-1-initial-state-start-node" class="headerlink" title="4.1 initial state(start node)"></a>4.1 initial state(start node)</h5><h5 id="4-2-Node-expansion-Genration-rule"><a href="#4-2-Node-expansion-Genration-rule" class="headerlink" title="4.2 Node expansion/Genration rule:"></a>4.2 Node expansion/Genration rule:</h5><h5 id="4-3-Terminations-Condition-所有点都计算完毕才停止，也就是minHeap为空时"><a href="#4-3-Terminations-Condition-所有点都计算完毕才停止，也就是minHeap为空时" class="headerlink" title="4.3 Terminations Condition: 所有点都计算完毕才停止，也就是minHeap为空时"></a>4.3 Terminations Condition: 所有点都计算完毕才停止，也就是minHeap为空时</h5><p>####BFS应用—Topological sort</p>
+<p>不同于BFS-1从一个start node 从上往下层层搜索； </p>
+<p><strong>Topological sort是从外（<u>从所有leaves出发</u>）往里一层一层的缩小，直到Queue为空</strong></p>
+<ol>
+<li>LeetCode 207. Course Schedule</li>
+<li>LeetCode 210. Course Schedule II</li>
+<li>LeetCode 310. Minimum Height Trees 总结未做</li>
+<li>LeetCode 444: Sequence Reconstruction ?</li>
+<li>LeetCode 269: Alien Dictionary ?</li>
+</ol>
+<h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><ol>
+<li>粉红色路径，一头扎到底，（backtracking）是扎到底之后返回它上一层</li>
+<li>有些问题不能使用BFS-1,是因为随着搜索范围的增大，层数的增大，queue的size也会随着exponetially 增大</li>
+</ol>
+<ul>
+<li>Recall “using pre-order to traverse a tree”</li>
+<li>实现方法： easy to use <strong>recursion</strong></li>
+<li>常见考题：<ol>
+<li>DFS 例题1： print all subsets of a set</li>
+<li>DFS 例题2： print all valid permutation of () () ()</li>
+<li>DFS 例题3： e.g.凑硬币金额99分<ul>
+<li>有1分， 5分， 10 分， 25分coins, 给定金额99cents, 有多少种组成方式，并打印出所有可能组合</li>
+</ul>
+</li>
+<li>DFS一类的题目</li>
+</ol>
+</li>
+</ul>
+<h3 id="1-DFS-类型1：0-or-1"><a href="#1-DFS-类型1：0-or-1" class="headerlink" title="1. DFS 类型1：0 or 1"></a>1. DFS 类型1：0 or 1</h3><p>####例题1. LeetCode 78. Subsets</p>
+<p>题意： Given a set of <strong>distinct</strong> integers, <em>nums</em>, return all possible subsets (the power set).</p>
+<p><strong>Note:</strong> The solution set must not contain duplicate subsets.</p>
+<p><img src="http://server.myspace-shack.com/d23/f0ae1fd5-fe37-47f6-9fe2-47f68aa58869.png" alt=""></p>
+<p><img src="http://server.myspace-shack.com/d23/1ebef5ec-c5a2-440b-90e1-1ddb415109f2.png" alt=""></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) &#123;</span><br><span class="line">       </span><br><span class="line">       </span><br><span class="line">       //解法一： 对每个数字选 or 不选</span><br><span class="line">       //no duplicate</span><br><span class="line">       //dfs recusion tree</span><br><span class="line">       //有多少layer： n个数字，所有对n个数字做选 or 不选， ---n layer</span><br><span class="line">       //有多少个分叉： two, ---选 or 不选</span><br><span class="line">       </span><br><span class="line">       if(nums == null || nums.length == 0)</span><br><span class="line">           return new ArrayList&lt;&gt;();</span><br><span class="line">       </span><br><span class="line">       List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">       List&lt;Integer&gt; subset = new ArrayList&lt;&gt;();</span><br><span class="line">       </span><br><span class="line">       dfs(nums, 0, subset, res);</span><br><span class="line">       </span><br><span class="line">       return res;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   public void dfs(int[] nums, int index, List&lt;Integer&gt; subset, List&lt;List&lt;Integer&gt;&gt; res)&#123;</span><br><span class="line">       if(index == nums.length)&#123;</span><br><span class="line">           res.add(new ArrayList&lt;&gt;(subset));</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       if(index &lt; nums.length)&#123;</span><br><span class="line">           //case 1: chose nums[i]</span><br><span class="line">           subset.add(nums[index]);</span><br><span class="line">           dfs(nums, index + 1, subset, res);</span><br><span class="line">           subset.remove(subset.size() - 1);</span><br><span class="line"></span><br><span class="line">           //case 2: not choose nums[i]</span><br><span class="line">           dfs(nums, index + 1, subset, res);</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="例题2：-LeetCode-22-Generate-Parentheses"><a href="#例题2：-LeetCode-22-Generate-Parentheses" class="headerlink" title="例题2： LeetCode 22: Generate Parentheses"></a>例题2： LeetCode 22: Generate Parentheses</h4><p>#####类似subset-I: 选‘（ ’ or 选‘ ）’ + 特定的<strong>剪枝</strong>—即：什么时候可以加（， 什么时候可以加）</p>
+<p>题意：</p>
+<p>Given <em>n</em> pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
+<p>For example, given <em>n</em> = 3, a solution set is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &quot;((()))&quot;,</span><br><span class="line">  &quot;(()())&quot;,</span><br><span class="line">  &quot;(())()&quot;,</span><br><span class="line">  &quot;()(())&quot;,</span><br><span class="line">  &quot;()()()&quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>思路：</p>
+<p><img src="http://server.myspace-shack.com/d23/5f1594d6-3eff-48be-835b-5a0a66f2d7d1.png" alt=""></p>
+<h5 id="Recursion-Tree"><a href="#Recursion-Tree" class="headerlink" title="Recursion Tree"></a>Recursion Tree</h5><p><img src="http://server.myspace-shack.com/d23/e55a1cf9-6641-46fe-82d7-a800c4bb5001.png" alt=""></p>
+<p>虚线的state代表的是剪枝（<strong>Restrictions</strong>）</p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public List&lt;String&gt; generateParenthesis(int n) &#123;</span><br><span class="line">        </span><br><span class="line">        //左右括号都必须得匹配</span><br><span class="line">        //n pairs of parentheses, then we have 2*n position to put &apos;(&apos; or &apos;)&apos;</span><br><span class="line">        //for each positon , we can either put &apos;(&apos; or &apos;)&apos;, 但是我们有一些constraints</span><br><span class="line">        //类似subset问题中每个数字，选or不选的关系</span><br><span class="line">        //constraints:</span><br><span class="line">        //1. 什么时候可以加&apos;(&apos;? --- numL # of &apos;(&apos; &lt; n</span><br><span class="line">        //2. 什么时候可以加&apos;)&apos;? --- numR # of &apos;(&apos; &gt; # of &apos;)&apos;</span><br><span class="line">        //3. base case: 什么时候跳出？ --- numL == n &amp;&amp; numR == n</span><br><span class="line">        List&lt;String&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        if(n == 0)</span><br><span class="line">            return res;</span><br><span class="line">        </span><br><span class="line">        StringBuilder sb = new StringBuilder();</span><br><span class="line">        </span><br><span class="line">        chooseLOrRhelper(n, 0 , 0, sb, res);</span><br><span class="line">        </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    //DFS: </span><br><span class="line">    public void chooseLOrRhelper(int n, int numL, int numR, StringBuilder sb, List&lt;String&gt; res)&#123;</span><br><span class="line">        </span><br><span class="line">        if(numL == n &amp;&amp; numR == n)&#123;</span><br><span class="line">            res.add(new StringBuilder(sb).toString());</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        //case 1: add &apos;(&apos;, 左子树</span><br><span class="line">        if(numL &lt; n)&#123;</span><br><span class="line">            sb.append(&apos;(&apos;);</span><br><span class="line">            chooseLOrRhelper(n, numL + 1, numR, sb, res);</span><br><span class="line">            sb.deleteCharAt(sb.length() - 1);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        //case 2: add &apos;)&apos;, 右子树</span><br><span class="line">        if(numL &gt; numR)&#123;</span><br><span class="line">            sb.append(&apos;)&apos;);</span><br><span class="line">            chooseLOrRhelper(n, numL, numR + 1, sb, res);</span><br><span class="line">            sb.deleteCharAt(sb.length() - 1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####例题4：LeetCode 46. Permutations </p>
+<p>题意：</p>
+<p>Given a collection of <strong>distinct</strong> integers, return all possible permutations.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3]</span><br><span class="line">Output:</span><br><span class="line">[</span><br><span class="line">  [1,2,3],</span><br><span class="line">  [1,3,2],</span><br><span class="line">  [2,1,3],</span><br><span class="line">  [2,3,1],</span><br><span class="line">  [3,1,2],</span><br><span class="line">  [3,2,1]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>#####方法一： with extra space: <strong>used[] 去记录某个数字是否使用过</strong></p>
+<p><img src="http://i67.tinypic.com/2yx1a9u.png" alt=""></p>
+<h5 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public List&lt;List&lt;Integer&gt;&gt; permute(int[] nums) &#123;</span><br><span class="line">        </span><br><span class="line">        if(nums == null || nums.length == 0)</span><br><span class="line">            return new ArrayList&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;Integer&gt; item = new ArrayList&lt;&gt;();</span><br><span class="line">        int[] visited = new int[nums.length];</span><br><span class="line">        </span><br><span class="line">        dfs(nums, 0, item, res, visited);</span><br><span class="line">        </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void dfs(int[] nums, int level, List&lt;Integer&gt; item, List&lt;List&lt;Integer&gt;&gt; res, int[] visited)&#123;</span><br><span class="line">        if(level == nums.length)&#123;</span><br><span class="line">            res.add(new ArrayList(item));</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if(level &lt; nums.length)&#123;</span><br><span class="line">            </span><br><span class="line">            //how many cases on each state on each level?</span><br><span class="line">            //i = 0----n, need to check visited</span><br><span class="line">            for(int i = 0; i &lt; nums.length; i++)&#123;</span><br><span class="line">                </span><br><span class="line">                if(visited[i] == 0)&#123;</span><br><span class="line">                    item.add(nums[i]);</span><br><span class="line">                    visited[i] = 1;</span><br><span class="line">                    dfs(nums, level + 1, item, res, visited);</span><br><span class="line">                    item.remove(item.size() - 1);</span><br><span class="line">                    visited[i] = 0;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法二： in-place: 不需要used[] 去记录某个数字是否使用过</p>
+<p>####<u>permutation —In-place 方法之index-swap-swap</u></p>
+<p><img src="http://i68.tinypic.com/27xr0o5.png" alt=""></p>
+<p>注意点：</p>
+<ol>
+<li>for循环中0 改为<strong>index</strong> </li>
+<li>每次swap(input, <strong>index</strong>, i);</li>
+</ol>
+<p><img src="http://i65.tinypic.com/j58jk6.png" alt=""></p>
+<h3 id="DFS中关于combination-permutation的一些问题"><a href="#DFS中关于combination-permutation的一些问题" class="headerlink" title="DFS中关于combination, permutation的一些问题"></a>DFS中关于combination, permutation的一些问题</h3><h4 id="1-Combination-题型及变形"><a href="#1-Combination-题型及变形" class="headerlink" title="1. Combination 题型及变形"></a>1. Combination 题型及变形</h4><h4 id="1-1-LeetCode-78-Subsets"><a href="#1-1-LeetCode-78-Subsets" class="headerlink" title="1.1 LeetCode 78. Subsets"></a>1.1 LeetCode 78. Subsets</h4><p>Given a set of <strong>distinct</strong> integers, <em>nums</em>, return all possible subsets (the power set).</p>
+<p><strong>Note:</strong> The solution set must not contain duplicate subsets.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,2,3]</span><br><span class="line">Output:</span><br><span class="line">[</span><br><span class="line">  [3],</span><br><span class="line">  [1],</span><br><span class="line">  [2],</span><br><span class="line">  [1,2,3],</span><br><span class="line">  [1,3],</span><br><span class="line">  [2,3],</span><br><span class="line">  [1,2],</span><br><span class="line">  []</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>Recursion Tree:</p>
+<p><img src="http://server.myspace-shack.com/d23/0b14246c-4bef-4ed8-9062-9db01aa02211.png" alt=""></p>
+<p>Follow-Up: LeetCode 90. Subsets II (有重复数字)</p>
+<p>Given a collection of integers that might contain duplicates, <strong>nums</strong>, return all possible subsets (the power set).</p>
+<p><strong>Note:</strong> The solution set must not contain duplicate subsets.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,2]</span><br><span class="line">Output:</span><br><span class="line">[</span><br><span class="line">  [2],</span><br><span class="line">  [1],</span><br><span class="line">  [1,2,2],</span><br><span class="line">  [2,2],</span><br><span class="line">  [1,2],</span><br><span class="line">  []</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>Recursion Tree:</p>
+<p><img src="http://server.myspace-shack.com/d23/86d36228-0fc1-47ea-916a-15054e45e792.png" alt=""></p>
+<h4 id="1-2-Combination-Sum-input无重复-一个数字可以用无数次"><a href="#1-2-Combination-Sum-input无重复-一个数字可以用无数次" class="headerlink" title="1.2 Combination Sum (input无重复 + 一个数字可以用无数次)"></a>1.2 Combination Sum (input无重复 + 一个数字可以用无数次)</h4><p>Given a <strong>set</strong> of candidate numbers (<code>candidates</code>) <strong>(without duplicates)</strong> and a target number (<code>target</code>), find all unique combinations in <code>candidates</code> where the candidate numbers sums to <code>target</code>.</p>
+<p>The <strong>same</strong> repeated number may be chosen from <code>candidates</code> unlimited number of times.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: candidates = [2,3,6,7], target = 7,</span><br><span class="line">A solution set is:</span><br><span class="line">[</span><br><span class="line">  [7],</span><br><span class="line">  [2,2,3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p> Recusion Tree:</p>
+<p><img src="http://server.myspace-shack.com/d23/c567f485-93a6-4d00-b1ed-db852fa24da2.png" alt=""></p>
+<p>Folow-Up: LeetCode 40. Combination Sum II (input有重复 + 每个数字只能用一次)</p>
+<p>Given a collection of candidate numbers (<code>candidates</code>) and a target number (<code>target</code>), find all unique combinations in <code>candidates</code> where the candidate numbers sums to <code>target</code>.</p>
+<p>Each number in <code>candidates</code> may only be used <strong>once</strong> in the combination.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: candidates = [2,5,2,1,2], target = 5,</span><br><span class="line">A solution set is:</span><br><span class="line">[</span><br><span class="line">  [1,2,2],</span><br><span class="line">  [5]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>Recursion Tree:</p>
+<p><img src="http://server.myspace-shack.com/d23/67482f96-dff9-4fe8-9eec-e7c9a3225eed.png" alt=""></p>
+<p>Follow-Up: LeetCode 216. Combination Sum III （从1–9中挑选k个数字使得它们的和为n)</p>
+<p>Find all possible combinations of <strong>*k*</strong> numbers that add up to a number <strong>*n*</strong>, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: k = 3, n = 7</span><br><span class="line">Output: [[1,2,4]]</span><br></pre></td></tr></table></figure>
+<p>Recursion Tree:</p>
+<p><img src="http://server.myspace-shack.com/d23/79fdb8c4-9d25-4992-bed1-065da5634775.png" alt=""></p>
+<h3 id="1-3-Combination"><a href="#1-3-Combination" class="headerlink" title="1.3 Combination"></a>1.3 Combination</h3><p>Given two integers <em>n</em> and <em>k</em>, return all possible combinations of <em>k</em> numbers out of 1 … <em>n</em>.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 4, k = 2</span><br><span class="line">Output:</span><br><span class="line">[</span><br><span class="line">  [2,4],</span><br><span class="line">  [3,4],</span><br><span class="line">  [2,3],</span><br><span class="line">  [1,2],</span><br><span class="line">  [1,3],</span><br><span class="line">  [1,4],</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>Recursion Tree:</p>
+<p><img src="http://server.myspace-shack.com/d23/189d9f82-964a-4bcd-bd33-aeefe35c3c18.png" alt=""></p>
+<h3 id="2-Permutation及其变形"><a href="#2-Permutation及其变形" class="headerlink" title="2. Permutation及其变形"></a>2. Permutation及其变形</h3><h4 id="2-1-Permutaiton-输入无重复"><a href="#2-1-Permutaiton-输入无重复" class="headerlink" title="2.1 Permutaiton (输入无重复)"></a>2.1 Permutaiton (输入无重复)</h4><p>Given a collection of <strong>distinct</strong> integers, return all possible permutations.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3]</span><br><span class="line">Output:</span><br><span class="line">[</span><br><span class="line">  [1,2,3],</span><br><span class="line">  [1,3,2],</span><br><span class="line">  [2,1,3],</span><br><span class="line">  [2,3,1],</span><br><span class="line">  [3,1,2],</span><br><span class="line">  [3,2,1]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>写法一：visited</p>
+<p><img src="http://server.myspace-shack.com/d23/62469540-7ded-48f4-ac19-71e341ebf771.png" alt=""></p>
+<p>写法二：index-swap-swap（只能在input是array的况下使用）</p>
+<p>Recursion Tree:</p>
+<p><img src="http://server.myspace-shack.com/d23/1fe15417-3324-403e-9b6a-980190b8ff46.png" alt=""></p>
+<h4 id="2-2-Permutation-input存在dupicate"><a href="#2-2-Permutation-input存在dupicate" class="headerlink" title="2.2 Permutation (input存在dupicate)"></a>2.2 Permutation (input存在dupicate)</h4><p><img src="http://server.myspace-shack.com/d23/4dc0816c-5440-45ab-9571-2a25660c8372.png" alt=""></p>
+<h2 id="再次总结："><a href="#再次总结：" class="headerlink" title="再次总结："></a>再次总结：</h2><p>###关于<strong>Recursion</strong>一些自己的误区及纠正：</p>
+<p>E.g. Recursion Tree:</p>
+<p><img src="http://i68.tinypic.com/27xr0o5.png" alt=""></p>
+<ol>
+<li><p>关于Recursion中的global, 和local（局部）变量的理解</p>
+<p>public void <strong>dfs(char[] str, int index, List<character> tmp, List&lt;List<string>&gt; res, int[] used)</string></character></strong></p>
+<ul>
+<li>recursion function中的argument都是global的—对于reference type data(tmp, res, used), 都是全局可变的，<strong>即—随着recursion tree traverse， recursion funciton 有时需要做内部更改（如：tmp, res, used）</strong> <strong>就像每个结点上的一个随身记事本</strong></li>
+<li>在recursion function 内部定义的变量是local（局部）变量。<strong>只记录当前层上同一个父节点下children结点的状态</strong></li>
+</ul>
+<p>在recursion tree上的体现为：</p>
+<p>—–如处理duplicate character时：需要定义一个hashSet, 去记录<strong>当前level(index)在同一个父节点</strong>下是否visited过某个character</p>
+<p>例如：在L1层， 用一个hashSet 记录在<strong>该level上</strong>用到过的character b1</p>
+<p><img src="http://server.myspace-shack.com/d23/b53e18df-71d1-4602-a691-17bb0601b51c.png" alt=""></p>
+</li>
+</ol>
+<p>### </p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Difficulty</th>
+<th>P/F</th>
+<th>Data Structure</th>
+<th>Skills</th>
+<th>Sepcial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>46</td>
+<td>Permutations</td>
+<td>M</td>
+<td>1/1</td>
+<td></td>
+<td>(DFS) -Way1. <strong>In-place: index-swap-swap.</strong> -Way2. Extra Space: List&lt;&gt; tmp + int[] used</td>
+<td>经典</td>
+</tr>
+<tr>
+<td>47</td>
+<td>PermutationII</td>
+<td>M</td>
+<td>1/1</td>
+<td></td>
+<td>如上Way 1: sort. Way2: hashset去重复</td>
+<td>de-dup</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/16/Greedy-总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1628,7 +2006,7 @@ var myapc=new APlayer_Controler({
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/06/Java基础知识总结----集合，框架/">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/Java基础知识总结----集合，框架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahui">
@@ -1647,7 +2025,7 @@ var myapc=new APlayer_Controler({
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/06/Java基础知识总结----集合，框架/" itemprop="url">Java基础知识总结----集合，框架</a></h1>
+                <a class="post-title-link" href="/2018/05/05/Java基础知识总结----集合，框架/" itemprop="url">Java基础知识总结----集合，框架</a></h1>
         
 
         <div class="post-meta">
@@ -1724,153 +2102,11 @@ var myapc=new APlayer_Controler({
 <h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection:"></a>Collection:</h2><h4 id="—List-有序-元素存入集合的顺序和取出的顺序一致-，元素都有索引。元素可以重复。"><a href="#—List-有序-元素存入集合的顺序和取出的顺序一致-，元素都有索引。元素可以重复。" class="headerlink" title="—List: 有序(元素存入集合的顺序和取出的顺序一致)，元素都有索引。元素可以重复。"></a>—List: 有序(元素存入集合的顺序和取出的顺序一致)，元素都有索引。元素可以重复。</h4><h4 id="—Set-无序-存入和取出顺序有可能不一致-，不可以存储重复元素。必须保证元素唯一性。"><a href="#—Set-无序-存入和取出顺序有可能不一致-，不可以存储重复元素。必须保证元素唯一性。" class="headerlink" title="—Set: 无序(存入和取出顺序有可能不一致)，不可以存储重复元素。必须保证元素唯一性。"></a>—Set: 无序(存入和取出顺序有可能不一致)，不可以存储重复元素。必须保证元素唯一性。</h4>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/06/Java基础知识总结----集合，框架/#more" rel="contents">
+            <a class="btn" href="/2018/05/05/Java基础知识总结----集合，框架/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/05/Typora键盘侠/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FlyingSheep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/Typora键盘侠/" itemprop="url">Typora</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T11:03:12-07:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LearnJava/" itemprop="url" rel="index">
-                    <span itemprop="name">LearnJava</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Typora-从此请叫我键盘侠"><a href="#Typora-从此请叫我键盘侠" class="headerlink" title="Typora:从此请叫我键盘侠"></a>Typora:从此请叫我键盘侠</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. cd hexoFolder</span><br><span class="line">2. $ hexo new &quot;My New Post&quot;</span><br><span class="line">3. 修改tags和categories</span><br><span class="line">4. 在本地服务器上检测： hexo s --debug</span><br><span class="line">5. 传到GitHub：</span><br><span class="line"></span><br><span class="line"> $hexo g</span><br><span class="line"> $hexo d</span><br><span class="line"> </span><br><span class="line">快捷键大全：</span><br><span class="line"></span><br><span class="line">http://joehill.me/2015/07/27/2015-07-27-Markdown-Typora/</span><br><span class="line"></span><br><span class="line">http://www.flypeom.site/documentation/2017/09/02/Typora%E7%AE%80%E4%BB%8B%E5%8F%8AMarkdown%E8%AF%AD%E6%B3%95%E7%B2%BE%E8%AE%B2/</span><br></pre></td></tr></table></figure>
-
-          
         
       
     </div>
@@ -1958,7 +2194,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
