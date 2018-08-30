@@ -116,7 +116,7 @@ var myapc=new APlayer_Controler({
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://i65.tinypic.com/2zs49qv.png">
 <meta property="og:image" content="http://i68.tinypic.com/31667bq.png">
-<meta property="og:updated_time" content="2018-08-27T04:10:16.728Z">
+<meta property="og:updated_time" content="2018-08-29T17:39:01.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java常用API+数据结构">
 <meta name="twitter:description" content="根据Input Size V.S. Time Complexity Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    stat">
@@ -615,7 +615,7 @@ var myapc=new APlayer_Controler({
 </tr>
 <tr>
 <td></td>
-<td></td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/StringBuilder.html#setLength-int-" target="_blank" rel="noopener">setLength</a>(int newLength)</td>
 <td></td>
 <td></td>
 </tr>
@@ -1306,7 +1306,7 @@ var myapc=new APlayer_Controler({
 </tr>
 </tbody>
 </table>
-<h2 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h2><p>什么时候使用TreeMap？</p>
+<h2 id="TreeMap-Red-Black-tree，类似BST"><a href="#TreeMap-Red-Black-tree，类似BST" class="headerlink" title="TreeMap(Red-Black tree，类似BST)"></a>TreeMap(Red-Black tree，类似BST)</h2><p>什么时候使用TreeMap？</p>
 <p>答案： 又想知道最小值/最大值，又想支持修改和<strong><u>Remove</u></strong> 都是O(logn)</p>
 <table>
 <thead>
@@ -1373,9 +1373,13 @@ var myapc=new APlayer_Controler({
 </tr>
 </tbody>
 </table>
-<h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h2><ul>
-<li>contains, add, <strong><u>Remove</u></strong>,  都是O(logn)</li>
-<li>支持按照<strong>特定方式排序</strong> （要自定义comparator, 类似PriorityQueue)</li>
+<h2 id="TreeSet-Red-Black-tree，类似BST"><a href="#TreeSet-Red-Black-tree，类似BST" class="headerlink" title="TreeSet  (Red-Black tree，类似BST)"></a>TreeSet  (Red-Black tree，类似BST)</h2><ul>
+<li><p>contains, add, <strong><u>Remove</u></strong>,  都是O(logn)</p>
+</li>
+<li><p>支持按照<strong>特定方式排序</strong> （要自定义comparator)</p>
+<p>具有PriorityQueue： O(logn) getMax/getMin</p>
+<p>也具有BST search: O(logn) serach</p>
+</li>
 </ul>
 <table>
 <thead>
@@ -1402,7 +1406,7 @@ var myapc=new APlayer_Controler({
 <tr>
 <td>E</td>
 <td>first()</td>
-<td></td>
+<td>O(logn) getMax/getMin</td>
 <td></td>
 </tr>
 <tr>
@@ -1418,15 +1422,15 @@ var myapc=new APlayer_Controler({
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>E</td>
+<td><code>floor(E e)</code></td>
+<td>O（logn)找到target的左侧最大(相等)Element</td>
+<td>Returns the greatest element in this set &lt;= the given element, or <code>null</code> if there is no such element.</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td>E</td>
+<td><a href="https://docs.oracle.com/javase/9/docs/api/java/util/TreeSet.html#ceiling-E-" target="_blank" rel="noopener">ceiling</a>(<a href="https://docs.oracle.com/javase/9/docs/api/java/util/TreeSet.html" target="_blank" rel="noopener">E</a> e)</td>
+<td>O(logn)找到target右侧最小(相等）Element</td>
 <td></td>
 </tr>
 <tr>
@@ -1643,7 +1647,7 @@ var myapc=new APlayer_Controler({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#根据Input-Size-V-S-Time-Complexity"><span class="nav-number">1.</span> <span class="nav-text">根据Input Size V.S. Time Complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Type"><span class="nav-number">2.</span> <span class="nav-text">Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Character"><span class="nav-number">2.1.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">2.2.</span> <span class="nav-text">String</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Integer"><span class="nav-number">3.</span> <span class="nav-text">Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">3.1.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-number">4.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedList"><span class="nav-number">5.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collections"><span class="nav-number">6.</span> <span class="nav-text">Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Arrays"><span class="nav-number">7.</span> <span class="nav-text">Arrays</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Structure"><span class="nav-number">8.</span> <span class="nav-text">Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">8.1.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deque"><span class="nav-number">8.2.</span> <span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">8.3.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">8.4.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PriorityQueue"><span class="nav-number">8.5.</span> <span class="nav-text">PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">8.6.</span> <span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeSet"><span class="nav-number">8.7.</span> <span class="nav-text">TreeSet</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#根据Input-Size-V-S-Time-Complexity"><span class="nav-number">1.</span> <span class="nav-text">根据Input Size V.S. Time Complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Type"><span class="nav-number">2.</span> <span class="nav-text">Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Character"><span class="nav-number">2.1.</span> <span class="nav-text">Character</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">2.2.</span> <span class="nav-text">String</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Integer"><span class="nav-number">3.</span> <span class="nav-text">Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">3.1.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-number">4.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedList"><span class="nav-number">5.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collections"><span class="nav-number">6.</span> <span class="nav-text">Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Arrays"><span class="nav-number">7.</span> <span class="nav-text">Arrays</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Structure"><span class="nav-number">8.</span> <span class="nav-text">Data Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">8.1.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deque"><span class="nav-number">8.2.</span> <span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">8.3.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">8.4.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PriorityQueue"><span class="nav-number">8.5.</span> <span class="nav-text">PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap-Red-Black-tree，类似BST"><span class="nav-number">8.6.</span> <span class="nav-text">TreeMap(Red-Black tree，类似BST)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeSet-Red-Black-tree，类似BST"><span class="nav-number">8.7.</span> <span class="nav-text">TreeSet  (Red-Black tree，类似BST)</span></a></li></ol></li></ol></div>
             
 
           </div>

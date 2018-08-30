@@ -352,6 +352,28 @@ var myapc=new APlayer_Controler({
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -381,7 +403,251 @@ var myapc=new APlayer_Controler({
       
         
           
-            
+            <blockquote>
+<ol>
+<li><p>分解问题的角度: fix 某一维度，尝试另一维度上的所有可能     </p>
+<p>a. 可能是array的(i, j)pointers, b. 可能是矩形的长与宽, c. 可能是tree的每一个subtree, d. 可能是情景题的每一对pair…    </p>
+</li>
+<li><p>求所有解的, 暴力上backtracking吧  </p>
+</li>
+<li><p>如果问最短/最少的, 先想BFS、DP这对好基友  </p>
+</li>
+<li><p>如果环相关/重复访问, DFS + visited state雄起  </p>
+</li>
+<li><p>如果问连通性, 静态靠DFS/BFS, 动态靠Union-Find  </p>
+</li>
+<li><p>如果有依赖性, 想想Topologic order 和indegree  </p>
+</li>
+<li><p>DAG的万能套路 DFS+memo, 再到DP </p>
+</li>
+<li><p>建图的时候想想vertex, edges/neighbors, cost分别是什么。如果出现cycle, 别忘了给vertex增加状态  </p>
+</li>
+<li><p>树相关, 永远有backtracking 和 pure recursion两条路  </p>
+</li>
+<li><p>遇到字符串/字典/char board相关的, Trie tree总是可以试试的  </p>
+</li>
+<li><p>Range里求最大/最小/sum等特征值, Segment tree会是不错的选择 </p>
+</li>
+<li><p>Matrix和Array通常都是1. Two Pointers, 2. Sliding Window(fixed &amp; not fixed), 3. DP  </p>
+</li>
+<li><p>DP题型往往是: a. 问你可不可以啊, 数量有多少啊, b. 两个string上match来match去的, c. 1D/2D array 相关, d. 博弈游戏  </p>
+</li>
+<li><p>破解DAG cycle想想哪个维度是具有单调性的: 常见的steps, directions, paths </p>
+</li>
+<li><p>Reversed idea非常重要, 可能会帮助你破题: 最长可能是某种最短的反面, 最多可能是某种最少的反面, obstacle的反面是reachable, subarray的反面是array中的剩下元素, left的反面是right。  </p>
+</li>
+<li><p>Look up别忘了HashMap/HashSet, HashMap + DLL是常见hybrid数据结构。</p>
+</li>
+<li><p>找规律试试那些旁门左道: 单调Stack/双端Deque  </p>
+</li>
+<li><p>排序大法总是可以试试的  </p>
+</li>
+<li><p>时空复杂度: </p>
+<p>a. backtracking相关, 想想branching factor和height                           </p>
+<p>b. DFS+memo/DP相关, 想想state数量, 以及每个state的cost                           </p>
+<p>c. tree相关, 总是要考虑balanced 和 single linked list的                            </p>
+<p>d. array/矩阵相关, 先数数你有多少个for loops                            </p>
+<p>e. binary search application相关, 别忘了check function开销                           </p>
+<p>f. stack/queue/deque相关, 常说的吃进去一次又吐出来一次                           </p>
+<p>g. Java的string是朵奇葩, string concatenation不是免费的                           </p>
+<p>h. 没人知道n是什么, 先告诉别人m，n，k，V，E是什么  </p>
+</li>
+<li><p>比较不同sol的trade offs: </p>
+<p>a. Time/Space complexity异同                                               </p>
+<p>b. online/offline算法                                               </p>
+<p>c. pre-computation cost                                               </p>
+<p>d. 不同APIs的call frequency差异会导致不同的时间要求                                               </p>
+<p>e. extension: 是否适用于generic parameters/stream input                                               </p>
+<p>f. 线程安全/large scale</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="错题集"><a href="#错题集" class="headerlink" title="错题集"></a>错题集</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">Quesiton</th>
+<th style="text-align:center">Frequency</th>
+<th style="text-align:center">Diffuculty</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">312.  Burst Balloons</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">727. Minimum Window Subsequence</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">97.    Interleaving String</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">115.    Distinct subsequence</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">524.    Longest Word in Dictionary through Deleting</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">M</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">174. Dungeon Game</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">221. Maximal Squares</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">M</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">322. Coin Change</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">M</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">343. Integer Break</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">M</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">357. COunt Numbers with Unique Digits</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">M</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">300. Longest Increasing Subsequence</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">M</td>
+<td style="text-align:left">DP; Patient sort</td>
+</tr>
+<tr>
+<td style="text-align:left">265. Paint House II</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">277. FInd the celebrity</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">M</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">301. Remove Invalid Parentheses</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left">BFS最短路径问题</td>
+</tr>
+<tr>
+<td style="text-align:left">122. Best Time to Buy and Sell II (unlimited transactions)</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">E</td>
+<td style="text-align:left">Greedy sum += (price[i] - price[i - 1])</td>
+</tr>
+<tr>
+<td style="text-align:left">123. Best Time to Buy and Sell Stock III (at most two times)</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left">DP: state machine</td>
+</tr>
+<tr>
+<td style="text-align:left">188. Best Time to Buy and Sell Stock IV (at most k transactions)</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left">DP: state machine</td>
+</tr>
+<tr>
+<td style="text-align:left">689. Maximum Sum of 3 No-Overlaping Subarray</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left">逆向思维： 划定中间range, 找到两边的range中的那个subarray 有max sum.</td>
+</tr>
+<tr>
+<td style="text-align:left">680. Valid Palindrome II</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">E</td>
+<td style="text-align:left">双指针向内缩进， 不相等char(delete), 调用isPalindrome: 整体O(n)</td>
+</tr>
+<tr>
+<td style="text-align:left">161. One Edit Distance</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">M</td>
+<td style="text-align:left">O(n), 双指针同时forwar, char不相等时(Edit)： 调用postfixStr1.equals(postfixStr2)</td>
+</tr>
+<tr>
+<td style="text-align:left">352. Data Stream as Disjoint Intervals</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">H</td>
+<td style="text-align:left">使用TreeSet数据结构实现Binary Search O(logn)的search/insert/remove.  取代list中search(O(n))/insert:O(n)/remove:O(n)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+
           
         
       
