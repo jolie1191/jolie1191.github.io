@@ -106,21 +106,21 @@ var myapc=new APlayer_Controler({
 
 
 
-<meta name="description" content="##基础知识：  Bit Representation     int a = 0; unsigned int a = 0;  11111111111(32个1)   表示实实在在2^32 - 1 有符号： 0： positive 1: negative Two’s Complement: 在二进制表示中： 将1 变成 - 1   Bit Manipulation 的6中操作  &amp;amp; AND">
+<meta name="description" content="##基础知识：">
 <meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bit Manipulation知识总结">
 <meta property="og:url" content="https://jolie1191.github.io/2018/06/12/Bit-Manipulation知识总结/index.html">
 <meta property="og:site_name" content="FlyingSheep">
-<meta property="og:description" content="##基础知识：  Bit Representation     int a = 0; unsigned int a = 0;  11111111111(32个1)   表示实实在在2^32 - 1 有符号： 0： positive 1: negative Two’s Complement: 在二进制表示中： 将1 变成 - 1   Bit Manipulation 的6中操作  &amp;amp; AND">
+<meta property="og:description" content="##基础知识：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/234be130-d52a-48c1-8653-567d71089aa6.png">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/2a6b89e1-d408-4b15-bd8c-ca0dd38d8b97.png">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/deaec0fa-05a9-43f7-94d1-344f02aeacea.png">
-<meta property="og:updated_time" content="2018-06-13T22:07:19.641Z">
+<meta property="og:updated_time" content="2018-09-17T00:04:17.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bit Manipulation知识总结">
-<meta name="twitter:description" content="##基础知识：  Bit Representation     int a = 0; unsigned int a = 0;  11111111111(32个1)   表示实实在在2^32 - 1 有符号： 0： positive 1: negative Two’s Complement: 在二进制表示中： 将1 变成 - 1   Bit Manipulation 的6中操作  &amp;amp; AND">
+<meta name="twitter:description" content="##基础知识：">
 <meta name="twitter:image" content="http://server.myspace-shack.com/d23/234be130-d52a-48c1-8653-567d71089aa6.png">
 
 
@@ -408,6 +408,7 @@ var myapc=new APlayer_Controler({
 
       
         <p>##基础知识：</p>
+<a id="more"></a>
 <ul>
 <li><p>Bit Representation </p>
 <p><img src="http://server.myspace-shack.com/d23/234be130-d52a-48c1-8653-567d71089aa6.png" alt=""></p>
@@ -475,8 +476,6 @@ var myapc=new APlayer_Controler({
 <p><strong>bit_setter</strong> = bit_setter &lt;&lt; k; // 0000000…00<strong>1</strong>000</p>
 <p>x = x | bit_setter; //重点</p>
 </li>
-</ol>
-<ol start="2">
 <li><p>Given a number x, how to set x’s (右数) <u>k-th bit to 0</u>?</p>
 <ul>
 <li>任何bit 和 0 取 AND（&amp;） 都是0</li>
@@ -493,8 +492,6 @@ var myapc=new APlayer_Controler({
 <p>​            ================</p>
 <p>​                   aaaa…0aaa</p>
 </li>
-</ol>
-<ol start="3">
 <li><p>determine whether a number <strong>x is a power of 2</strong>?  (x = 2^n) n &gt;0</p>
 <p>Solution 1:非bit manipulation</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//2^n: 1 2 4 8 16 32...</span><br><span class="line">while(num &gt; 1)&#123; //把一个数一直除2， 直到它 = 1</span><br><span class="line">    if(num % 2 != 0)</span><br><span class="line">    	return false;</span><br><span class="line">    num /= 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(int i = num; i &gt; 1; i /= 2)&#123;</span><br><span class="line">    if(i % 2 != 0)</span><br><span class="line">    	return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -513,8 +510,6 @@ var myapc=new APlayer_Controler({
 </li>
 </ul>
 </li>
-</ol>
-<ol start="4">
 <li><p>How to determine the number of bits that are different between two postive integers?</p>
 <p>int x = 0101;</p>
 <p>int y = 0111;</p>

@@ -106,22 +106,22 @@ var myapc=new APlayer_Controler({
 
 
 
-<meta name="description" content="String1. remove one character from string###题目： 删除一个string中u 和 n, 返回一个string？ 常见错误： Java中转化为char[]之后直接调用remove 之类的function， time complexity: O(n), 因为每remove一次，后面的items 都要往前shift">
+<meta name="description" content="String">
 <meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String 类型题目总结">
 <meta property="og:url" content="https://jolie1191.github.io/2018/05/27/String-类型题目总结/index.html">
 <meta property="og:site_name" content="FlyingSheep">
-<meta property="og:description" content="String1. remove one character from string###题目： 删除一个string中u 和 n, 返回一个string？ 常见错误： Java中转化为char[]之后直接调用remove 之类的function， time complexity: O(n), 因为每remove一次，后面的items 都要往前shift">
+<meta property="og:description" content="String">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/80215e16-54e3-4395-8fe4-00c9126a6da0.png">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/70c42c15-8366-47b9-9453-dd9e40ede726.png">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/52f789b9-3f02-4eea-83b7-6722d14cf90c.png">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/4c1b5d3f-00ca-4c6f-8221-7996fe08aa59.png">
-<meta property="og:updated_time" content="2018-06-21T11:01:02.457Z">
+<meta property="og:updated_time" content="2018-09-17T00:03:53.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String 类型题目总结">
-<meta name="twitter:description" content="String1. remove one character from string###题目： 删除一个string中u 和 n, 返回一个string？ 常见错误： Java中转化为char[]之后直接调用remove 之类的function， time complexity: O(n), 因为每remove一次，后面的items 都要往前shift">
+<meta name="twitter:description" content="String">
 <meta name="twitter:image" content="http://server.myspace-shack.com/d23/80215e16-54e3-4395-8fe4-00c9126a6da0.png">
 
 
@@ -408,9 +408,10 @@ var myapc=new APlayer_Controler({
       
 
       
-        <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="1-remove-one-character-from-string"><a href="#1-remove-one-character-from-string" class="headerlink" title="1. remove one character from string"></a>1. remove one character from string</h2><p>###题目： 删除一个string中u 和 n, 返回一个string？</p>
+        <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><a id="more"></a>
+<h2 id="1-remove-one-character-from-string"><a href="#1-remove-one-character-from-string" class="headerlink" title="1. remove one character from string"></a>1. remove one character from string</h2><p>###题目： 删除一个string中u 和 n, 返回一个string？</p>
 <p>常见错误： Java中转化为char[]之后直接调用remove 之类的function， time complexity: O(n), 因为每remove一次，后面的items 都要往前shift</p>
-<a id="more"></a> 
+<!-- more --> 
 <h3 id="正确做法："><a href="#正确做法：" class="headerlink" title="正确做法："></a>正确做法：</h3><p>转化成char[]: （挡板思想）使用slow &amp; fast pointers:</p>
 <p><strong>两个挡板， 三个区域，同向而行</strong></p>
 <ul>

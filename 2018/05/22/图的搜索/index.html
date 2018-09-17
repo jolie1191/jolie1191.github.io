@@ -106,13 +106,13 @@ var myapc=new APlayer_Controler({
 
 
 
-<meta name="description" content="GraphGraph representation1. Ajacent Matrix2. Ajacent List3. Ajacent HashTable(hashMap, hashSet)重点BFS-1按照start node(nodes), 按照一步以外的一圈走完之后，再以两步以外的一圈走完。。。一步一步往外走，直到queue为空 BFS-1###BFS-1代码： 12345678910111">
+<meta name="description" content="Graph">
 <meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图的搜索">
 <meta property="og:url" content="https://jolie1191.github.io/2018/05/22/图的搜索/index.html">
 <meta property="og:site_name" content="FlyingSheep">
-<meta property="og:description" content="GraphGraph representation1. Ajacent Matrix2. Ajacent List3. Ajacent HashTable(hashMap, hashSet)重点BFS-1按照start node(nodes), 按照一步以外的一圈走完之后，再以两步以外的一圈走完。。。一步一步往外走，直到queue为空 BFS-1###BFS-1代码： 12345678910111">
+<meta property="og:description" content="Graph">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/f0ae1fd5-fe37-47f6-9fe2-47f68aa58869.png">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/1ebef5ec-c5a2-440b-90e1-1ddb415109f2.png">
@@ -132,10 +132,10 @@ var myapc=new APlayer_Controler({
 <meta property="og:image" content="http://server.myspace-shack.com/d23/4dc0816c-5440-45ab-9571-2a25660c8372.png">
 <meta property="og:image" content="http://i68.tinypic.com/27xr0o5.png">
 <meta property="og:image" content="http://server.myspace-shack.com/d23/b53e18df-71d1-4602-a691-17bb0601b51c.png">
-<meta property="og:updated_time" content="2018-06-23T10:15:28.433Z">
+<meta property="og:updated_time" content="2018-09-17T00:03:44.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图的搜索">
-<meta name="twitter:description" content="GraphGraph representation1. Ajacent Matrix2. Ajacent List3. Ajacent HashTable(hashMap, hashSet)重点BFS-1按照start node(nodes), 按照一步以外的一圈走完之后，再以两步以外的一圈走完。。。一步一步往外走，直到queue为空 BFS-1###BFS-1代码： 12345678910111">
+<meta name="twitter:description" content="Graph">
 <meta name="twitter:image" content="http://server.myspace-shack.com/d23/f0ae1fd5-fe37-47f6-9fe2-47f68aa58869.png">
 
 
@@ -422,7 +422,8 @@ var myapc=new APlayer_Controler({
       
 
       
-        <h1 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h1><h2 id="Graph-representation"><a href="#Graph-representation" class="headerlink" title="Graph representation"></a>Graph representation</h2><h3 id="1-Ajacent-Matrix"><a href="#1-Ajacent-Matrix" class="headerlink" title="1. Ajacent Matrix"></a>1. Ajacent Matrix</h3><h3 id="2-Ajacent-List"><a href="#2-Ajacent-List" class="headerlink" title="2. Ajacent List"></a>2. Ajacent List</h3><h3 id="3-Ajacent-HashTable-hashMap-hashSet-重点"><a href="#3-Ajacent-HashTable-hashMap-hashSet-重点" class="headerlink" title="3. Ajacent HashTable(hashMap, hashSet)重点"></a>3. Ajacent HashTable(hashMap, hashSet)重点</h3><h2 id="BFS-1"><a href="#BFS-1" class="headerlink" title="BFS-1"></a>BFS-1</h2><p><strong>按照start node(nodes), 按照一步以外的一圈走完之后，再以两步以外的一圈走完。。。一步一步往外走，直到queue为空</strong></p>
+        <h1 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h1><a id="more"></a>
+<h2 id="Graph-representation"><a href="#Graph-representation" class="headerlink" title="Graph representation"></a>Graph representation</h2><h3 id="1-Ajacent-Matrix"><a href="#1-Ajacent-Matrix" class="headerlink" title="1. Ajacent Matrix"></a>1. Ajacent Matrix</h3><h3 id="2-Ajacent-List"><a href="#2-Ajacent-List" class="headerlink" title="2. Ajacent List"></a>2. Ajacent List</h3><h3 id="3-Ajacent-HashTable-hashMap-hashSet-重点"><a href="#3-Ajacent-HashTable-hashMap-hashSet-重点" class="headerlink" title="3. Ajacent HashTable(hashMap, hashSet)重点"></a>3. Ajacent HashTable(hashMap, hashSet)重点</h3><h2 id="BFS-1"><a href="#BFS-1" class="headerlink" title="BFS-1"></a>BFS-1</h2><p><strong>按照start node(nodes), 按照一步以外的一圈走完之后，再以两步以外的一圈走完。。。一步一步往外走，直到queue为空</strong></p>
 <h2 id="BFS-1-1"><a href="#BFS-1-1" class="headerlink" title="BFS-1"></a>BFS-1</h2><p>###BFS-1代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public void bfs1(Node root)&#123;</span><br><span class="line">    if(root == null)</span><br><span class="line">    	return;</span><br><span class="line">    </span><br><span class="line">    Queue&lt;Node&gt; q = new LinkedList&lt;&gt;();</span><br><span class="line">    q.offer(root);</span><br><span class="line">    </span><br><span class="line">    while(!q.isEmpty())&#123;</span><br><span class="line">    	//重点： 分层遍历， 在所有操作前， 记录size</span><br><span class="line">        int size = q.size();</span><br><span class="line">        </span><br><span class="line">        for(int i = 0; i &lt; size; i++)&#123;</span><br><span class="line">            Node cur = q.poll();</span><br><span class="line">            if(cur.left != null)</span><br><span class="line">            	q.offer(cur.left);</span><br><span class="line">            if(cur.right != null)</span><br><span class="line">            	q.offer(cur.right);</span><br><span class="line">            </span><br><span class="line">            Sysytem.out.print(cut.val + &quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="常考题型"><a href="#常考题型" class="headerlink" title="常考题型"></a>常考题型</h3><ol>
