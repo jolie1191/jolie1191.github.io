@@ -116,7 +116,7 @@ var myapc=new APlayer_Controler({
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://i65.tinypic.com/2zs49qv.png">
 <meta property="og:image" content="http://i68.tinypic.com/31667bq.png">
-<meta property="og:updated_time" content="2018-08-29T17:39:01.641Z">
+<meta property="og:updated_time" content="2018-09-04T23:00:13.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java常用API+数据结构">
 <meta name="twitter:description" content="根据Input Size V.S. Time Complexity Data TypeCharacter   return Method Usage      boolean isLetter(char ch) Character.isLetter(‘a’)    static char toLowerCase(char ch) Character.toLowerCase(‘A’)    stat">
@@ -901,8 +901,8 @@ var myapc=new APlayer_Controler({
 </tbody>
 </table>
 <h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;();</span><br></pre></td></tr></table></figure>
-<p>​                  |—&gt;不可以为primitive element， 必须是reference element</p>
-<table>
+<pre><code>|—&gt;不可以为primitive element， 必须是reference element
+</code></pre><table>
 <thead>
 <tr>
 <th></th>
@@ -1137,8 +1137,8 @@ var myapc=new APlayer_Controler({
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">putIfAbsent(K key, V value)</td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 </tr>
@@ -1455,9 +1455,8 @@ var myapc=new APlayer_Controler({
 <p>通过分析题意： 比如重复值出现（nums[a] == nums[b] ?), 思考一下你想每次poll出来的到底是靠右的idx, 还是靠左的idx?<br>—》如果想要poll出来靠右的idx: 那么值相等时， idx 大的那个优先（在顶部）！即— b - a;<br>—》如果想要poll出来靠左的idx: 那么值相等时， idx 小的那个优先（在顶部）！即— a - b;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Example;</span><br><span class="line"></span><br><span class="line">//类似minTreeSet:</span><br><span class="line">Comparator&lt;Integer&gt; comparator = (a, b) -&gt; nums[a] != nums[b] ? Integer.compare(nums[a], nums[b]) : a - b;</span><br><span class="line">TreeSet&lt;Integer&gt; minTreeSet = new TreeSet&lt;&gt;(comparator);</span><br><span class="line"></span><br><span class="line">//maxTreeSet:</span><br><span class="line">TreeSet&lt;Integer&gt; maxTreeSet = new TreeSet&lt;&gt;(comparator.reversed());</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
-<li>相关练习习题：</li>
+<li><p>相关练习习题：</p>
+</li>
 </ul>
 <p>LeetCode: 480. Sliding Widnow Median</p>
 
@@ -1583,7 +1582,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1605,7 +1604,7 @@ var myapc=new APlayer_Controler({
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
