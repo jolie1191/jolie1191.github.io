@@ -106,13 +106,17 @@ var myapc=new APlayer_Controler({
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="FlyingSheep">
-<meta property="og:url" content="https://jolie1191.github.io/categories/复习1/index.html">
+<meta name="description" content="Union-Find 可以处理什么问题 连接问题：网络(graph, tree)中节点间的连接状态  两点之间是否存在一个path将两点连接起来。  数学中的集合类的实现（集合的并集）  ##区别： 连接问题（T/F）和路径问题(All solution)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Union Find 总结">
+<meta property="og:url" content="https://jolie1191.github.io/2018/09/19/Union-Find-总结/index.html">
 <meta property="og:site_name" content="FlyingSheep">
+<meta property="og:description" content="Union-Find 可以处理什么问题 连接问题：网络(graph, tree)中节点间的连接状态  两点之间是否存在一个path将两点连接起来。  数学中的集合类的实现（集合的并集）  ##区别： 连接问题（T/F）和路径问题(All solution)">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-19T23:56:16.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FlyingSheep">
+<meta name="twitter:title" content="Union Find 总结">
+<meta name="twitter:description" content="Union-Find 可以处理什么问题 连接问题：网络(graph, tree)中节点间的连接状态  两点之间是否存在一个path将两点连接起来。  数学中的集合类的实现（集合的并集）  ##区别： 连接问题（T/F）和路径问题(All solution)">
 
 
 
@@ -142,13 +146,13 @@ var myapc=new APlayer_Controler({
 
 
 
-  <link rel="canonical" href="https://jolie1191.github.io/categories/复习1/"/>
+  <link rel="canonical" href="https://jolie1191.github.io/2018/09/19/Union-Find-总结/"/>
 
 
 
 
 
-  <title>Category: 复习1 | FlyingSheep</title>
+  <title>Union Find 总结 | FlyingSheep</title>
   
 
 
@@ -167,7 +171,7 @@ var myapc=new APlayer_Controler({
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,55 +299,148 @@ var myapc=new APlayer_Controler({
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>复习1<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/09/19/Union-Find-总结/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FlyingSheep">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/12/复习Cards/" itemprop="url">
-              
-                <span itemprop="name">复习Cards</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Union Find 总结</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-12T00:17:15-07:00"
-              content="2018-05-12" >
-          05-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-19T16:50:04-07:00">
+                2018-09-19
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Union-Find-可以处理什么问题"><a href="#Union-Find-可以处理什么问题" class="headerlink" title="Union-Find 可以处理什么问题"></a>Union-Find 可以处理什么问题</h2><ol>
+<li>连接问题：<strong>网络(graph, tree)中节点间的连接状态</strong></li>
+</ol>
+<p>两点之间是否存在一个path将两点连接起来。</p>
+<ol start="2">
+<li>数学中的集合类的实现（集合的并集）</li>
+</ol>
+<p>##区别： 连接问题（T/F）和路径问题(All solution)</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/16/git基本操作/" rel="next" title="git基本操作">
+                <i class="fa fa-chevron-left"></i> git基本操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -351,6 +448,10 @@ var myapc=new APlayer_Controler({
 
 
           
+
+  
+
+
 
         </div>
         
@@ -371,8 +472,17 @@ var myapc=new APlayer_Controler({
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -445,6 +555,22 @@ var myapc=new APlayer_Controler({
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Union-Find-可以处理什么问题"><span class="nav-number">1.</span> <span class="nav-text">Union-Find 可以处理什么问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -585,6 +711,10 @@ var myapc=new APlayer_Controler({
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

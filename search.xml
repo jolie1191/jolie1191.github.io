@@ -3,6 +3,15 @@
   
     
     <entry>
+      <title>Union Find 总结</title>
+      <link href="/2018/09/19/Union-Find-%E6%80%BB%E7%BB%93/"/>
+      <url>/2018/09/19/Union-Find-%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<h2 id="Union-Find-可以处理什么问题"><a href="#Union-Find-可以处理什么问题" class="headerlink" title="Union-Find 可以处理什么问题"></a>Union-Find 可以处理什么问题</h2><ol><li>连接问题：<strong>网络(graph, tree)中节点间的连接状态</strong></li></ol><p>两点之间是否存在一个path将两点连接起来。</p><ol start="2"><li>数学中的集合类的实现（集合的并集）</li></ol><p>##区别： 连接问题（T/F）和路径问题(All solution)</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
       <title>git基本操作</title>
       <link href="/2018/09/16/git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
       <url>/2018/09/16/git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
