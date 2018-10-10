@@ -95,7 +95,7 @@ var myapc=new APlayer_Controler({
 
 
 
-  <meta name="keywords" content="LeetCode,Greedy," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -106,18 +106,17 @@ var myapc=new APlayer_Controler({
 
 
 
-<meta name="description" content="Greedy 总结题目中一般带有最小的，最少的。。。hint keyword Greedy 对interval overlapping 问题 对起点sorting，找overlapping  Merge Intervals  Meeting Rooms">
-<meta name="keywords" content="LeetCode,Greedy">
+<meta name="description" content="5.2 : Inverted Index Phase One Skip Pointer: is techniques to speed up the merging posting   Phrase Query:   Bi-word indexes Positional index    2.2 Search Engine Evaluation   Recall Precison (分母动态)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Greedy 总结">
-<meta property="og:url" content="https://jolie1191.github.io/2018/05/16/Greedy-总结/index.html">
+<meta property="og:title" content="572 复习">
+<meta property="og:url" content="https://jolie1191.github.io/2018/09/29/572-复习/index.html">
 <meta property="og:site_name" content="Jolie Wang">
-<meta property="og:description" content="Greedy 总结题目中一般带有最小的，最少的。。。hint keyword Greedy 对interval overlapping 问题 对起点sorting，找overlapping  Merge Intervals  Meeting Rooms">
+<meta property="og:description" content="5.2 : Inverted Index Phase One Skip Pointer: is techniques to speed up the merging posting   Phrase Query:   Bi-word indexes Positional index    2.2 Search Engine Evaluation   Recall Precison (分母动态)">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-17T00:04:36.510Z">
+<meta property="og:updated_time" content="2018-10-03T02:36:46.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Greedy 总结">
-<meta name="twitter:description" content="Greedy 总结题目中一般带有最小的，最少的。。。hint keyword Greedy 对interval overlapping 问题 对起点sorting，找overlapping  Merge Intervals  Meeting Rooms">
+<meta name="twitter:title" content="572 复习">
+<meta name="twitter:description" content="5.2 : Inverted Index Phase One Skip Pointer: is techniques to speed up the merging posting   Phrase Query:   Bi-word indexes Positional index    2.2 Search Engine Evaluation   Recall Precison (分母动态)">
 
 
 
@@ -147,13 +146,13 @@ var myapc=new APlayer_Controler({
 
 
 
-  <link rel="canonical" href="https://jolie1191.github.io/2018/05/16/Greedy-总结/"/>
+  <link rel="canonical" href="https://jolie1191.github.io/2018/09/29/572-复习/"/>
 
 
 
 
 
-  <title>Greedy 总结 | Jolie Wang</title>
+  <title>572 复习 | Jolie Wang</title>
   
 
 
@@ -314,7 +313,7 @@ var myapc=new APlayer_Controler({
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/16/Greedy-总结/">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/09/29/572-复习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiahui">
@@ -331,7 +330,7 @@ var myapc=new APlayer_Controler({
 
         
         
-          <h1 class="post-title" itemprop="name headline">Greedy 总结</h1>
+          <h1 class="post-title" itemprop="name headline">572 复习</h1>
         
 
         <div class="post-meta">
@@ -343,8 +342,8 @@ var myapc=new APlayer_Controler({
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-16T04:15:56-07:00">
-                2018-05-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-29T14:10:55-07:00">
+                2018-09-29
               </time>
             
 
@@ -353,28 +352,6 @@ var myapc=new APlayer_Controler({
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -403,44 +380,184 @@ var myapc=new APlayer_Controler({
       
 
       
-        <h1 id="Greedy-总结"><a href="#Greedy-总结" class="headerlink" title="Greedy 总结"></a>Greedy 总结</h1><p>题目中一般带有最小的，最少的。。。hint keyword</p>
-<p>Greedy 对interval overlapping 问题</p>
-<p>对起点sorting，找overlapping</p>
-<ol start="56">
-<li><p>Merge Intervals</p>
+        <h1 id="5-2-Inverted-Index-Phase-One"><a href="#5-2-Inverted-Index-Phase-One" class="headerlink" title="5.2 : Inverted Index Phase One"></a>5.2 : Inverted Index Phase One</h1><ol>
+<li><p>Skip Pointer: is techniques to speed up the merging posting </p>
 </li>
-<li><p>Meeting Rooms</p>
-</li>
-</ol>
-<a id="more"></a>
-<p>##LeetCode 253. Meeting Rooms II</p>
-<p>Given an array of meeting time intervals consisting of start and end times <code>[[s1,e1],[s2,e2],...]</code> (si &lt; ei), find the minimum number of conference rooms required.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [[0, 30],[5, 10],[15, 20]]</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [[7,10],[2,4]]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
-<p>time: O(nlogn)<br> space: O(n)</p>
-<p>###问题分析：</p>
+<li><p>Phrase Query: </p>
 <ul>
-<li>把每一个interval 按照start time 排序</li>
-<li>把第一个interval加入minHeap, 代表我至少需要一个room with meeting ending at e1</li>
-<li>遍历排序后的intervals：</li>
+<li>Bi-word indexes</li>
+<li>Positional index</li>
 </ul>
-<p>​        之后没遍历到的一个interval i，</p>
-<ol>
-<li>如果i’s start time &lt; 最早结束的room’s ending time, 那么它一定与其他room’s ending time 发生冲突， 所以要新开一个room with i’s ending time</li>
-<li>如果i’s start time &gt; 最早结束的room’s ending time, 那么i meeting 可以用最早结束meeting的room，只需要update最早结束room的ending time to i’s ending time.</li>
+</li>
 </ol>
-<p>​        </p>
-<pre><code>//分析所需数据结构：
-//每次我们比较，我们都需要cur&apos;s meeting 和最早结束的room&apos;s ending time
-//用minHeap， O(1)得到最小ending time
-
-//注意： 我们每次真正在意的是之前heap中room&apos;s ending time, 所以只需要存ending time 就可以了
-
-//# of minimum room = minHeap.size()
-</code></pre><p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int minMeetingRooms(Interval[] intervals) &#123;</span><br><span class="line">        </span><br><span class="line">        if(intervals == null || intervals.length == 0)</span><br><span class="line">            return 0;</span><br><span class="line">        </span><br><span class="line">        Arrays.sort(intervals, (a, b) -&gt; a.start - b.start);</span><br><span class="line">        </span><br><span class="line">        PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;((a, b) -&gt; a - b);</span><br><span class="line">        </span><br><span class="line">        minHeap.offer(intervals[0].end);</span><br><span class="line">        </span><br><span class="line">        for(int i = 1; i &lt; intervals.length; i++)&#123;</span><br><span class="line">            if(intervals[i].start &lt; minHeap.peek())&#123; //overlaping, new room with i&apos;s ending time</span><br><span class="line">                minHeap.offer(intervals[i].end);</span><br><span class="line">            &#125;else&#123;//not conflict, just use this room, update room&apos;s ending time wiht i&apos;s ending time</span><br><span class="line">                Integer minEnd = minHeap.poll();</span><br><span class="line">                minHeap.offer(intervals[i].end);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return minHeap.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-2-Search-Engine-Evaluation"><a href="#2-2-Search-Engine-Evaluation" class="headerlink" title="2.2 Search Engine Evaluation"></a>2.2 Search Engine Evaluation</h1><table>
+<thead>
+<tr>
+<th>Recall</th>
+<th>Precison (分母动态)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tp/(tp + fp)</td>
+<td>tp/(tp + fn)</td>
+</tr>
+<tr>
+<td>(A &amp; B)/A        A:relevant, B: retrieved</td>
+<td>(A &amp; B)/B</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>harmonic mean of the precision and the recall</p>
+<p>F = 2PR/(P + R)</p>
+</li>
+<li><p>accuracy of an Engine:</p>
+<p>(tp + tn)/(tp + tn + fp + fn)</p>
+</li>
+<li></li>
+</ul>
+<hr>
+<ul>
+<li><p>Precision, Recall:</p>
+<ul>
+<li><p><strong>Defination</strong>: </p>
+<ul>
+<li><ol>
+<li>Precision: # of retrieved relevant / # of retrieved </li>
+<li>Recall: # of retrieved relevant /# of relevant</li>
+</ol>
+</li>
+<li><ol>
+<li>Precision = tp / (tp + fp)</li>
+<li>Recall = tp/(tp + fn)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Harmonic mean</strong> of precision, recall (<strong>F-measure</strong>):  </p>
+<ul>
+<li><p>Harmonic mean of n numbers: n/(1/a1 + 1/a2 + 1/a3 + ….1/an)</p>
+</li>
+<li><p>F-measure = 2RP/(R + P)</p>
+</li>
+</ul>
+</li>
+<li><p><strong>MAP</strong> = Sum(AvgP(i))/Q</p>
+</li>
+</ul>
+</li>
+<li><p><strong><u>Distance Measure:</u></strong></p>
+<ul>
+<li><strong>4 Properties:</strong> <ul>
+<li><ol>
+<li>No negative </li>
+<li>D(x, y) iff x = y </li>
+<li>D(x, y) = D(y, x) symmetric </li>
+<li>D(x, y) &lt;= D(x, z) + D(z, y) Triangle Inequality</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>5 Specific distance measure :</strong><ul>
+<li><ol>
+<li><strong>Jaccard Distance</strong>: (<strong>Jaccard Similarity</strong>: (A &amp;B) /( A or B); <strong>Jaccard Distance</strong>: 1- JS)</li>
+<li>Hamming Distance: </li>
+<li>Euclidean Distance</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong><u>Coordination of Distributed Crawlers</u></strong></p>
+<ul>
+<li>3 different ways the crawlers can interact:<ul>
+<li><ol>
+<li>Independent: no coordination, every process follows its extracted links</li>
+<li>Dynamic assignment: a central coordinator dynamically divides the web into small partitions and assign each partition to a process</li>
+<li>static assignment: web is partitioned and assigned without a central coordinator before the crawler starts.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>DCG</strong> (Discounted Cumulative Gain) :</p>
+<p>= REL(1) + REL(2)/log(3) + REL(3)/log(4) + ….REL(n)/log(n + 1)</p>
+</li>
+<li><p><strong>Power Law</strong>: y = K*x^C</p>
+<ul>
+<li><p><strong>Zipf’s Law</strong>: y = 1/x</p>
+<ul>
+<li><p>y is <u>the frequency of the word</u>, and x is <u>its ranking</u> in the frequency table. C = -1.</p>
+</li>
+<li><p>Zipf’s law—log-log scale:</p>
+<p>since <u>data has exponetial grow</u>, when using log-log scale, it <u>becomes a straight line</u> with slope c like: logy = logK + Clogx</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Heap’s Law</strong>: V= Kn^C</p>
+<ul>
+<li>If V is the <strong>size of the vocabulary</strong> and n is the <strong>number of words</strong></li>
+<li>K = 10 ~ 100， C= 0.4 ~ 0.6</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Skip pointer</strong>:</p>
+<ul>
+<li>speed up the merging of positing in an inverted index</li>
+</ul>
+</li>
+<li><p><strong>SoundEx algorithm</strong>:</p>
+<ul>
+<li>For <u>term with the same pronunciation</u> to be <u>encoded to the same string</u> so that matching can occur despite minor difference in spelling.</li>
+</ul>
+</li>
+<li><p><strong>Cosine Similarity</strong>: </p>
+<ul>
+<li>sum(Ai <em>Bi)/sqrt(sum(Ai^2)) </em>sum(Bi^2)</li>
+</ul>
+</li>
+<li><p><strong>HITS</strong>: Hubs and Authority </p>
+</li>
+<li><p><strong>MRR</strong>(Mean Reciprocal Rank):  把rank倒数过来， 求平均数 sum(1/rank(Qi))/N</p>
+<ul>
+<li>= sum(1/rank(Qi))/N</li>
+</ul>
+</li>
+<li><p><strong>Lexicon</strong> (词典字典）: The database of the vocabulary of a particular domain</p>
+<p><strong>Tokenization</strong>（语义切分）: The task of chopping a document into pieces called tokens,and possibly throw away possible characters.</p>
+</li>
+<li><p>properties of <strong>Crytographic Hash Function</strong>: </p>
+<ul>
+<li><p>three main <strong>properties</strong>:</p>
+<ol>
+<li><p>easy to calculate hash value for any given data (对已知data hash 容易)</p>
+</li>
+<li><p>difficult to get text that has a given hash vlaue (从hash value得到text难)</p>
+</li>
+<li><p>a small change to data yields a different hash value (较小的改变可能产生不同的hash value)</p>
+</li>
+<li><p>——不记了</p>
+</li>
+</ol>
+</li>
+<li><p><strong>hash functions</strong>: MD5, SHA-1(SHA-2)</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Collection frquency of term</strong>: is the num of times term t appears in he collection of document, counting multiple appearances. </p>
+</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
 
       
     </div>
@@ -456,14 +573,6 @@ var myapc=new APlayer_Controler({
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-          
-            <a href="/tags/Greedy/" rel="tag"># Greedy</a>
-          
-        </div>
-      
 
       
       
@@ -473,8 +582,8 @@ var myapc=new APlayer_Controler({
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/14/Heap-总结/" rel="next" title="Heap 总结">
-                <i class="fa fa-chevron-left"></i> Heap 总结
+              <a href="/2018/09/26/讲座/" rel="next" title="讲座">
+                <i class="fa fa-chevron-left"></i> 讲座
               </a>
             
           </div>
@@ -483,8 +592,8 @@ var myapc=new APlayer_Controler({
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/22/图的搜索/" rel="prev" title="图的搜索">
-                图的搜索 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/08/Engineer-Connector-Project/" rel="prev" title="Engineer Connector Project">
+                Engineer Connector Project <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -630,7 +739,7 @@ var myapc=new APlayer_Controler({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Greedy-总结"><span class="nav-number">1.</span> <span class="nav-text">Greedy 总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#5-2-Inverted-Index-Phase-One"><span class="nav-number">1.</span> <span class="nav-text">5.2 : Inverted Index Phase One</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-2-Search-Engine-Evaluation"><span class="nav-number">2.</span> <span class="nav-text">2.2 Search Engine Evaluation</span></a></li></ol></div>
             
 
           </div>
