@@ -380,8 +380,7 @@ var myapc=new APlayer_Controler({
 
       
         
-          
-            <h1 id="The-project-My-LinkedIn-Engineer-Connector"><a href="#The-project-My-LinkedIn-Engineer-Connector" class="headerlink" title="The project: My LinkedIn Engineer Connector"></a>The project: My LinkedIn Engineer Connector</h1><ul>
+          <h1 id="The-project-My-LinkedIn-Engineer-Connector"><a href="#The-project-My-LinkedIn-Engineer-Connector" class="headerlink" title="The project: My LinkedIn Engineer Connector"></a>The project: My LinkedIn Engineer Connector</h1><ul>
 <li><p>A small social network with authentication, profiles, dashborad, posts</p>
 </li>
 <li><p>More Details:</p>
@@ -395,55 +394,13 @@ var myapc=new APlayer_Controler({
 </ul>
 </li>
 </ul>
-<h1 id="Backend-server-js"><a href="#Backend-server-js" class="headerlink" title="Backend: server.js"></a>Backend: server.js</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm i express mongoose passport passport-jwt jsonwebtoken body-parser bcryptjs validator</span><br><span class="line">$ npm i -D nodemon</span><br></pre></td></tr></table></figure>
-<p><strong>.gitignore</strong> file includes:</p>
-<ul>
-<li>config : keys.js &amp; password.js</li>
-<li>node-modules</li>
-</ul>
-<p>set/Connect MongoDB</p>
-<h2 id="User-API-Routes-amp-JWT-Authentication"><a href="#User-API-Routes-amp-JWT-Authentication" class="headerlink" title="User API Routes &amp; JWT Authentication"></a>User API Routes &amp; JWT Authentication</h2><ol>
-<li><p>Creating the User Model</p>
-</li>
-<li><p>User Registration &amp; Postman</p>
-<ul>
-<li>generate Gravatar URLS in Node.js based on gravatar specs.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$npm install gravatar</span><br></pre></td></tr></table></figure>
-<ul>
-<li>password encrypted</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$npm install bcrypt</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">bcrypt.genSalt(10, (err, salt) =&gt; &#123;</span><br><span class="line">  bcrypt.hash(newUser.password, salt, (err, hash) =&gt; &#123;</span><br><span class="line">    if(err) throw err;</span><br><span class="line">    newUser.password = hash;</span><br><span class="line">    newUser.save()</span><br><span class="line">    .then(user =&gt; res.json(user))</span><br><span class="line">    .catch(err =&gt; console.log(err));</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>Using Postman to check the response from dcrypt</strong>: x-www-form-urlencoded should be checked</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//Do NOT foget to set the x-www-form-urlencoded in the Postman</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><p>Email &amp; Password Login</p>
-</li>
-<li><p>Password JWT Authentication Strategy： 基于token 的认证</p>
-</li>
-<li><p>server-side validation </p>
-<ul>
-<li>login:</li>
-<li>register:</li>
-<li>is-empty:</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="Profile-API-Routes"><a href="#Profile-API-Routes" class="headerlink" title="Profile API Routes"></a>Profile API Routes</h2><ol>
-<li>Create the Profile model</li>
-<li>current user profile route</li>
-<li>create &amp; update peofile routes</li>
-<li>profile Field Validations</li>
-<li>More Profile API Routes</li>
-<li>Add Expereience &amp; Education Routes</li>
-</ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/08/Engineer-Connector-Project/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
