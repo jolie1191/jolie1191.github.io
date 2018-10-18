@@ -310,6 +310,166 @@ var myapc=new APlayer_Controler({
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/10/Stack-Queue-Heap题型总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jolie Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/10/Stack-Queue-Heap题型总结/" itemprop="url">Stack, Queue, Heap题型总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-10T15:50:26-07:00">
+                2018-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Stack-Queue-Heap-题型总结"><a href="#Stack-Queue-Heap-题型总结" class="headerlink" title="Stack, Queue, Heap 题型总结"></a>Stack, Queue, Heap 题型总结</h1><h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><h3 id="基础题："><a href="#基础题：" class="headerlink" title="基础题："></a>基础题：</h3><p>####LeetCode 232. Implement Queue using Stacks </p>
+<p>题目意思： 用两个Stacks 实现Queue的功能： push(x), pop(), peek(), empty()</p>
+<p>思路： stack1用作push(), </p>
+<p>stack2 用作pop()时把Stack1中正序过来，然后 stack2.pop()</p>
+<p>主要是pop的实现：</p>
+<ol>
+<li><p>if Stack2 is empty： transfer all stack1’s elements to stack2</p>
+</li>
+<li><p>endif; return stack2.pop()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">class MyQueue &#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack1;</span><br><span class="line">    Stack&lt;Integer&gt; stack2;</span><br><span class="line"></span><br><span class="line">    /** Initialize your data structure here. */</span><br><span class="line">    public MyQueue() &#123;</span><br><span class="line">        stack1 = new Stack&lt;&gt;();</span><br><span class="line">        stack2 = new Stack&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Push element x to the back of queue. */</span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">        stack1.push(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Removes the element from in front of queue and returns that element. */</span><br><span class="line">    public int pop() &#123;</span><br><span class="line">        if(stack2.isEmpty())&#123;</span><br><span class="line">            while(!stack1.isEmpty())&#123;</span><br><span class="line">                stack2.push(stack1.pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Get the front element. */</span><br><span class="line">    public int peek() &#123;</span><br><span class="line">        if(stack2.isEmpty())&#123;</span><br><span class="line">            while(!stack1.isEmpty())&#123;</span><br><span class="line">                stack2.push(stack1.pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return stack2.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Returns whether the queue is empty. */</span><br><span class="line">    public boolean empty() &#123;</span><br><span class="line">        </span><br><span class="line">        return stack1.isEmpty() &amp;&amp; stack2.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="题型二：Iterator类型"><a href="#题型二：Iterator类型" class="headerlink" title="题型二：Iterator类型"></a>题型二：Iterator类型</h3><h4 id="注意点：-主程序应该在hasNext还是在next-中实现？"><a href="#注意点：-主程序应该在hasNext还是在next-中实现？" class="headerlink" title="注意点： 主程序应该在hasNext还是在next 中实现？"></a>注意点： 主程序应该在hasNext还是在next 中实现？</h4><p>答案是： 最好是hasNext中实现</p>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><h4 id="LeetCode-225-Implement-Stack-using-Queues"><a href="#LeetCode-225-Implement-Stack-using-Queues" class="headerlink" title="LeetCode 225. Implement Stack using Queues"></a>LeetCode 225. Implement Stack using Queues</h4><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>用Queue实现Stack的<strong>LIFO</strong>操作： push(x), pop(), peek(), empty()</p>
+<h4 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h4><ol>
+<li>方法一： Deque: 双向队列 offerLast(x), pollLast(), peekLast()</li>
+<li>方法二： Queue: 单向出口队列： push(x): queue.offer(x)之后，记得把x前面的挪到queue后面去</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">//方法二</span><br><span class="line">class MyStack &#123;</span><br><span class="line">    </span><br><span class="line">    //单向队列</span><br><span class="line">    Queue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    /** Initialize your data structure here. */</span><br><span class="line">    public MyStack() &#123;</span><br><span class="line">        queue = new LinkedList&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Push element x onto stack. */</span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">        queue.offer(x);</span><br><span class="line">        for(int i = 0; i &lt; queue.size() - 1; i++)</span><br><span class="line">            queue.offer(queue.poll());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Removes the element on top of the stack and returns that element. */</span><br><span class="line">    public int pop() &#123;</span><br><span class="line">        return queue.poll();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Get the top element. */</span><br><span class="line">    public int top() &#123;</span><br><span class="line">        return queue.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** Returns whether the stack is empty. */</span><br><span class="line">    public boolean empty() &#123;</span><br><span class="line">        return queue.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/05/09/Two Pointer 问题总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1668,7 +1828,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
