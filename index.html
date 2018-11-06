@@ -310,6 +310,631 @@ var myapc=new APlayer_Controler({
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/10/31/OOD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jolie Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/31/OOD/" itemprop="url">OOD</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T18:49:29-07:00">
+                2018-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>出题问法：</p>
+<ul>
+<li>Can you design an elevator System? (设计一个完整的系统)<ul>
+<li>Little amount of coding</li>
+</ul>
+</li>
+<li>Can you design scheduler for elevator system? (设计系统中的一部分)<ul>
+<li>Need implementation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>介绍小结</p>
+<ul>
+<li>Everything is an object (没有标准答案)</li>
+<li>固定模板套路： 5C解决法</li>
+</ul>
+</li>
+<li><p>面试中的陷阱</p>
+<ul>
+<li><p>起手式陷阱： 先通过和面试官交流获得有效信息</p>
+<ul>
+<li><p>重要是呈现一个Viable 的成果</p>
+</li>
+<li><p>检查你的设计， 是否能够支持所需的功能</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如何评判一个OOD设计是否合理？</p>
+<ul>
+<li><p>S.O.L.I.D原则</p>
+<ul>
+<li><p>Single responsibility principle : 一个类应该有且只有一项工作</p>
+</li>
+<li><p>Open close principle: 开放封闭原则 （Open to extension, close to modification)</p>
+</li>
+<li><p>Liskov substitution principle: 任何一个子类或者派生类应该可以替换他们的基类或者父类</p>
+</li>
+<li><p>Interface segregation principle： 接口分离原则</p>
+</li>
+<li><p>Dependency inversion principle: 抽象不应该依赖于具体实现， 具体实现应该依赖于抽象。</p>
+<ul>
+<li>interface: 一个接口， 如果一个class要implements这个接口， 这个class就要实现这个接口</li>
+<li>A class can implements many interface: </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public interface Shape&#123;</span><br><span class="line">    public float getArea()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public interface Perimeter&#123;</span><br><span class="line">    public float getPerimeter()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Class Triangle implements Shape, Perimeter&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Abstract class: 可以把它当成一个父类， 每个子类只能有一个父类 Asian extends Human only</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="How-to-design-Elevator-System-of-a-building"><a href="#How-to-design-Elevator-System-of-a-building" class="headerlink" title="How to design Elevator System of a building?"></a>How to design Elevator System of a building?</h2><ul>
+<li>5C 解题法</li>
+</ul>
+<p><img src="http://i65.tinypic.com/14937zd.png" alt=""></p>
+<ul>
+<li><p>Details of 5C</p>
+<ul>
+<li><p>Clarify:</p>
+<ul>
+<li><p>What: 通过名词来问问题</p>
+<p><u>关键字1： Elevator</u></p>
+<p>属性？</p>
+<blockquote>
+<p>Max Capacity</p>
+<p>Max Weight </p>
+<p>//Types of Elevator: 客梯， Good Elevator(货梯)</p>
+</blockquote>
+<p><u>关键字2： Building</u></p>
+<p>属性？</p>
+<p>针对本题： 每层仅一处能搭乘， 所有电梯均可相应</p>
+<blockquote>
+<p>Num of Places have Elevator</p>
+<p>…</p>
+</blockquote>
+</li>
+<li><p>How： 针对题目的规则来提问， 选择合适的答案</p>
+<ul>
+<li><p>当按下按钮时， 哪台电梯会响应？</p>
+<ul>
+<li><p>同方向 &gt; 静止 &gt; 反方向</p>
+</li>
+<li><p>一半负责奇数层， 一半负责偶数层</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Who： 设计由人主导 vs <strong>设计由系统主导</strong></p>
+<ul>
+<li>设计由系统主导</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">input ---&gt; 黑盒子---&gt; output</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如何获得电梯的重量？<ul>
+<li>Passenger Class包含重量</li>
+<li><u>电梯能够自动感知当前重量</u></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Core Object： 设计由人主导 vs <strong>设计由系统主导</strong></p>
+<ul>
+<li>什么是Core Object</li>
+<li>为什么要定义Core Object?</li>
+<li>如何定义Core Object?<ol>
+<li>以一个object的为主导， 线性的去思考</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Cases: Use Cases: 根据classes逐个分析use cases</p>
+<p><img src="http://i68.tinypic.com/1z5nmhc.png" alt=""></p>
+</li>
+<li><p>Class</p>
+<ul>
+<li><p>Class Diagram (类图)</p>
+<p>| Class Name |<br>| ———- |<br>| Attributes |<br>| Functions  |</p>
+</li>
+<li><p>use Exceptions</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Good Paractice</p>
+<ul>
+<li><p><strong>(+) public, (-) private, (#) protected</strong></p>
+</li>
+<li><p>protected: 实现的是继承， 子类也可以访问父类中的protected member/functions</p>
+</li>
+</ul>
+</li>
+<li><p>总体：</p>
+</li>
+</ul>
+<p><img src="http://i68.tinypic.com/287116r.png" alt=""></p>
+<ul>
+<li><p>Correctness (检查）: </p>
+<ul>
+<li>Validate use cases</li>
+<li>Follow good pratice</li>
+<li>S.O.L.I.D</li>
+<li>Design Pattern</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/10/18/Ci度假tr胜地ix-面经/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jolie Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/18/Ci度假tr胜地ix-面经/" itemprop="url">Ci度假tr胜地ix 面经</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-18T17:46:57-07:00">
+                2018-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <table>
+<thead>
+<tr>
+<th>Question</th>
+<th>思路</th>
+<th>code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 给一堆domain和频率，计算每个domain的频率.                                                 如果domain是a.b.com, 那么a.b.com, b.com, com的频率都要增加</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2. Longest common substring (输入： abcd, rbcqk; return bc)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3. String to Integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4. Shortest Palindrome</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/10/18/Redux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiahui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jolie Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/18/Redux/" itemprop="url">Redux</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-18T16:52:39-07:00">
+                2018-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><h2 id="The-Single-Immutable-State-Tree"><a href="#The-Single-Immutable-State-Tree" class="headerlink" title="The Single Immutable State Tree"></a>The Single Immutable State Tree</h2><h2 id="Describing-State-Changes-with-Actions"><a href="#Describing-State-Changes-with-Actions" class="headerlink" title="Describing State Changes with Actions"></a>Describing State Changes with Actions</h2><h2 id="Pure-and-Impure-Functions"><a href="#Pure-and-Impure-Functions" class="headerlink" title="Pure and Impure Functions"></a>Pure and Impure Functions</h2><h2 id="The-Reducer-Function"><a href="#The-Reducer-Function" class="headerlink" title="The Reducer Function"></a>The Reducer Function</h2><p><strong>Reducer function</strong>:  (the function has to be <strong>pure function</strong>—&gt;get an object, do somrthing, return new object)</p>
+<ul>
+<li>takes the previous state of the app </li>
+<li>the actions being dispatched</li>
+<li>returns the next state of the app.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">//A reducer function takes state and action</span><br><span class="line">funciton counter = (state = 0, action) =&gt; &#123;</span><br><span class="line">	switch (action.type)&#123;</span><br><span class="line">		case &apos;INCREMENT&apos;:</span><br><span class="line">        	return state + 1;</span><br><span class="line">		case &apos;DECREMENT&apos;:</span><br><span class="line">    		return state - 1;</span><br><span class="line">    	default:</span><br><span class="line">    		return state;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const &#123;createStore&#125; = Redux;</span><br><span class="line">const store = createStore(counter);</span><br><span class="line"></span><br><span class="line">const render = () =&gt; &#123;</span><br><span class="line">    document.body.innerText = store.getState();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//render something to the body with subscribe</span><br><span class="line">store.subscribe(render);</span><br><span class="line">render();</span><br><span class="line"></span><br><span class="line">document.addEventListener(&apos;click&apos;, () =&gt; &#123;</span><br><span class="line">	//dispatch an action</span><br><span class="line">    store.dispatch(&#123;type: &apos;INCREMENT&apos;&#125;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">/*=========================Unit Test=============================*/</span><br><span class="line">//Test using expect by assertion断言库</span><br><span class="line">expect(</span><br><span class="line">	counter(0， &#123;type: &apos;INCREMENT&apos;&#125;)</span><br><span class="line">).toEqual(1);</span><br><span class="line"></span><br><span class="line">expect(</span><br><span class="line">	counter(1， &#123;type: &apos;INCREMENT&apos;&#125;)</span><br><span class="line">).toEqual(2);</span><br><span class="line"></span><br><span class="line">expect(</span><br><span class="line">	counter(2， &#123;type: &apos;INCREMENT&apos;&#125;)</span><br><span class="line">).toEqual(3);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/10/15/Breaking-News/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1463,453 +2088,11 @@ var myapc=new APlayer_Controler({
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/06/28/Dynamic-Programming-总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jolie Wang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/28/Dynamic-Programming-总结/" itemprop="url">Dynamic Programming 总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-28T02:40:10-07:00">
-                2018-06-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="DP的解题常用方法："><a href="#DP的解题常用方法：" class="headerlink" title="DP的解题常用方法："></a>DP的解题常用方法：</h1><h2 id="1-一维的original-data-such-as-a-rope-a-word-a-peice-of-wood-求MAX-or-MIN-cut-merge-etc…"><a href="#1-一维的original-data-such-as-a-rope-a-word-a-peice-of-wood-求MAX-or-MIN-cut-merge-etc…" class="headerlink" title="1. 一维的original data(such as a rope, a word, a peice of wood), 求MAX or MIN(cut, merge, etc…)"></a>1. 一维的original data(such as a rope, a word, a peice of wood), 求MAX or MIN(cut, merge, etc…)</h2><p>1.1 if the <strong>weight</strong> of each smallest elements in the original data is <strong>identical/similar</strong></p>
-<p>1.1.1. e.g. <strong>identical</strong>: 1 meter of rope</p>
-<p>1.1.2. e.g. <strong>similar</strong>: a letter, a number</p>
-<p>这种类似的题目有可以用：</p>
-<p><strong><u>Linear scan and look back to the previous elments</u></strong></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/28/Dynamic-Programming-总结/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/06/19/Recursion-2总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jolie Wang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/19/Recursion-2总结/" itemprop="url">Recursion-2总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-19T21:58:31-07:00">
-                2018-06-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Recursion和数学运算的总结"><a href="#Recursion和数学运算的总结" class="headerlink" title="Recursion和数学运算的总结"></a>Recursion和数学运算的总结</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/19/Recursion-2总结/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jolie1191.github.io/2018/06/19/树-总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiahui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/889823861835014145/sS81lr5M_400x400.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jolie Wang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/19/树-总结/" itemprop="url">树---总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-19T11:43:31-07:00">
-                2018-06-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="常见题目"><a href="#常见题目" class="headerlink" title="常见题目"></a>常见题目</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/19/树-总结/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1959,7 +2142,7 @@ var myapc=new APlayer_Controler({
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1981,7 +2164,7 @@ var myapc=new APlayer_Controler({
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
