@@ -380,10 +380,8 @@ var myapc=new APlayer_Controler({
 
       
         
-          
-            <ul>
-<li><p>出题问法：</p>
-<ul>
+          <ul>
+<li>出题问法：<ul>
 <li>Can you design an elevator System? (设计一个完整的系统)<ul>
 <li>Little amount of coding</li>
 </ul>
@@ -394,151 +392,14 @@ var myapc=new APlayer_Controler({
 </li>
 </ul>
 </li>
-<li><p>介绍小结</p>
-<ul>
-<li>Everything is an object (没有标准答案)</li>
-<li>固定模板套路： 5C解决法</li>
 </ul>
-</li>
-<li><p>面试中的陷阱</p>
-<ul>
-<li><p>起手式陷阱： 先通过和面试官交流获得有效信息</p>
-<ul>
-<li><p>重要是呈现一个Viable 的成果</p>
-</li>
-<li><p>检查你的设计， 是否能够支持所需的功能</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>如何评判一个OOD设计是否合理？</p>
-<ul>
-<li><p>S.O.L.I.D原则</p>
-<ul>
-<li><p>Single responsibility principle : 一个类应该有且只有一项工作</p>
-</li>
-<li><p>Open close principle: 开放封闭原则 （Open to extension, close to modification)</p>
-</li>
-<li><p>Liskov substitution principle: 任何一个子类或者派生类应该可以替换他们的基类或者父类</p>
-</li>
-<li><p>Interface segregation principle： 接口分离原则</p>
-</li>
-<li><p>Dependency inversion principle: 抽象不应该依赖于具体实现， 具体实现应该依赖于抽象。</p>
-<ul>
-<li>interface: 一个接口， 如果一个class要implements这个接口， 这个class就要实现这个接口</li>
-<li>A class can implements many interface: </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public interface Shape&#123;</span><br><span class="line">    public float getArea()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public interface Perimeter&#123;</span><br><span class="line">    public float getPerimeter()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Class Triangle implements Shape, Perimeter&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Abstract class: 可以把它当成一个父类， 每个子类只能有一个父类 Asian extends Human only</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="How-to-design-Elevator-System-of-a-building"><a href="#How-to-design-Elevator-System-of-a-building" class="headerlink" title="How to design Elevator System of a building?"></a>How to design Elevator System of a building?</h2><ul>
-<li>5C 解题法</li>
-</ul>
-<p><img src="http://i65.tinypic.com/14937zd.png" alt=""></p>
-<ul>
-<li><p>Details of 5C</p>
-<ul>
-<li><p>Clarify:</p>
-<ul>
-<li><p>What: 通过名词来问问题</p>
-<p><u>关键字1： Elevator</u></p>
-<p>属性？</p>
-<blockquote>
-<p>Max Capacity</p>
-<p>Max Weight </p>
-<p>//Types of Elevator: 客梯， Good Elevator(货梯)</p>
-</blockquote>
-<p><u>关键字2： Building</u></p>
-<p>属性？</p>
-<p>针对本题： 每层仅一处能搭乘， 所有电梯均可相应</p>
-<blockquote>
-<p>Num of Places have Elevator</p>
-<p>…</p>
-</blockquote>
-</li>
-<li><p>How： 针对题目的规则来提问， 选择合适的答案</p>
-<ul>
-<li><p>当按下按钮时， 哪台电梯会响应？</p>
-<ul>
-<li><p>同方向 &gt; 静止 &gt; 反方向</p>
-</li>
-<li><p>一半负责奇数层， 一半负责偶数层</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Who： 设计由人主导 vs <strong>设计由系统主导</strong></p>
-<ul>
-<li>设计由系统主导</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">input ---&gt; 黑盒子---&gt; output</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如何获得电梯的重量？<ul>
-<li>Passenger Class包含重量</li>
-<li><u>电梯能够自动感知当前重量</u></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Core Object： 设计由人主导 vs <strong>设计由系统主导</strong></p>
-<ul>
-<li>什么是Core Object</li>
-<li>为什么要定义Core Object?</li>
-<li>如何定义Core Object?<ol>
-<li>以一个object的为主导， 线性的去思考</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>Cases: Use Cases: 根据classes逐个分析use cases</p>
-<p><img src="http://i68.tinypic.com/1z5nmhc.png" alt=""></p>
-</li>
-<li><p>Class</p>
-<ul>
-<li><p>Class Diagram (类图)</p>
-<p>| Class Name |<br>| ———- |<br>| Attributes |<br>| Functions  |</p>
-</li>
-<li><p>use Exceptions</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Good Paractice</p>
-<ul>
-<li><p><strong>(+) public, (-) private, (#) protected</strong></p>
-</li>
-<li><p>protected: 实现的是继承， 子类也可以访问父类中的protected member/functions</p>
-</li>
-</ul>
-</li>
-<li><p>总体：</p>
-</li>
-</ul>
-<p><img src="http://i68.tinypic.com/287116r.png" alt=""></p>
-<ul>
-<li><p>Correctness (检查）: </p>
-<ul>
-<li>Validate use cases</li>
-<li>Follow good pratice</li>
-<li>S.O.L.I.D</li>
-<li>Design Pattern</li>
-</ul>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/OOD/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -655,8 +516,7 @@ var myapc=new APlayer_Controler({
 
       
         
-          
-            <table>
+          <table>
 <thead>
 <tr>
 <th>Question</th>
@@ -761,8 +621,13 @@ var myapc=new APlayer_Controler({
 </tr>
 </tbody>
 </table>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/18/Ci度假tr胜地ix-面经/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
